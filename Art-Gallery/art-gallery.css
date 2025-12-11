@@ -31,8 +31,19 @@ body {
     font-size: 15px;
     line-height: 1.6;
     margin: 0 0 50px 0;
-    background: linear-gradient(135deg,
-        #0d1425, #273556, #3b4a7a, #5a4f8a, #704d65, #8b5e43, #a1725a, #8b5e43, #704d65, #3b4a7a, #273556, #0d1425
+    background: linear-gradient(90deg,
+        #0d1425, 
+        #273556, 
+        #3b4a7a, 
+        #5a4f8a, 
+        #704d65, 
+        #8b5e43, 
+        #a1725a, 
+        #8b5e43,
+        #704d65, 
+        #3b4a7a, 
+        #273556, 
+        #0d1425
     );
     background-size: 400% 400%;
     animation: gradientFlow 10s linear infinite;
@@ -236,3 +247,4 @@ h2 {
         width: 100%;
     }
 }
+
