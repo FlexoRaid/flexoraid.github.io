@@ -44,7 +44,7 @@ body {
         #0d1425
     );
     background-size: 400% 400%;
-    animation: gradientFlow 5s linear infinite;
+    animation: gradientFlow 120s linear infinite;
 }
 
 @keyframes gradientFlow {
@@ -808,5 +808,6 @@ footer {
         max-height: 150px;
     }
 }
+
 
 
