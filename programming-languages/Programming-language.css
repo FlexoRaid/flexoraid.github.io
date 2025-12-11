@@ -1,0 +1,202 @@
+/* -------- Variables -------- */
+:root {
+    --bg-color: #080c1a;
+    --section-color: rgba(36,47,61,0.8);
+    --text-color: #fff;
+    --accent-color: #32e67f;
+    --shadow-light: 0 8px 32px rgba(0,0,0,0.3);
+    --shadow-hover: 0 5px 7px rgba(0,0,0,0.2), 5px 10px 20px rgba(0,0,0,0.2), -5px 10px 20px rgba(0,0,0,0.2);
+    --padding-section: 20px;
+    --border-radius: 15px;
+    --transition-fast: 0.3s;
+    --backdrop-blur: blur(10px) saturate(180%);
+    --font-size-desc: 20px;
+}
+
+/* -------- General -------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 0 0 50px 0;
+    background: linear-gradient(135deg,
+        #0d1425, #273556, #3b4a7a, #5a4f8a, #704d65, #8b5e43, #a1725a, #8b5e43, #704d65, #3b4a7a, #273556, #0d1425
+    );
+    background-size: 400% 400%;
+    animation: gradientFlow 120s linear infinite;
+}
+
+@keyframes gradientFlow {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+}
+
+h1 {
+    font-size: 46px;
+    text-align: center;
+    color: var(--text-color);
+}
+
+h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+/* -------- Floating Lights Background -------- */
+.floating-lights {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.floating-lights span {
+    position: absolute;
+    display: block;
+    width: 6px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    box-shadow: var(--shadow-light);
+    will-change: transform;
+    transition: transform 0.1s linear;
+}
+
+/* -------- Drop down -------- */
+.menu-button {
+    position: fixed;
+    top: 10px;
+    left: 15px;
+    background: none;
+    border: none;
+    padding: 0;
+    color: var(--text-color);
+    font-size: 30px;
+    cursor: pointer;
+    anchor-name: --menu-button;
+    z-index: 9999;
+}
+
+.menu-icon {
+    width: 25px;
+    filter: invert(1);
+}
+
+#menu {
+    font-size: 18px;
+    width: max-content;
+    min-width: 150px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: var(--backdrop-blur);
+    -webkit-backdrop-filter: var(--backdrop-blur);
+    box-shadow: var(--shadow-light);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0 10px 10px 10px;
+    padding: 5px 10px;
+    position-anchor: menu-button;
+    top: anchor(bottom);
+    left: anchor(left);
+}
+
+#menu:popover-open {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#menu a {
+    color: var(--text-color);
+    font-weight: 700;
+    text-decoration: underline 2px;
+}
+
+/* -------- Learn Section / Languages -------- */
+.learn-section {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 90%;
+    max-width: 660px;
+    margin: 20px 0;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: var(--backdrop-blur);
+    -webkit-backdrop-filter: var(--backdrop-blur);
+    box-shadow: var(--shadow-light);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: var(--padding-section);
+    border-radius: var(--border-radius);
+    align-items: center;
+}
+
+.learn-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.learn-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: var(--backdrop-blur);
+    -webkit-backdrop-filter: var(--backdrop-blur);
+    box-shadow: var(--shadow-light);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    width: 300px;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    color: var(--text-color);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    position: relative;
+}
+
+.learn-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.learn-item img {
+    width: 70px;
+    margin-bottom: 5px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.learn-item span {
+    font-weight: 600;
+    font-size: var(--font-size-desc);
+    text-align: center;
+}
+
+/* -------- Responsive -------- */
+@media (max-width: 768px) {
+    .learn-section {
+        width: 95%;
+        padding: 10px;
+    }
+
+    .learn-item {
+        width: 100%;
+        max-width: 100%;
+    }
+}
