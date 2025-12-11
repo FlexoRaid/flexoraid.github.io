@@ -146,6 +146,11 @@ section {
     border-radius: var(--border-radius);
     padding: var(--padding-section);
     margin: 20px;
-    height: 400px;
-    width: 400px;
+    width: 400px; height: 400px;
+}
+
+@media (max-width: 480px) {
+    section {
+        width: 350px; height: 350px;
+    }
 }
