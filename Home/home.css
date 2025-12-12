@@ -675,9 +675,10 @@ footer {
 
 /* responsive */
 
-@media (max-width: 600px) {
+@media (max-width: 750px) {
 
 .profile-section {
     justify-content: center;
 }
 }
+
