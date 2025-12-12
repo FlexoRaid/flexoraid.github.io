@@ -69,14 +69,14 @@ hr {
 }
 
 #menu {
-    font-size: 18px;
-    min-width: 150px;
+    width: clamp(150px, 30vw, 200px);
+    font-size: clamp(18px, 2vw, 22px);
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px) saturate(180%);
     -webkit-backdrop-filter: blur(10px) saturate(180%);
     box-shadow: var(--shadow-light);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 0 10px 10px 10px;
+    border-radius: 0px 10px 10px 10px;
     padding: 5px 10px;
     position-anchor: menu-button;
     top: anchor(bottom);
@@ -107,7 +107,7 @@ hr {
     padding: var(--padding);
     margin: auto;
     width: 90%;
-    max-width: 1200px;
+    width: clamp(350px, 100vw, 1200px);
 }
 
 section {
@@ -118,7 +118,7 @@ section {
     padding: 10px;
     margin: 20px 0;
     width: 100%;
-    max-width: 1100px;
+    max-width: clamp(300px, 90vw, 1100px);
     gap: 10px;
     overflow: hidden;
 }
@@ -134,8 +134,7 @@ section {
     overflow: auto;
     scrollbar-gutter: stable;
     font-family: var(--code-font);
-    max-height: 30vh;
-    min-height: 30vh;
+    height: min(30vh);
     padding: 10px;
     margin: 0 10px 10px 0;
     border-radius: var(--border-radius);
@@ -225,16 +224,18 @@ section {
 }
 
 /* -------- Responsive -------- */
-@media (max-width: 768px) {
-    .mainSection, .username-container { width: 95%; padding: 15px; }
+@media (max-width: 970px) {
+    .codeContainer, .consoleContainer {
+    flex: 1 1 100%;
+    width: 100% !important;
+    min-width: 0;
+  }
 
-    section { flex-direction: column; gap: 10px; }
-
-    h1 { font-size: 28px; text-align: center; }
-    h2 { font-size: 20px; }
-
-    .codeContainer, .consoleContainer { width: 100%; }
-    .code, .console { font-size: 14px; max-height: 25vh; border-radius: 10px; }
+  .code, .console {
+    max-height: 50vh;
+    min-height: 20vh;
+    border-radius: 15px;
+  }
 
     .menu-icon { width: 25px; filter: invert(1); }
     #menu { font-size: 16px; min-width: 140px; padding: 5px 10px; }
