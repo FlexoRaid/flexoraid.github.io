@@ -26,7 +26,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: 18px;
+    font-size: clamp(16px, 2vw, 18px);
     line-height: 1.6;
     margin: 0 0 50px 0;
     background: linear-gradient(90deg,
@@ -35,10 +35,8 @@ body {
         #3b4a7a,
         #5a4f8a,
         #704d65,
-        #8b5e43,
-        #a1725a,
-        #8b5e43,
         #704d65,
+        #5a4f8a,
         #3b4a7a,
         #273556,
         #0d1425
@@ -53,7 +51,7 @@ body {
 }
 
 h2 {
-    font-size: 28px;
+    font-size: clamp(24px, 5vw, 28px);
     margin-bottom: 15px;
     color: var(--text-color);
 }
@@ -103,10 +101,8 @@ h2 {
 }
 
 #menu {
-    font-size: 18px;
-    width: max-content;
-    height: max-content;
-    min-width: 150px;
+    width: clamp(150px, 30vw, 200px);
+    font-size: clamp(18px, 2vw, 22px);
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px) saturate(180%);
     -webkit-backdrop-filter: blur(10px) saturate(180%);
@@ -118,6 +114,7 @@ h2 {
     top: anchor(bottom);
     left: anchor(left);
 }
+
 
 #menu:popover-open {
     display: flex;
@@ -133,6 +130,7 @@ h2 {
 
 /* -------- Profile Section -------- */
 .profile-section {
+    width: clamp(350px, 90vw, 1000px); 
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -144,8 +142,6 @@ h2 {
     border-radius: var(--border-radius);
     padding: var(--padding-section);
     margin: 20px;
-    width: 90%;
-    max-width: 1000px;
     transition: box-shadow var(--transition-fast);
 }
 
@@ -159,7 +155,7 @@ h2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 10px;
+    margin-right: 15px;
 }
 
 .profile-picture-container::after {
@@ -304,7 +300,7 @@ h2 {
     flex-wrap: wrap;
     gap: 20px;
     width: 90%;
-    max-width: 1000px;
+    width: clamp(350px, 90vw, 1000px);
     margin: 20px 0;
 }
 
@@ -491,7 +487,7 @@ h2 {
 .chess-section {
     flex: 2;
     width: 90%;
-    max-width: 1000px;
+    width: clamp(350px, 90vw, 1000px);
     background: rgba(255,255,255,0.1);
     backdrop-filter: blur(10px) saturate(180%);
     -webkit-backdrop-filter: blur(10px) saturate(180%);
@@ -532,39 +528,16 @@ h2 {
 }
 
 .chess-table {
-    width: 100%;
+    width: clamp(350px, 90vw, 100%);
     border-collapse: collapse;
 }
 
 .chess-table th,
 .chess-table td {
-    padding: 8px 10px;
+    padding: clamp(5px, 1.5vw, 12px);
     text-align: left;
     color: var(--text-color);
-}
-
-@media (max-width: 768px) {
-    .chess-table th,
-    .chess-table td {
-        padding: 4px 6px;
-        font-size: 14px;
-    }
-
-    .chess-scroll-area {
-        max-height: 200px;
-    }
-}
-
-@media (max-width: 480px) {
-    .chess-table th,
-    .chess-table td {
-        padding: 2px 4px;
-        font-size: 12px;
-    }
-
-    .chess-scroll-area {
-        max-height: 150px;
-    }
+    font-size: clamp(14px, 2vw, 16px);
 }
 
 .chess-table td.result-win,
@@ -591,74 +564,31 @@ h2 {
     font-weight: 700;
 }
 
+/* -------- Scrollbar Styling -------- */
+.chess-scroll-area::-webkit-scrollbar,
+.contact-section::-webkit-scrollbar {
+    width: 8px;
+}
+
+.chess-scroll-area::-webkit-scrollbar-thumb,
+.contact-section::-webkit-scrollbar-thumb {
+    background: #fff;
+    border-radius: 10px;
+}
+
+.chess-scroll-area::-webkit-scrollbar-track,
+.contact-section::-webkit-scrollbar-track {
+    background: transparent;
+}
+
 /* -------- Contact Section -------- */
-.contact-section {
-    flex: 2;
-    width: 90%;
-    max-width: 1000px;
-    background: rgba(255,255,255,0.1);
-    backdrop-filter: blur(10px) saturate(180%);
-    -webkit-backdrop-filter: blur(10px) saturate(180%);
-    box-shadow: var(--shadow-light);
-    border: 1px solid rgba(255,255,255,0.2);
-    padding: var(--padding-section);
-    border-radius: var(--border-radius);
-    margin: 20px 0;
-    display: flex;
-    flex-direction: column;
-    transition: box-shadow var(--transition-fast);
-}
 
-.contact-section:hover {
-    box-shadow: var(--shadow-hover);
-}
-
-.contact-section form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.contact-section input,
-.contact-section textarea {
-    width: 100%;
-    padding: 12px 15px;
-    border-radius: 10px;
-    border: 1px solid rgba(255,255,255,0.3);
-    background: rgba(255,255,255,0.05);
-    color: var(--text-color);
-    font-size: 16px;
-    transition: border 0.3s, background 0.3s;
-}
-
-.contact-section input:focus,
-.contact-section textarea:focus {
-    outline: none;
-    border-color: var(--accent-color);
-    background: rgba(255,255,255,0.1);
-}
-
-.contact-section button {
-    padding: 12px 20px;
-    border-radius: 10px;
-    border: none;
-    background: var(--accent-color);
-    color: #000;
-    font-weight: 700;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
-}
-
-.contact-section button:hover {
-    background: #28c16a;
-    transform: translateY(-2px);
-}
 
 /* -------- Contact Section -------- */
 .contact-section {
     flex: 2;
     width: 90%;
-    max-width: 1000px;
+    width: clamp(350px, 90vw, 1000px);
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px) saturate(180%);
     -webkit-backdrop-filter: blur(10px) saturate(180%);
@@ -733,23 +663,6 @@ h2 {
 }
 
 
-/* -------- Scrollbar Styling -------- */
-.chess-scroll-area::-webkit-scrollbar,
-.contact-section::-webkit-scrollbar {
-    width: 8px;
-}
-
-.chess-scroll-area::-webkit-scrollbar-thumb,
-.contact-section::-webkit-scrollbar-thumb {
-    background: #fff;
-    border-radius: 10px;
-}
-
-.chess-scroll-area::-webkit-scrollbar-track,
-.contact-section::-webkit-scrollbar-track {
-    background: transparent;
-}
-
 /* -------- Footer -------- */
 footer {
     text-align: center;
@@ -760,55 +673,11 @@ footer {
     font-weight: 700;
 }
 
-/* -------- Responsive -------- */
-@media (max-width: 768px) {
-    #menu {
-        left: 10px;
-        top: 55px;
-        width: max-content;
-    }
+/* responsive */
 
-    .profile-section, 
-    .about-section, 
-    .skill-section, 
-    .chess-section, 
-    .contact-section, 
-    .footer-section {
-        flex-direction: column;
-        width: 95%;
-        padding: 15px;
-    }
+@media (max-width: 600px) {
 
-    .skills-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .profile-picture {
-        width: 180px;
-        height: 180px;
-    }
-
-    h2 {
-        font-size: 24px;
-    }
-
-    .name {
-        font-size: 36px;
-    }
+.profile-section {
+    justify-content: center;
 }
-
-@media (max-width: 480px) {
-    .chess-table th, 
-    .chess-table td {
-        padding: 2px 4px;
-        font-size: 12px;
-    }
-
-    .chess-scroll-area {
-        max-height: 150px;
-    }
 }
-
-
-
-
