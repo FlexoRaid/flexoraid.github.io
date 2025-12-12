@@ -21,6 +21,7 @@
 }
 
 body {
+    min-height: 100vh;
     font-family: 'Poppins', 'Inter', sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
@@ -31,8 +32,17 @@ body {
     line-height: 1.6;
     margin: 0 0 50px 0;
     background: linear-gradient(90deg,
-        #0d1425, #273556, #3b4a7a, #5a4f8a, #704d65, #8b5e43, #a1725a, #8b5e43, #704d65, #3b4a7a, #273556, #0d1425
-    );
+        #0d1425,
+        #273556,
+        #3b4a7a,
+        #5a4f8a,
+        #704d65,
+        #704d65,
+        #5a4f8a,
+        #3b4a7a,
+        #273556,
+        #0d1425
+    );    
     background-size: 400% 400%;
     animation: gradientFlow 120s linear infinite;
 }
@@ -43,13 +53,13 @@ body {
 }
 
 h1 {
-    font-size: 46px;
+    font-size: clamp(36px, 6vw, 52px);
     text-align: center;
     color: var(--text-color);
 }
 
 h2 {
-    font-size: 28px;
+    font-size: clamp(32px, 5vw, 42px);
     margin-bottom: 15px;
     color: var(--text-color);
 }
@@ -99,15 +109,14 @@ h2 {
 }
 
 #menu {
-    font-size: 18px;
-    width: max-content;
-    min-width: 150px;
+    width: clamp(150px, 30vw, 200px);
+    font-size: clamp(18px, 2vw, 22px);
     background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: var(--backdrop-blur);
-    -webkit-backdrop-filter: var(--backdrop-blur);
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
     box-shadow: var(--shadow-light);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 0 10px 10px 10px;
+    border-radius: 0px 10px 10px 10px;
     padding: 5px 10px;
     position-anchor: menu-button;
     top: anchor(bottom);
@@ -132,8 +141,7 @@ h2 {
     justify-content: center;
     flex-wrap: wrap;
     gap: 20px;
-    width: 90%;
-    max-width: 660px;
+    width: clamp( 250px, 90vw, 1000px); 
     margin: 20px 0;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: var(--backdrop-blur);
@@ -150,6 +158,7 @@ h2 {
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
+    width: clamp(150px, 40vw, 400px);
 }
 
 .learn-item {
@@ -162,7 +171,7 @@ h2 {
     box-shadow: var(--shadow-light);
     border: 1px solid rgba(255, 255, 255, 0.2);
     padding: 10px;
-    width: 300px;
+    width: clamp(50px, 90vw, 400px);
     border-radius: var(--border-radius);
     text-decoration: none;
     color: var(--text-color);
@@ -184,20 +193,6 @@ h2 {
 
 .learn-item span {
     font-weight: 600;
-    font-size: var(--font-size-desc);
+    font-size: clamp(16px, 2vw, 20px);
     text-align: center;
 }
-
-/* -------- Responsive -------- */
-@media (max-width: 768px) {
-    .learn-section {
-        width: 95%;
-        padding: 10px;
-    }
-
-    .learn-item {
-        width: 100%;
-        max-width: 100%;
-    }
-}
-
