@@ -22,31 +22,31 @@
 }
 
 body {
+    min-height: 100vh;
     font-family: 'Poppins', 'Inter', sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: 15px;
+    justify-content: center;
+    font-size: 18px;
     line-height: 1.6;
     margin: 0 0 50px 0;
     background: linear-gradient(90deg,
-        #0d1425, 
-        #273556, 
-        #3b4a7a, 
-        #5a4f8a, 
-        #704d65, 
-        #8b5e43, 
-        #a1725a, 
-        #8b5e43,
-        #704d65, 
-        #3b4a7a, 
-        #273556, 
+        #0d1425,
+        #273556,
+        #3b4a7a,
+        #5a4f8a,
+        #704d65,
+        #704d65,
+        #5a4f8a,
+        #3b4a7a,
+        #273556,
         #0d1425
-    );
+    );    
     background-size: 400% 400%;
-    animation: gradientFlow 10s linear infinite;
+    animation: gradientFlow 120s linear infinite;
 }
 
 @keyframes gradientFlow {
@@ -55,13 +55,13 @@ body {
 }
 
 h1 {
-    font-size: 46px;
+    font-size: clamp(36px, 6vw, 52px);
     text-align: center;
     color: var(--text-color);
 }
 
 h2 {
-    font-size: 28px;
+    font-size: clamp(32px, 5vw, 42px);
     margin-bottom: 15px;
     text-align: center;
     color: var(--text-color);
@@ -247,4 +247,3 @@ h2 {
         width: 100%;
     }
 }
-
