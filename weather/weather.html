@@ -9,6 +9,7 @@
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
+
 <!-- Styles -->
 <link rel="stylesheet" href="weather.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -29,11 +30,27 @@
     <a href="/programming-languages/Programming-language.html">Learn coding</a>
 </div>
 
+<!-- Weather -->
+    <main class="main-container">
 
-    <section>
-        <h2>In progress</h2>
-    </section>
+        <header class="input-container">
+            <input class="city-input" type="text" placeholder="Search City"></input>
+            <button class="search-btn">
+                <img src="search.svg" alt="search icon">
+            </button>
+        </header>
 
+        <section class="weather-info">
+             <div class="location-date-container">
+                <div class="location">
+                    <img src="location.svg" alt="location icon">
+                    <h4 class="country-txt">Munich</h4>
+                </div>
+                <h5 class="current-date-txt">Mon, 12 Dec</h5>
+             </div>
+        </section>
+
+    </main>
 
 <script src="weather.js" defer></script>
 
