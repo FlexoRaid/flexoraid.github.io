@@ -25,7 +25,7 @@
 </button>
 
 <div id="menu" popover>
-        <a href="/..">Home</a>
+    <a href="/..">Home</a>
     <a href="/Art-Gallery/art-gallery.html">Art Gallery</a>
     <a href="/programming-languages/Programming-language.html">Learn coding</a>
 </div>
@@ -36,25 +36,63 @@
         <header class="input-container">
             <input class="city-input" type="text" placeholder="Search City"></input>
             <button class="search-btn">
-                <img src="search.svg" alt="search icon">
+                <img class="icon" src="search.svg" alt="search icon">
             </button>
         </header>
 
         <section class="weather-info">
              <div class="location-date-container">
                 <div class="location">
-                    <img src="location.svg" alt="location icon">
-                    <h4 class="country-txt">Munich</h4>
+                    <img class="icon" src="location.svg" alt="location icon">
+                    <h4 class="country-txt">--</h4>
                 </div>
-                <h5 class="current-date-txt">Mon, 12 Dec</h5>
+                <h5 class="current-date-txt reguala-txt" id="date"></h5>
              </div>
+
         </section>
+
+        <section class="weather">
+            <div class="weather-main">
+                <div class="weather-icon-container">
+                    <img src="Clouds.svg" alt="clouds" class="weather-icon">
+                </div>
+
+                <div class="weather-data-container">
+                    <h1 id="Temperature">-- °C</h1>
+                    <h4 id="weather-type">--</h4>
+                </div>
+            </div>
+
+            <div class="weather-condition-container">
+                <div class="humidity-container">
+                    <div class="humidity-img">
+                        
+                    </div>
+                    <div class="Humidity-txt">
+                        <h5>Humidity</h5>
+                        <h5 id="Humidity-proc">--%</h5>
+                    </div>
+                    <div class="humidity-img">
+                        <img src="Air-Icon.svg" alt="">
+                    </div>
+                    <div class="Humidity-txt">
+                        <h5>Wind Speed</h5>
+                        <h5 id="Wind-speed">-- M/s</h5>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="Weather-5-Days">
+            <div class="Days" id="Day1"></div>
+            <div class="Days" id="Day2"></div>
+            <div class="Days" id="Day3"></div>
+            <div class="Days" id="Day4"></div>
+            <div class="Days" id="Day5"></div>
+        </footer>
 
     </main>
 
 <script src="weather.js" defer></script>
-
 </body>
 </html>
-
-
