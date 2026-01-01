@@ -1,43 +1,129 @@
-// Floating lights
-document.addEventListener("DOMContentLoaded", () => {
-    const container = document.querySelector(".floating-lights");
-    const particleCount = 100;
-    const particles = [];
+// ---------- CONFIG ----------
+const API_KEY = "c82bd530a6c5357fb3b71ef2c9479a72";
 
-    for (let i = 0; i < particleCount; i++) {
-        const light = document.createElement("span");
-        const size = Math.random() * 6 + 4;
-        light.style.width = size + "px";
-        light.style.height = size + "px";
-        let x = Math.random() * window.innerWidth;
-        let y = Math.random() * window.innerHeight;
-        const angle = Math.random() * 2 * Math.PI;
-        const speed = 0.2 + Math.random() * 0.2;
-        const speedX = Math.cos(angle) * speed;
-        const speedY = Math.sin(angle) * speed;
-        container.appendChild(light);
-        particles.push({ el: light, x, y, speedX, speedY });
-        light.style.transform = `translate(${x}px, ${y}px)`;
+// SVG-Dateien
+const ICONS = {
+    "clear": "Clear.svg",
+    "clouds": "Clouds.svg",
+    "rain": "Rain.svg",
+    "thunder": "Thunder.svg",
+    "snow": "Snow.svg",
+    "fog": "Fog.svg",
+    "hail": "Hail.svg",
+    //night
+    "night + clear": "Night_clear.svg",
+    "night + clouds": "Night_clouds.svg",
+    "night + rain": "Night_rain.svg",
+    "night + thunder": "Night_thunder.svg",
+    "night + snow": "Night_snow.svg",
+    "night + fog": "Night_fog.svg",
+    "night + hail": "Night_hail.svg",
+};
+
+// ---------- DOM Elements ----------
+const cityInput = document.querySelector(".city-input");
+const searchBtn = document.querySelector(".search-btn");
+const countryTxt = document.querySelector(".country-txt");
+const temperatureTxt = document.getElementById("Temperature");
+const weatherTypeTxt = document.getElementById("weather-type");
+const humidityTxt = document.getElementById("Humidity-proc");
+const windTxt = document.getElementById("Wind-speed");
+const weatherIcon = document.querySelector(".weather-icon");
+const daysDivs = document.querySelectorAll(".Days");
+const forecastContainer = document.querySelector(".Weather-5-Days");
+
+// ---------- HELPERS ----------
+function getCurrentIcon(weather, timestamp, sunrise, sunset) {
+    const isNight = timestamp < sunrise || timestamp > sunset;
+    const mapping = {
+        "clear": "clear",
+        "clouds": "clouds",
+        "rain": "rain",
+        "thunderstorm": "thunder",
+        "snow": "snow",
+        "fog": "fog",
+        "hail": "hail"
+    };
+    let baseIcon = mapping[weather] || "clear";
+    return isNight ? `night + ${baseIcon}` : baseIcon;
+}
+
+// Für 5-Tage-Icons: immer Tagesversion
+function getDayIcon(weather) {
+    const mapping = {
+        "clear": "clear",
+        "clouds": "clouds",
+        "rain": "rain",
+        "thunderstorm": "thunder",
+        "snow": "snow",
+        "fog": "fog",
+        "hail": "hail"
+    };
+    return mapping[weather] || "clear";
+}
+
+// ---------- FETCH WEATHER ----------
+async function fetchWeather(city) {
+    try {
+        // Aktuelles Wetter
+        const resCurrent = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`);
+        const dataCurrent = await resCurrent.json();
+
+        const temp = Math.round(dataCurrent.main.temp);
+        const weatherMain = dataCurrent.weather[0].main.toLowerCase();
+        const iconCode = getCurrentIcon(weatherMain, dataCurrent.dt, dataCurrent.sys.sunrise, dataCurrent.sys.sunset);
+
+        countryTxt.textContent = dataCurrent.name;
+        temperatureTxt.textContent = `${temp} °C`;
+        weatherTypeTxt.textContent = weatherMain;
+        weatherIcon.src = ICONS[iconCode] || ICONS["clear"];
+        humidityTxt.textContent = `${dataCurrent.main.humidity}%`;
+        windTxt.textContent = `${dataCurrent.wind.speed} M/s`;
+
+        // 5-Tage-Forecast
+        const resForecast = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}&units=metric`);
+        const dataForecast = await resForecast.json();
+
+        // Wir nehmen alle 8 Werte (alle 3 Stunden * 8 = 24h) für 5 Tage
+        for (let i = 0; i < 5; i++) {
+            const dayData = dataForecast.list[i * 8];
+            const dayWeather = dayData.weather[0].main.toLowerCase();
+            const dayIcon = getDayIcon(dayWeather);
+
+            daysDivs[i].innerHTML = `
+                <h5>${new Date(dayData.dt * 1000).toLocaleDateString("en-GB",{ weekday:"short" })}</h5>
+                <img src="${ICONS[dayIcon]}" alt="${dayWeather}" class="weather-icon">
+                <h5>${Math.round(dayData.main.temp)}°C</h5>
+            `;
+        }
+
+    } catch (err) {
+        console.error(err);
+        alert("City not found or API error!");
     }
+}
 
-    function animate() {
-        const width = window.innerWidth;
-        const height = window.innerHeight;
-
-        particles.forEach(p => {
-            p.x += p.speedX;
-            p.y += p.speedY;
-
-            if (p.x < 0) { p.x = 0; p.speedX *= -1; }
-            if (p.x > width - 5) { p.x = width - 5; p.speedX *= -1; }
-            if (p.y < 0) { p.y = 0; p.speedY *= -1; }
-            if (p.y > height - 5) { p.y = height - 5; p.speedY *= -1; }
-
-            p.el.style.transform = `translate(${p.x}px, ${p.y}px)`;
-        });
-
-        requestAnimationFrame(animate);
-    }
-
-    animate();
+// ---------- EVENT LISTENERS ----------
+searchBtn.addEventListener("click", () => {
+    const city = cityInput.value.trim();
+    if (city) fetchWeather(city);
 });
+
+cityInput.addEventListener("keydown", e => {
+    if (e.key === "Enter") searchBtn.click();
+});
+
+// Horizontal scroll
+forecastContainer.addEventListener("wheel", (e) => {
+    e.preventDefault();
+    forecastContainer.scrollLeft += e.deltaY;
+}, { passive: false });
+
+// ---------- INITIAL ----------
+document.getElementById("date").innerText = new Date().toLocaleDateString("en-GB", {
+    weekday: "short",
+    day: "2-digit",
+    month: "short",
+});
+
+fetchWeather("London"); // Startstadt
