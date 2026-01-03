@@ -5,6 +5,7 @@ const files = [
   // Home
   "Home/home.css",
   "Home/home.js",
+  "Home/code-lines.js",
 
   // Art Gallery
   "Art-Gallery/art-gallery.html",
