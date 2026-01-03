@@ -1,28 +1,22 @@
 const files = [
-  // Index
   "/index.html",
 
-  // Home
   "/Home/home.css",
   "/Home/home.js",
   "/Home/code-lines.js",
 
-  // Art Gallery
   "/Art-Gallery/art-gallery.html",
   "/Art-Gallery/art-gallery.css",
   "/Art-Gallery/art-gallery.js",
 
-  // JavaScript
   "/JavaScript/JavaScript.html",
   "/JavaScript/JavaScript.css",
   "/JavaScript/JavaScript.js",
 
-  // Programming Languages
   "/programming-languages/programming-languages.html",
   "/programming-languages/programming-languages.css",
   "/programming-languages/programming-languages.js",
 
-  // Weather
   "/weather/weather.html",
   "/weather/weather.css",
   "/weather/weather.js"
@@ -36,19 +30,20 @@ async function countAllLines() {
       const res = await fetch(file);
 
       if (!res.ok) {
-        console.error("❌ Not loaded:", file);
+        console.error("❌ NOT FOUND:", file);
         continue;
       }
 
       const text = await res.text();
 
-      const lines = text.split("\n").length;
+      // 🔥 KORREKT für Windows + Linux
+      const lines = text.split(/\r\n|\n|\r/).length;
 
-      console.log(file, lines);
+      console.log(`✔ ${file}: ${lines}`);
       total += lines;
 
-    } catch (e) {
-      console.error("⚠️ Error:", file);
+    } catch (err) {
+      console.error("⚠️ ERROR:", file);
     }
   }
 
