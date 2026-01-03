@@ -1,7 +1,7 @@
 // ---------- CONFIG ----------
 const API_KEY = "c82bd530a6c5357fb3b71ef2c9479a72";
 
-// SVG-Dateien
+// SVGs
 const ICONS = {
     "clear": "Clear.svg",
     "clouds": "Clouds.svg",
@@ -48,7 +48,7 @@ function getCurrentIcon(weather, timestamp, sunrise, sunset) {
     return isNight ? `night + ${baseIcon}` : baseIcon;
 }
 
-// Für 5-Tage-Icons: immer Tagesversion
+
 function getDayIcon(weather) {
     const mapping = {
         "clear": "clear",
@@ -65,7 +65,7 @@ function getDayIcon(weather) {
 // ---------- FETCH WEATHER ----------
 async function fetchWeather(city) {
     try {
-        // Aktuelles Wetter
+        
         const resCurrent = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`);
         const dataCurrent = await resCurrent.json();
 
@@ -80,11 +80,11 @@ async function fetchWeather(city) {
         humidityTxt.textContent = `${dataCurrent.main.humidity}%`;
         windTxt.textContent = `${dataCurrent.wind.speed} M/s`;
 
-        // 5-Tage-Forecast
+        // 5-Days-Forecast
         const resForecast = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}&units=metric`);
         const dataForecast = await resForecast.json();
 
-        // Wir nehmen alle 8 Werte (alle 3 Stunden * 8 = 24h) für 5 Tage
+
         for (let i = 0; i < 5; i++) {
             const dayData = dataForecast.list[i * 8];
             const dayWeather = dayData.weather[0].main.toLowerCase();
@@ -126,4 +126,4 @@ document.getElementById("date").innerText = new Date().toLocaleDateString("en-GB
     month: "short",
 });
 
-fetchWeather("London"); // Startstadt
+fetchWeather("Munich");
