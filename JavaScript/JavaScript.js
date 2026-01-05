@@ -1,30 +1,30 @@
 //finished---------------------------------------------------------------
 
-let age = 16;
-let price = 10.99;
+// let age = 16;
+// let price = 10.99;
 
-console.log(`You are ${age} years old`);
-console.log(`The price is $${price}`);
+// console.log(`You are ${age} years old`);
+// console.log(`The price is $${price}`);
 
-let firstName = "Jonatan";
-let favoriteFood = "pizza";
-let email = "123@gmail.com"
+// let firstName = "Jonatan";
+// let favoriteFood = "pizza";
+// let email = "123@gmail.com"
 
-console.log(typeof firstName)
-console.log(`Your name is ${firstName}`)
-console.log(`You like ${favoriteFood}`)
-console.log(`Your email is ${email}`)
+// console.log(typeof firstName)
+// console.log(`Your name is ${firstName}`)
+// console.log(`You like ${favoriteFood}`)
+// console.log(`Your email is ${email}`)
 
 //finished---------------------------------------------------------------
 
-let online = false;
-let forSale = true;
-let isStudent = true;
+// let online = false;
+// let forSale = true;
+// let isStudent = true;
 
-console.log(typeof online);
-console.log(`Are you online: ${online}`)
-console.log(`Is this car for sale: ${forSale}`)
-console.log(`Enrolled: ${isStudent}`)
+// console.log(typeof online);
+// console.log(`Are you online: ${online}`)
+// console.log(`Is this car for sale: ${forSale}`)
+// console.log(`Enrolled: ${isStudent}`)
 
 //finished---------------------------------------------------------------
 
@@ -40,68 +40,68 @@ console.log(`Enrolled: ${isStudent}`)
 //finished---------------------------------------------------------------
 
 // Starting value
-let students = 30;
-console.log(`students: ${students}`);
+// let students = 30;
+// console.log(`students: ${students}`);
 
-// Add 1 to students
-let added = students + 1;
-console.log(`added: ${added}`);
+// // Add 1 to students
+// let added = students + 1;
+// console.log(`added: ${added}`);
 
-// Subtract 1
-let subtracted = added - 1;
-console.log(`subtracted: ${subtracted}`);
+// // Subtract 1
+// let subtracted = added - 1;
+// console.log(`subtracted: ${subtracted}`);
 
-// Multiply by 2
-let multiplied = subtracted * 2;
-console.log(`multiplied: ${multiplied}`);
+// // Multiply by 2
+// let multiplied = subtracted * 2;
+// console.log(`multiplied: ${multiplied}`);
 
-// Divide by 2
-let divided = multiplied / 2;
-console.log(`divided: ${divided}`);
+// // Divide by 2
+// let divided = multiplied / 2;
+// console.log(`divided: ${divided}`);
 
-// Square the number (power of 2)
-let squared = divided ** 2;
-console.log(`squared: ${squared}`);
+// // Square the number (power of 2)
+// let squared = divided ** 2;
+// console.log(`squared: ${squared}`);
 
-// Get the remainder when divided by 3
-let remainder = squared % 3;
-console.log(`remainder: ${remainder}`);
+// // Get the remainder when divided by 3
+// let remainder = squared % 3;
+// console.log(`remainder: ${remainder}`);
 
-// Add 2
-let plusEquals = remainder + 2;
-console.log(`plusEquals: ${plusEquals}`);
+// // Add 2
+// let plusEquals = remainder + 2;
+// console.log(`plusEquals: ${plusEquals}`);
 
-// Subtract 1
-let minusEquals = plusEquals - 1;
-console.log(`minusEquals: ${minusEquals}`);
+// // Subtract 1
+// let minusEquals = plusEquals - 1;
+// console.log(`minusEquals: ${minusEquals}`);
 
-// Multiply by 2
-let timesEquals = minusEquals * 2;
-console.log(`timesEquals: ${timesEquals}`);
+// // Multiply by 2
+// let timesEquals = minusEquals * 2;
+// console.log(`timesEquals: ${timesEquals}`);
 
-// Divide by 2
-let divideEquals = timesEquals / 2;
-console.log(`divideEquals: ${divideEquals}`);
+// // Divide by 2
+// let divideEquals = timesEquals / 2;
+// console.log(`divideEquals: ${divideEquals}`);
 
-// Square the number again
-let powerEquals = divideEquals ** 2;
-console.log(`powerEquals: ${powerEquals}`);
+// // Square the number again
+// let powerEquals = divideEquals ** 2;
+// console.log(`powerEquals: ${powerEquals}`);
 
-// Check remainder when divided by 2 (even or odd)
-let moduloEquals = powerEquals % 2;
-console.log(`moduloEquals: ${moduloEquals}`);
+// // Check remainder when divided by 2 (even or odd)
+// let moduloEquals = powerEquals % 2;
+// console.log(`moduloEquals: ${moduloEquals}`);
 
-// Increase the value by 1
-let incremented = moduloEquals + 1;
-console.log(`incremented: ${incremented}`);
+// // Increase the value by 1
+// let incremented = moduloEquals + 1;
+// console.log(`incremented: ${incremented}`);
 
-// Decrease the value by 1
-let decremented = incremented - 1;
-console.log(`decremented: ${decremented}`);
+// // Decrease the value by 1
+// let decremented = incremented - 1;
+// console.log(`decremented: ${decremented}`);
 
 // Math order of operations example
-let result = 1 + 2 * 3 + 4 ** 2;
-console.log(`result: ${result}`);
+// let result = 1 + 2 * 3 + 4 ** 2;
+// console.log(`result: ${result}`);
 
 
 //finished---------------------------------------------------------------
@@ -118,7 +118,7 @@ document.getElementById("mySubmit").onclick = function() {
 }
 
 
-//---------------------------------------------------------------
+//finished---------------------------------------------------------------
 
 // let age3 = window.prompt("How old are you?");
 // age3 = Number(age3);
@@ -145,32 +145,32 @@ document.getElementById("mySubmit").onclick = function() {
 // let circumference;
 
 // document.getElementById("").onclick = function(){
-//     radius = document.getElementById("").value;
-//     radius = Number(radius);
-//     circumference = 2 * PI * radius;
-//     document.getElementById("").textContent = circumference + "cm";
-// }
+//      radius = document.getElementById("").value;
+//      radius = Number(radius);
+//      circumference = 2 * PI * radius;
+//      document.getElementById("").textContent = circumference + "cm";
+//  }
 
-// const decreaseBtn = document.getElementById("decreaseBtn");
-// const resetBtn = document.getElementById("resetBtn");
-// const increaseBtn = document.getElementById("increaseBtn");
-// const countLabel = document.getElementById("countLabel");
-// let count = 0;
+ const decreaseBtn = document.getElementById("decreaseBtn");
+ const resetBtn = document.getElementById("resetBtn");
+ const increaseBtn = document.getElementById("increaseBtn");
+ const countLabel = document.getElementById("countLabel");
+ let count = 0;
 
-// increaseBtn.onclick = function(){
-//     count++;
-//     countLabel.textContent = count;
-// }
+ increaseBtn.onclick = function(){
+     count++;
+     countLabel.textContent = count;
+ }
 
-// decreaseBtn.onclick = function(){
-//     count--;
-//     countLabel.textContent = count;
-// }
+ decreaseBtn.onclick = function(){
+     count--;
+     countLabel.textContent = count;
+ }
 
-// resetBtn.onclick = function(){
-//     count = 0;
-//     countLabel.textContent = count;
-// }
+ resetBtn.onclick = function(){
+     count = 0;
+     countLabel.textContent = count;
+}
 
 //---------------------------------------------------------------
 
