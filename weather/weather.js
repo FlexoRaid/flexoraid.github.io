@@ -1,7 +1,7 @@
 // ---------- CONFIG ----------
 const API_KEY = "c82bd530a6c5357fb3b71ef2c9479a72";
 
-// SVGs
+// SVG-Dateien
 const ICONS = {
     "clear": "Clear.svg",
     "clouds": "Clouds.svg",
@@ -65,7 +65,7 @@ function getDayIcon(weather) {
 // ---------- FETCH WEATHER ----------
 async function fetchWeather(city) {
     try {
-        
+
         const resCurrent = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`);
         const dataCurrent = await resCurrent.json();
 
@@ -80,22 +80,38 @@ async function fetchWeather(city) {
         humidityTxt.textContent = `${dataCurrent.main.humidity}%`;
         windTxt.textContent = `${dataCurrent.wind.speed} M/s`;
 
-        // 5-Days-Forecast
+
         const resForecast = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}&units=metric`);
         const dataForecast = await resForecast.json();
 
 
-        for (let i = 0; i < 5; i++) {
-            const dayData = dataForecast.list[i * 8];
+        let dayIndex = 0;
+        const usedDays = new Set();
+        const today = new Date().getDate();
+
+        for (let i = 0; i < dataForecast.list.length && dayIndex < daysDivs.length; i++) {
+            const dayData = dataForecast.list[i];
+            const date = new Date(dayData.dt * 1000);
+            const dayNumber = date.getDate();
+
+            if (dayNumber === today) continue;
+
+
+            if (usedDays.has(dayNumber)) continue;
+            usedDays.add(dayNumber);
+
             const dayWeather = dayData.weather[0].main.toLowerCase();
             const dayIcon = getDayIcon(dayWeather);
 
-            daysDivs[i].innerHTML = `
-                <h5>${new Date(dayData.dt * 1000).toLocaleDateString("en-GB",{ weekday:"short" })}</h5>
-                <img src="${ICONS[dayIcon]}" alt="${dayWeather}" class="weather-icon">
+            daysDivs[dayIndex].innerHTML = `
+                <h5>${date.toLocaleDateString("en-GB", { weekday: "short" })}</h5>
+                <img src="${ICONS[dayIcon]}" class="weather-icon">
                 <h5>${Math.round(dayData.main.temp)}°C</h5>
             `;
+
+            dayIndex++;
         }
+
 
     } catch (err) {
         console.error(err);
@@ -126,4 +142,4 @@ document.getElementById("date").innerText = new Date().toLocaleDateString("en-GB
     month: "short",
 });
 
-fetchWeather("Munich");
+fetchWeather("Munich"); // Startstadt
