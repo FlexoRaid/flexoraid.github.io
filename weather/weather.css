@@ -299,7 +299,7 @@ h5 {
 }
 
 .Days {
-    flex: 0 0 clamp(130px, 20vw, 180px);
+    flex: 0 0 clamp(130px, 20vw, 200px);
     height: 100%;
     flex-shrink: 0;
     scroll-snap-align: start;
@@ -317,4 +317,13 @@ h5 {
     height: clamp(40px, 8vw, 60px);
     width: auto;
     margin: 5px 0;
+}
+
+
+/* -------- Responsive design -------- */
+
+@media (max-width: 450px) {
+    .current-date-txt {
+        display: none;
+    }
 }
