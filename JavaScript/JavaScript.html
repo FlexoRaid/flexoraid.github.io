@@ -246,14 +246,15 @@
 
                 <span class="let">let</span> <span class="var">username</span> <span class="par">=</span> <span class="var">window</span><span class="par">.</span><span class="methods">prompt</span><span class="par">(</span><span class="str">"What's your username?"</span><span class="par">)</span><span class="par">;</span><br><br>
 
-                <span class="var">console</span><span class="par">.</span><span class="methods">log</span><span class="par">(</span><span class="var">username</span><span class="par">)</span><span class="par">;</span><br><br>
+                <span class="var">console</span><span class="par">.</span><span class="methods">log</span><span class="par">(</span><span class="var">username</span><span class="par">)</span><span class="par">;</span><br>
 
+                <hr>
 
-                <span class="let">let</span> <span class="var">username2</span><span class="par">;</span><br><br>
+                <span class="let">let</span> <span class="var">username</span><span class="par">;</span><br><br>
 
                 <span class="var">document</span><span class="par">.</span><span class="methods">getElementById</span><span class="par">(</span><span class="str">"mySubmit"</span><span class="par">)</span><br><span class="par">.</span><span class="methods">onclick</span> <span class="par">=</span> <span class="keyword-pink">function</span><span class="par">()</span> <span class="par">{</span><br>
-                &nbsp;&nbsp;<span class="var">username2</span> <span class="par">=</span> <span class="var">document</span><span class="par">.</span><span class="methods">getElementById</span><span class="par">(</span><span class="str">"myText"</span><span class="par">)</span><br><span class="par">.</span><span class="methods">value</span><span class="par">;</span><br>
-                &nbsp;&nbsp;<span class="var">document</span><span class="par">.</span><span class="methods">getElementById</span><span class="par">(</span><span class="str">"myH1"</span><span class="par">)</span><br><span class="par">.</span><span class="var">textContent</span> <span class="par">=</span> <span class="str">`Hello </span><span class="par">$</span><span class="par">{</span><span class="var">username2</span><span class="par">}<span class="str">!`</span></span><span class="par">;</span><br>
+                &nbsp;&nbsp;<span class="var">username</span> <span class="par">=</span> <span class="var">document</span><span class="par">.</span><span class="methods">getElementById</span><span class="par">(</span><span class="str">"myText"</span><span class="par">)</span><br><span class="par">.</span><span class="methods">value</span><span class="par">;</span><br>
+                &nbsp;&nbsp;<span class="var">document</span><span class="par">.</span><span class="methods">getElementById</span><span class="par">(</span><span class="str">"myH1"</span><span class="par">)</span><br><span class="par">.</span><span class="var">textContent</span> <span class="par">=</span> <span class="str">`Hello </span><span class="par">$</span><span class="par">{</span><span class="var">username</span><span class="par">}<span class="str">!`</span></span><span class="par">;</span><br>
                 <span class="par">}</span><span class="par">;</span><br>
 
             </div>
@@ -280,13 +281,99 @@
         <div class="codeContainer">
             <h2>Code</h2>
             <div class="code">
-                
+                <span class="let">let</span> <span class="var">x</span> <span class="par">=</span> <span class="str">""</span><span class="par">;</span><br>
+                <span class="let">let</span> <span class="var">y</span> <span class="par">=</span> <span class="str">""</span><span class="par">;</span><br>
+                <span class="let">let</span> <span class="var">z</span> <span class="par">=</span> <span class="str">""</span><span class="par">;</span><br><br>
+
+                <span class="var">x</span> <span class="par">=</span>
+                <span class="methods">Number</span><span class="par">(</span><span class="var">x</span><span class="par">)</span><span class="par">;</span><br>
+
+                <span class="var">y</span> <span class="par">=</span>
+                <span class="methods">String</span><span class="par">(</span><span class="var">y</span><span class="par">)</span><span class="par">;</span><br>
+
+                <span class="var">z</span> <span class="par">=</span>
+                <span class="methods">Boolean</span><span class="par">(</span><span class="var">z</span><span class="par">)</span><span class="par">;</span><br><br>
+
+                <span class="var">console</span><span class="par">.</span><span class="methods">log</span>
+                <span class="par">(</span><span class="var">x</span><span class="par">,</span>
+                <span class="par">typeof</span> <span class="var">x</span><span class="par">)</span><span class="par">;</span><br>
+
+                <span class="var">console</span><span class="par">.</span><span class="methods">log</span>
+                <span class="par">(</span><span class="var">y</span><span class="par">,</span>
+                <span class="par">typeof</span> <span class="var">y</span><span class="par">)</span><span class="par">;</span><br>
+
+                <span class="var">console</span><span class="par">.</span><span class="methods">log</span>
+                <span class="par">(</span><span class="var">z</span><span class="par">,</span>
+                <span class="par">typeof</span> <span class="var">z</span><span class="par">)</span><span class="par">;</span>
             </div>
+
         </div>
         <div class="consoleContainer">
             <h2>Console</h2>
             <div class="console">
-                
+                0 'number' <br>
+                string <br>
+                false 'boolean'
+            </div>
+        </div>
+    </section>
+
+    <section>
+       <div class="codeContainer">
+            <h2>Code</h2>
+            <div class="code">
+
+                <span class="let">const</span> <span class="var">decreaseBtn</span> <span class="par">=</span>
+                <span class="var">document</span><span class="par">.</span><span class="methods">getElementById</span>
+                <span class="par">(</span><span class="str">"decreaseBtn"</span><span class="par">)</span><span class="par">;</span><br><br>
+
+                <span class="let">const</span> <span class="var">resetBtn</span> <span class="par">=</span>
+                <span class="var">document</span><span class="par">.</span><span class="methods">getElementById</span>
+                <span class="par">(</span><span class="str">"resetBtn"</span><span class="par">)</span><span class="par">;</span><br><br>
+
+                <span class="let">const</span> <span class="var">increaseBtn</span> <span class="par">=</span>
+                <span class="var">document</span><span class="par">.</span><span class="methods">getElementById</span>
+                <span class="par">(</span><span class="str">"increaseBtn"</span><span class="par">)</span><span class="par">;</span><br><br>
+
+                <span class="let">const</span> <span class="var">countLabel</span> <span class="par">=</span>
+                <span class="var">document</span><span class="par">.</span><span class="methods">getElementById</span>
+                <span class="par">(</span><span class="str">"countLabel"</span><span class="par">)</span><span class="par">;</span><br><br>
+
+                <span class="let">let</span> <span class="var">count</span> <span class="par">=</span> <span class="num">0</span><span class="par">;</span><br><br>
+
+                <span class="var">increaseBtn</span><span class="par">.</span><span class="methods">onclick</span>
+                <span class="par">=</span> <span class="keyword-pink">function</span><span class="par">(</span><span class="par">)</span> <span class="par">{</span><br>
+                &nbsp;&nbsp;<span class="var">count</span><span class="par">++;</span><br>
+                &nbsp;&nbsp;<span class="var">countLabel</span><span class="par">.</span><span class="var">textContent</span>
+                <span class="par">=</span> <span class="var">count</span><span class="par">;</span><br>
+                <span class="par">}</span><span class="par">;</span><br><br>
+
+                <span class="var">decreaseBtn</span><span class="par">.</span><span class="methods">onclick</span>
+                <span class="par">=</span> <span class="keyword-pink">function</span><span class="par">(</span><span class="par">)</span> <span class="par">{</span><br>
+                &nbsp;&nbsp;<span class="var">count</span><span class="par">--;</span><br>
+                &nbsp;&nbsp;<span class="var">countLabel</span><span class="par">.</span><span class="var">textContent</span>
+                <span class="par">=</span> <span class="var">count</span><span class="par">;</span><br>
+                <span class="par">}</span><span class="par">;</span><br><br>
+
+                <span class="var">resetBtn</span><span class="par">.</span><span class="methods">onclick</span>
+                <span class="par">=</span> <span class="keyword-pink">function</span><span class="par">(</span><span class="par">)</span> <span class="par">{</span><br>
+                &nbsp;&nbsp;<span class="var">count</span> <span class="par">=</span> <span class="num">0</span><span class="par">;</span><br>
+                &nbsp;&nbsp;<span class="var">countLabel</span><span class="par">.</span><span class="var">textContent</span>
+                <span class="par">=</span> <span class="var">count</span><span class="par">;</span><br>
+                <span class="par">}</span><span class="par">;</span>
+
+            </div>
+        </div>
+
+        <div class="consoleContainer">
+            <h2>HTML</h2>
+            <div class="console">
+                <label for="" id="countLabel">0</label><br>
+                <div id="btnContainer">
+                    <button id="increaseBtn" class="Btn">+</button>
+                    <button id="resetBtn" class="Btn">RESET</button>
+                    <button id="decreaseBtn" class="Btn">-</button>
+                </div>
             </div>
         </div>
     </section>
@@ -295,5 +382,4 @@
 
 <script src="JavaScript.js"></script>
 </body> 
-
 </html>
