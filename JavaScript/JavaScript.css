@@ -20,7 +20,6 @@
     padding: 0;
 }
 
-
 body {
     background: var(--bg-color);
     color: var(--text-color);
@@ -249,10 +248,10 @@ section {
 }
 
 .Btn {
-    margin: 10px;
+    margin: clamp(5px, 2vw, 10px);
     align-items: center;
     justify-content: center;
-    width: 150px;
+    width: clamp(100px, 20vw, 150px);
     height: 50px;
     font-size: 18px;
     border-radius: var(--border-radius);
@@ -284,4 +283,3 @@ section {
     font-size: 50px;
     font-weight: 700;
 }
-
