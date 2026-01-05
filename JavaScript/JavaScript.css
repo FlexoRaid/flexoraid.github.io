@@ -241,3 +241,45 @@ section {
     #menu { font-size: 16px; min-width: 140px; padding: 5px 10px; }
     #menu a { color: #fff; }
 }
+
+
+#btnContainer {
+    text-align: center;
+}
+
+.Btn {
+    margin: 10px;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 50px;
+    font-size: 18px;
+    border-radius: var(--border-radius);
+    border: none;
+    background: rgb(132, 216, 255);
+    color: #fff;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+#decreaseBtn, #increaseBtn {
+    width: 50px;
+    border-radius: 50%;
+}
+
+.Btn:hover {
+    background: rgb(18, 177, 250);
+}
+
+.Btn:active {
+    color: rgb(18, 177, 250);
+    background: #fff;
+}
+
+#countLabel {
+    margin: 10px 0 0 0;
+    display: block;
+    text-align: center;
+    font-size: 50px;
+    font-weight: 700;
+}
