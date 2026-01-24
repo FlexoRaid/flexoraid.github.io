@@ -3,7 +3,7 @@ const API_KEY = "c82bd530a6c5357fb3b71ef2c9479a72";
 
 // SVG-Dateien
 const ICONS = {
-    "clear": "Clear.svg",
+    "clear": "./Clear.svg",
     "clouds": "Clouds.svg",
     "rain": "Rain.svg",
     "thunder": "Thunder.svg",
