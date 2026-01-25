@@ -207,6 +207,7 @@ h2 { font-size: clamp(1.8rem, 6vw, 4rem); text-align: center; margin-bottom: 30p
     cursor: pointer; 
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.8); 
 }
+
 .back-to-top.visible { opacity: 1; visibility: visible; }
 .back-to-top img { width: 24px; filter: invert(1); }
 .back-to-top:hover { transform: translateY(-5px); }
@@ -246,14 +247,17 @@ h2 { font-size: clamp(1.8rem, 6vw, 4rem); text-align: center; margin-bottom: 30p
     .menu-icon { width: 38px; }
     
     .back-to-top { 
-        bottom: 30px; 
-        right: 12%; 
-        width: 55px; 
-        height: 55px; 
+        bottom: 10px; 
+        right: 10px; 
+        width: 50px; 
+        height: 50px; 
     }
 }
 
 @media (max-width: 400px) {
     .socials-grid { grid-template-columns: 1fr 1fr; }
-    .back-to-top { right: 15%; }
+    .back-to-top { right: 15%; bottom: 15%;}
+    body {
+        max-height: none;
+    }
 }
