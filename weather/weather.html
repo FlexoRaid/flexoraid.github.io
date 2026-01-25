@@ -1,90 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jonatan's Weather App</title>
-    <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/206327445?s=400&v=4">
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-
+    <link rel="icon" type="image/png" href="../icons/jp.png">
+    <link rel="shortcut icon" href="../icons/jp.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="weather.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 
     <div class="floating-lights"></div>
 
-    <button class="menu-button" popovertarget="menu">
-        <img src="../icons/menu.png" alt="menu" class="menu-icon">
+    <button id="menu-toggle" class="menu-button">
+        <img src="../icons/menu.png" alt="menu" id="toggle-icon" class="menu-icon">
     </button>
 
-    <div id="menu" popover>
-        <a href="../index.html">Home</a>
+    <div id="nav-overlay" class="overlay">
+        <nav class="mobile-nav">
+            <a href="../index.html">Home</a>
+            <a href="../about/about.html">About Me</a>
+            <a href="../projects/projects.html">Projects</a>
+            <a href="../index.html#socials">Socials</a>
+            <a href="../sitemap/sitemap.html">Sitemap</a>
+        </nav>
     </div>
 
-    <main class="main-container">
+    <main class="content-wrapper">
+        <div class="card weather-card">
+            
+            <header class="input-container">
+                <input class="city-input" type="text" placeholder="Search City...">
+                <button class="search-btn">
+                    <img class="icon search-icon-white" src="../icons/search.svg" alt="search">
+                </button>
+            </header>
 
-        <header class="input-container">
-            <input class="city-input" type="text" placeholder="Search City">
-            <button class="search-btn">
-                <img class="icon" src="../icons/search.svg" alt="search icon">
-            </button>
-        </header>
-
-        <section class="weather-info">
-             <div class="location-date-container">
-                <div class="location">
-                    <img class="icon" src="../icons/location.svg" alt="location icon">
-                    <h4 class="country-txt">--</h4>
-                </div>
-                <h5 class="current-date-txt reguala-txt" id="date"></h5>
-             </div>
-        </section>
-
-        <section class="weather">
-            <div class="weather-main">
-                <div class="weather-icon-container">
-                    <img src="../icons/Clouds.svg" alt="clouds" class="weather-icon">
+            <section class="current-weather">
+                <div class="location-info">
+                    <div class="loc-row">
+                        <img src="../icons/location.svg" class="loc-pin white-icon" alt="loc">
+                        <h2 class="country-txt">Munich</h2>
+                    </div>
+                    <p class="sub-text" id="date">--</p>
                 </div>
 
-                <div class="weather-data-container">
-                    <h1 id="Temperature">-- °C</h1>
-                    <h4 id="weather-type">--</h4>
-                </div>
-            </div>
-
-            <div class="weather-condition-container">
-                <div class="humidity-container">
-                    <div class="humidity-img">
-                         <img src="../icons/Humidity_Icon.svg" alt="Humidity Icon">
-                    </div>
-                    
-                    <div class="Humidity-txt">
-                        <h5>Humidity</h5>
-                        <h5 id="Humidity-proc">--%</h5>
-                    </div>
-                    
-                    <div class="humidity-img">
-                        <img src="../icons/Air-Icon.svg" alt="Wind Icon">
-                    </div>
-                    
-                    <div class="Humidity-txt">
-                        <h5>Wind Speed</h5>
-                        <h5 id="Wind-speed">-- M/s</h5>
+                <div class="main-display">
+                    <img src="../icons/Clouds.svg" alt="weather" class="weather-icon-main">
+                    <div class="temp-wrap">
+                        <h1 id="Temperature">-- °C</h1>
+                        <p class="weather-desc" id="weather-type">--</p>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <footer class="Weather-5-Days">
-            <div class="Days" id="Day1"></div>
-            <div class="Days" id="Day2"></div>
-            <div class="Days" id="Day3"></div>
-            <div class="Days" id="Day4"></div>
-            <div class="Days" id="Day5"></div>
-        </footer>
+                <div class="stats-container">
+                    <div class="mini-stat">
+                        <img src="../icons/Humidity_Icon.svg" alt="Hum">
+                        <div class="stat-text">
+                            <span class="label">Humidity</span>
+                            <span id="Humidity-proc">--%</span>
+                        </div>
+                    </div>
+                    <div class="mini-stat">
+                        <img src="../icons/Air-Icon.svg" alt="Wind">
+                        <div class="stat-text">
+                            <span class="label">Wind Speed</span>
+                            <span id="Wind-speed">-- M/s</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
+            <section class="forecast-section">
+                <div class="forecast-grid" id="forecast-wrapper">
+                </div>
+            </section>
+
+        </div>
     </main>
 
     <script src="weather.js" defer></script>
