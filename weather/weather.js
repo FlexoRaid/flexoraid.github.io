@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Weather Logic
     const API_KEY = "c82bd530a6c5357fb3b71ef2c9479a72";
     
-    // Mapping für normale Icons
+    // Mapping für Icons
     const ICONS = {
         "clear": "Clear.svg", 
         "clouds": "Clouds.svg",
@@ -83,23 +83,23 @@ document.addEventListener("DOMContentLoaded", function() {
             const sunset = data.sys.sunset;
             const isNight = currentTime >= sunset || currentTime <= sunrise;
 
-            // Haupt-Wetter Daten
+            // Haupt-Wetter Daten setzen
             document.querySelector(".country-txt").textContent = data.name;
             document.getElementById("Temperature").textContent = `${Math.round(data.main.temp)} °C`;
             document.getElementById("weather-type").textContent = data.weather[0].main;
             document.getElementById("Humidity-proc").textContent = `${data.main.humidity}%`;
             document.getElementById("Wind-speed").textContent = `${data.wind.speed} M/s`;
 
-            // Haupt-Icon Logik mit Night-Check
+            // Haupt-Icon Logik
             const mainIconType = data.weather[0].main.toLowerCase();
             let iconFile = ICONS[mainIconType] || ICONS["clear"];
             
-            // Wenn Nacht ist, suchen wir nach "Night_Dateiname.svg"
             if (isNight) {
                 iconFile = "Night_" + iconFile;
             }
 
-            const mainWeatherImg = document.querySelector(".weather-img");
+            // KORREKTUR: Hier war ".weather-img", aber im HTML nutzt du ".weather-icon-main"
+            const mainWeatherImg = document.querySelector(".weather-icon-main");
             if (mainWeatherImg) {
                 mainWeatherImg.src = `../icons/${iconFile}`;
             }
@@ -125,10 +125,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 const date = new Date(day.dt * 1000);
                 const dayName = date.toLocaleDateString("en-GB", { weekday: "short" });
                 const iconType = day.weather[0].main.toLowerCase();
-                
                 let forecastIcon = ICONS[iconType] || ICONS["clear"];
-                // Für den Forecast nutzen wir meistens die Standard-Icons (Tag), 
-                // da wir nicht für jede Uhrzeit der Zukunft prüfen wollen, ob dort Nacht ist.
                 
                 wrapper.innerHTML += `
                     <div class="forecast-row">
