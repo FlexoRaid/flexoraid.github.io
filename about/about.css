@@ -218,6 +218,7 @@ h1 {
     border-radius: 50%;
     margin-bottom: 40px;
     box-shadow: 0 0 15px var(--color-accent);
+    z-index: 10;
 }
 
 .glass-card {
@@ -333,44 +334,45 @@ h1 {
     .back-to-top { bottom: 20px; right: 20px; width: 45px; height: 45px; }
 
     .year-bg {
-        opacity: 0.08;
-        font-size: 20vw;
-        top: 15%; /* Jahreszahl weiter nach oben */
+        opacity: 0.06;
+        font-size: 22vw;
+        top: 10%; /* Jahr bleibt oben */
         width: 100%;
         text-align: center;
     }
 
     .year-slide {
-        /* Flex-Richtung ändern, damit wir Platz gewinnen */
-        align-items: flex-end; 
-        padding-bottom: 10vh;
+        align-items: center; /* Slide zentriert den Inhalt auf der Linie */
     }
 
     .content-box {
-        justify-content: flex-end;
-        height: 100%;
-    }
-
-    .glass-card {
-        max-width: 90%;
-        padding: 20px;
-        /* Schatten hinzufügen für bessere Lesbarkeit über der Jahreszahl */
-        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        height: 0; /* Box hat keine eigene Höhe, Marker ist der Anker */
+        justify-content: center;
     }
 
     .node-marker {
-        margin-bottom: 20px;
+        margin-bottom: 0; 
+        position: absolute;
+        top: 50%; /* Punkt klebt exakt am Strahl */
+        transform: translateY(-50%);
+    }
+
+    .glass-card {
+        max-width: 85%;
+        padding: 18px;
+        position: absolute;
+        top: 60px; /* Schiebt nur die Karte unter den Punkt/Strahl */
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     }
 }
 
 @media (max-width: 480px) {
     .year-bg {
-        opacity: 0.1;
-        font-size: 25vw;
-        top: 10%;
+        font-size: 28vw;
     }
     
-    .year-slide {
-        padding-bottom: 5vh;
+    .glass-card {
+        top: 50px;
+        padding: 15px;
     }
 }
