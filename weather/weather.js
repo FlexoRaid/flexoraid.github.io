@@ -4,14 +4,24 @@ document.addEventListener("DOMContentLoaded", function() {
     const toggleIcon = document.getElementById('toggle-icon');
     const cityInput = document.querySelector(".city-input");
 
+    // Nav-Logik
+    function closeMenu() {
+        navOverlay.classList.remove('active');
+        toggleIcon.src = "../icons/menu.png";
+    }
+
     menuToggle.addEventListener('click', (e) => {
         e.stopPropagation();
         const active = navOverlay.classList.toggle('active');
         toggleIcon.src = active ? "../icons/exit.png" : "../icons/menu.png";
     });
 
-    cityInput.addEventListener("keydown", (e) => {
-        if (e.key === "Enter") fetchWeather(cityInput.value.trim());
+    navOverlay.addEventListener('click', (e) => {
+        if (e.target === navOverlay) closeMenu();
+    });
+
+    document.querySelectorAll('.mobile-nav a').forEach(link => {
+        link.addEventListener('click', closeMenu);
     });
 
     // Floating Lights
@@ -22,7 +32,8 @@ document.addEventListener("DOMContentLoaded", function() {
         const size = Math.random() * 3 + 2;
         Object.assign(s.style, {
             width: size + "px", height: size + "px", position: "absolute",
-            background: "rgba(255,255,255,0.4)", borderRadius: "50%"
+            background: "rgba(255,255,255,0.4)", borderRadius: "50%",
+            top: 0, left: 0
         });
         let x = Math.random() * window.innerWidth, y = Math.random() * window.innerHeight;
         const ang = Math.random() * 2 * Math.PI, spd = 0.2 + Math.random() * 0.3;
@@ -40,11 +51,23 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     animate();
 
+    // Weather Logic
     const API_KEY = "c82bd530a6c5357fb3b71ef2c9479a72";
+    
+    // Mapping
     const ICONS = {
-        "clear": "../icons/Clear.svg", "clouds": "../icons/Clouds.svg",
-        "rain": "../icons/Rain.svg", "thunder": "../icons/Thunder.svg",
-        "snow": "../icons/Snow.svg", "fog": "../icons/Fog.svg", "hail": "../icons/Hail.svg"
+        "clear": "Clear.svg", 
+        "clouds": "Clouds.svg",
+        "rain": "Rain.svg", 
+        "drizzle": "Rain.svg",
+        "thunderstorm": "Thunder.svg",
+        "snow": "Snow.svg", 
+        "mist": "Fog.svg",
+        "smoke": "Fog.svg",
+        "haze": "Fog.svg",
+        "dust": "Fog.svg",
+        "fog": "Fog.svg", 
+        "hail": "Hail.svg"
     };
 
     async function fetchWeather(city) {
@@ -54,12 +77,30 @@ document.addEventListener("DOMContentLoaded", function() {
             const data = await res.json();
             if (data.cod !== 200) return;
 
+            const currentTime = data.dt;
+            const sunrise = data.sys.sunrise;
+            const sunset = data.sys.sunset;
+            const isNight = currentTime >= sunset || currentTime <= sunrise;
+
             document.querySelector(".country-txt").textContent = data.name;
             document.getElementById("Temperature").textContent = `${Math.round(data.main.temp)} °C`;
             document.getElementById("weather-type").textContent = data.weather[0].main;
             document.getElementById("Humidity-proc").textContent = `${data.main.humidity}%`;
             document.getElementById("Wind-speed").textContent = `${data.wind.speed} M/s`;
+            
+            const mainIconType = data.weather[0].main.toLowerCase();
+            let iconFile = ICONS[mainIconType] || ICONS["clear"];
+            
+            if (isNight) {
+                iconFile = "Night_" + iconFile;
+            }
 
+            const mainWeatherImg = document.querySelector(".weather-img");
+            if (mainWeatherImg) {
+                mainWeatherImg.src = `../icons/${iconFile}`;
+            }
+
+            // Forecast Logic
             const resF = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}&units=metric`);
             const dataF = await resF.json();
             const wrapper = document.getElementById("forecast-wrapper");
@@ -80,10 +121,13 @@ document.addEventListener("DOMContentLoaded", function() {
                 const date = new Date(day.dt * 1000);
                 const dayName = date.toLocaleDateString("en-GB", { weekday: "short" });
                 const iconType = day.weather[0].main.toLowerCase();
+                
+                let forecastIcon = ICONS[iconType] || ICONS["clear"];
+                
                 wrapper.innerHTML += `
                     <div class="forecast-row">
                         <span class="day">${dayName}</span>
-                        <img src="${ICONS[iconType] || ICONS["clear"]}" alt="icon">
+                        <img src="../icons/${forecastIcon}" alt="icon">
                         <span class="temp">${Math.round(day.main.temp)}°C</span>
                     </div>`;
             });
@@ -91,14 +135,8 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     document.querySelector(".search-btn").addEventListener("click", () => fetchWeather(cityInput.value.trim()));
+    cityInput.addEventListener("keydown", (e) => { if (e.key === "Enter") fetchWeather(cityInput.value.trim()); });
+    
     document.getElementById("date").innerText = new Date().toLocaleDateString("en-GB", { weekday: "short", day: "2-digit", month: "short" });
     fetchWeather("Munich");
-
-    // FIX FÜR SOCIALS LINK
-    if (window.location.hash) {
-        setTimeout(() => {
-            const el = document.querySelector(window.location.hash);
-            if (el) el.scrollIntoView({ behavior: "smooth" });
-        }, 500);
-    }
 });
