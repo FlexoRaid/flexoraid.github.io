@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
 
-        // Section Handling
+        // Sektionen Handling
         sections.forEach((sec, index) => {
             const myStart = startPoint + (index * (displayDuration + fadeGap));
             const myFullStart = myStart + fadeGap;
@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function() {
     window.addEventListener('scroll', updateScroll);
     updateScroll();
 
-    // Back-to-Top
+    // Back-to-Top Funktionalität
     if (backToTopBtn) {
         backToTopBtn.addEventListener('click', () => {
             window.scrollTo({
@@ -101,8 +101,10 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
+    // Schließen des Menüs bei Klick auf das Overlay (Hintergrund)
     if (navOverlay) {
         navOverlay.addEventListener('click', (e) => {
+            // Nur schließen, wenn man das Overlay selbst anklickt und nicht die Nav-Links darin
             if (e.target === navOverlay) {
                 navOverlay.classList.remove('active');
                 toggleIcon.src = "icons/menu.png";
