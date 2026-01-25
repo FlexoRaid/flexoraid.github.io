@@ -1,186 +1,221 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jonatan's Portfolio</title>
-<link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/206327445?s=400&v=4">
-
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-
-<!-- Styles -->
-<link rel="stylesheet" href="Home/home.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
+<!DOCTYPE html> 
+<html lang="de"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Jonatan's Portfolio</title> 
+    <link rel="shortcut icon" href="icons/jp.png"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="Home/home.css"> 
+</head> 
 <body>
 
-<!-- Floating Lights Background -->
-<div class="floating-lights"></div>
+    <div class="floating-lights"></div> 
 
-<!-- Drop down -->
-<button class="menu-button" popovertarget="menu">
-    <img src="icons/menu.png" alt="menu" class="menu-icon">
-</button>
+    <button id="menu-toggle" class="menu-button"> 
+        <img src="icons/menu.png" alt="menu" id="toggle-icon" class="menu-icon"> 
+    </button> 
 
-<div id="menu" popover>
-    <a href="/Art-Gallery/art-gallery.html">Art Gallery</a>
-    <a href="/programming-languages/Programming-language.html">Learn coding</a>
-    <a href="/weather/weather.html">Weather</a>
-</div>
-
-
-<!-- Profile Section -->
-<section class="section profile-section">
-  <div class="profile-picture-container" data-tooltip="Her name is Candy">
-    <a href="https://de.wikipedia.org/wiki/Britisch_Kurzhaar" target="_blank">
-        <img class="profile-picture" src="Home/Candy.JPG" alt="Cat">
-    </a>
-  </div>
-
-  <div class="profile-info">
-    <p class="name">
-      <a class="name1" href="https://de.wikipedia.org/wiki/Jonathan_(Vorname)" target="_blank">Jonatan</a> Przewlocki
-    </p>
-    <p id="age"></p>
-    <p class="description">
-        Programmer | Tech Enthusiast | 
-        <a class="chess-link" href="https://www.chess.com/member/kolege_von_hettinger" target="_blank">
-            <span id="chess">Chess Player</span>
-        </a> | Lifelong Learner
-    </p>
-  </div>
-</section>
-
-<!-- About Section -->
-<section class="section about-section">
-  <div class="about-me">
-    <h2>About Me</h2>
-    <p>Hi, I'm Jonatan from Germany. I try to be the best version of myself by learning, training, and eating healthy. I made this website to practice HTML, CSS, and JavaScript. In the future, I want to create an open-world game with high-end graphics.</p>
-  </div>
-
-  <div class="current-activities">
-    <h2>Current Activities</h2>
-    <ul>
-      <li>Learning web development</li>
-      <li>Playing chess on chess.com</li>
-      <li>Learning for School</li>
-      <li>Playing Minecraft on my friends' server</li>
-    </ul>
-  </div>
-</section>
-
-<!-- Skill Section -->
-<section class="section skill-section">
-  <div class="programming-languages">
-    <h2>Programming Languages</h2>
-    <div class="skills-grid">
-      <a class="skill-item" href="https://www.w3schools.com/html/" target="_blank" data-tooltip="I can't look at css anymore">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg">
-        <span>HTML/CSS</span>
-      </a>
-
-      <a class="skill-item" href="https://www.javascript.com" target="_blank" data-tooltip="currently learning">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg">
-        <span>JavaScript</span>
-      </a>
-
-      <a class="skill-item" href="https://www.python.org" target="_blank" data-tooltip="my favorite language">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg">
-        <span>Python</span>
-      </a>
-
-      <a class="skill-item" href="https://de.wikipedia.org/wiki/C%2B%2B" target="_blank" data-tooltip="bought a book to learn it">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg">
-        <span>C++</span>
-      </a>
+    <div id="nav-overlay" class="overlay"> 
+        <nav class="mobile-nav"> 
+            <a href="#about">About me</a> 
+            <a href="projects.html">Projects</a> 
+            <a href="weather/weather.html">Weather</a> 
+            <a href="#socials">Socials</a> 
+            <a href="sitemap.md">Sitemap</a> 
+        </nav> 
     </div>
-  </div>
 
-  <div class="other-skills">
-    <h2>Languages</h2>
-    <div class="language" data-tooltip="C1 level">
-      <span>English</span>
-      <div class="ring" style="--percent: 90%;"></div>
-    </div>
-    <div class="language" data-tooltip="C3 level">
-      <span>German</span>
-      <div class="ring" style="--percent: 100%;"></div>
-    </div>
-    <div class="language" data-tooltip="native">
-      <span>Polish</span>
-      <div class="ring" style="--percent: 100%;"></div>
-    </div>
-  </div>
-</section>
+    <header id="main-header"> 
+        <div class="Profile"> 
+            <div class="pic-container"> 
+                <img src="icons/profile.jpg" alt="Jonatan"> 
+                <div class="info-container"> 
+                    <p class="sub-text">Developer</p> 
+                    <h1>Hello, I am <br>Jonatan</h1>
+                    <p>Tending to be the best.</p>
+                </div>
+            </div>
+        </div> 
+    </header>
 
-<!-- Chess Section -->
-<section class="section chess-section">
-  <h2>Chess</h2>
-  <div class="chess-scroll-area">
-    <table class="chess-table">
-      <thead>
-        <tr>
-          <th>Opponent</th>
-          <th>Elo</th>
-          <th>Result</th>
-          <th>Mode</th>
-          <th>Date</th>
-        </tr>
-      </thead>
-      <tbody id="games-table-body"></tbody>
-    </table>
-  </div>
-  <p id="loading">Loading games...</p>
-</section>
+    <main class="content-section">
 
-<!-- Contact Section -->
-<section class="section contact-section">
-  <h2>Contact | Socials</h2>
+        <div class="section-center" id="about">
+            <h2>About Me</h2> 
+            <div class="card"> 
+                <p class="main-text">
+                    Hello! My name is Jonatan, I am <span id="age">16</span> years old and I come from Germany. 
+                    I have a strong passion for programming and technology, which has driven me to learn various programming languages such as HTML, CSS, JavaScript, Python, and C++. 
+                    In addition to coding, I enjoy playing video games and exploring new technologies. 
+                    My goal is to continuously improve my skills and contribute to exciting projects in the tech world.
+                </p>
+            </div>
+        </div>
+        
+        <div class="section-center" id="section-1">
+            <h2>Programming Languages</h2> 
+            <div class="card"> 
+                <div class="data-row"> 
+                    <div class="data-info"> 
+                        <img class="data-icon animation" src="icons/html.png" alt="HTML"> 
+                        <span class="data-name">HTML</span>
+                    </div> 
+                    <div class="bar-container"> 
+                        <div class="bar-fill" style="--progress: 100%;"></div> 
+                    </div> 
+                    <div class="data-label">100%</div> 
+                </div> 
 
-  <div class="contact-container">
-    <a class="contact-box E-Mail" href="mailto:jonatanprzewlocki@gmail.com">
-      <img class="contact-icon" src="Home/mail.png">
-      <p>E-Mail</p>
-    </a>
+                <div class="data-row"> 
+                    <div class="data-info"> 
+                        <img class="data-icon animation" src="icons/css.png" alt="CSS"> 
+                        <span class="data-name">CSS</span>
+                    </div> 
+                    <div class="bar-container"> 
+                        <div class="bar-fill" style="--progress: 100%;"></div> 
+                    </div> 
+                    <div class="data-label">100%</div> 
+                </div> 
 
-    <a class="contact-box github" href="https://github.com/FlexoRaid" target="_blank">
-      <img class="contact-icon" src="Home/discord.png">
-      <p>GitHub</p>
-    </a>
+                <div class="data-row"> 
+                    <div class="data-info"> 
+                        <img class="data-icon animation" src="icons/js.png" alt="JavaScript"> 
+                        <span class="data-name">JavaScript</span>
+                    </div> 
+                    <div class="bar-container"> 
+                        <div class="bar-fill" style="--progress: 25%;"></div> 
+                    </div> 
+                    <div class="data-label">25%</div> 
+                </div>
 
-    <a class="contact-box instagram" href="https://www.instagram.com/jonatanp_0" target="_blank">
-      <img class="contact-icon" src="https://raw.githubusercontent.com/zyqunix/simple-icons/master/icons/instagram.svg">
-      <p>Instagram</p>
-    </a>
+                <div class="data-row"> 
+                    <div class="data-info"> 
+                        <img class="data-icon animation" src="icons/python.png" alt="Python"> 
+                        <span class="data-name">Python</span>
+                    </div> 
+                    <div class="bar-container"> 
+                        <div class="bar-fill" style="--progress: 10%;"></div> 
+                    </div> 
+                    <div class="data-label">10%</div> 
+                </div>
 
-    <a class="contact-box telegram" href="https://t.me/jonatanp_0" target="_blank">
-      <img class="contact-icon" src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/telegram.svg">
-      <p>Telegram</p>
-    </a>
+                <div class="data-row"> 
+                    <div class="data-info"> 
+                        <img class="data-icon animation" src="icons/c-.png" alt="C++"> 
+                        <span class="data-name">C++</span>
+                    </div> 
+                    <div class="bar-container"> 
+                        <div class="bar-fill" style="--progress: 10%;"></div> 
+                    </div> 
+                    <div class="data-label">10%</div> 
+                </div>
+            </div> 
+        </div>
 
-    <a class="contact-box TikTok" href="https://www.tiktok.com/@jonatanp_0" target="_blank">
-      <img class="contact-icon" src="https://www.svgrepo.com/show/473806/tiktok.svg">
-      <p>TikTok</p>
-    </a>
+        <div class="section-center" id="section-2">
+            <h2>Languages</h2> 
+            <div class="card"> 
+                <div class="data-row"> 
+                    <div class="data-info"> 
+                        <img class="data-icon" src="icons/germany.png" alt="Deutsch"> 
+                        <span class="data-name">Deutsch</span>
+                    </div> 
+                    <div class="bar-container"> 
+                        <div class="bar-fill" style="--progress: 100%;"></div> 
+                    </div> 
+                    <div class="data-label">100%</div> 
+                </div> 
 
-    <a class="contact-box Spotify" href="https://open.spotify.com/user/31kyqrwkynmcqhbqlkhgy2wu3lfi" target="_blank">
-      <img class="contact-icon" src="https://www.svgrepo.com/show/512899/spotify-162.svg">
-      <p>Spotify</p>
-    </a>
-  </div>
-</section>
+                <div class="data-row"> 
+                    <div class="data-info"> 
+                        <img class="data-icon" src="icons/poland.png" alt="Polnisch"> 
+                        <span class="data-name">Polnisch</span>
+                    </div> 
+                    <div class="bar-container"> 
+                        <div class="bar-fill" style="--progress: 100%;"></div> 
+                    </div> 
+                    <div class="data-label">100%</div> 
+                </div> 
 
-<!-- Footer -->
-<footer>
-    <p>&copy; 2025 Jonatan Przewlocki. All rights reserved.</p>
-    <p>3000+ Lines of Code.</p>
-    <p>This website is open-source on <a class="link" href="https://github.com/FlexoRaid">GitHub</a>.</p>
-    <p>Inspired by <a class="link" href="https://vmohammad.dev">vMohammad's Portfolio</a> and <a class="link" href="https://zyqunix.dev">Zyqunix's Portfolio</a>.</p>
-  </footer>
+                <div class="data-row"> 
+                    <div class="data-info"> 
+                        <img class="data-icon" src="icons/uk.png" alt="Englisch"> 
+                        <span class="data-name">Englisch</span>
+                    </div> 
+                    <div class="bar-container"> 
+                        <div class="bar-fill" style="--progress: 90%;"></div> 
+                    </div> 
+                    <div class="data-label">90%</div> 
+                </div>
+            </div> 
+        </div>
 
-<script src="/Home/home.js" defer></script>
-</body>
+        <div class="section-center" id="section-3">
+            <h2>GitHub Stats</h2> 
+            <div class="card"> 
+                <div class="stats-grid">
+                    <div class="stat-block">
+                        <span class="stat-value" id="total-contributions">--</span>
+                        <span class="stat-label">Total (year)</span>
+                    </div>
+                    <div class="stat-block">
+                        <span class="stat-value" id="current-streak">--</span>
+                        <span class="stat-label">Public Repos</span>
+                    </div>
+                    <div class="stat-block">
+                        <span class="stat-value" id="longest-streak">--</span>
+                        <span class="stat-label">Followers</span>
+                    </div>
+                </div>
+            </div> 
+        </div>
+
+        <div class="section-center" id="socials">
+            <h2>Contact | Socials</h2>
+            <div class="card">
+                <div class="socials-grid">
+                    <a class="social-box email" href="mailto:jonatanprzewlocki@gmail.com">
+                        <img class="data-icon" src="icons/mail.png" alt="Email">
+                        <span class="social-name">E-Mail</span>
+                    </a>
+
+                    <a class="social-box github" href="https://github.com/FlexoRaid" target="_blank">
+                        <img class="data-icon" src="icons/github.png" alt="GitHub">
+                        <span class="social-name">GitHub</span>
+                    </a>
+
+                    <a class="social-box instagram" href="https://www.instagram.com/jonatanp_0" target="_blank">
+                        <img class="data-icon" src="https://raw.githubusercontent.com/zyqunix/simple-icons/master/icons/instagram.svg" alt="Instagram">
+                        <span class="social-name">Instagram</span>
+                    </a>
+
+                    <a class="social-box telegram" href="https://t.me/jonatanp_0" target="_blank">
+                        <img class="data-icon" src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/telegram.svg" alt="Telegram">
+                        <span class="social-name">Telegram</span>
+                    </a>
+
+                    <a class="social-box tiktok" href="https://www.tiktok.com/@jonatanp_0" target="_blank">
+                        <img class="data-icon" src="https://www.svgrepo.com/show/473806/tiktok.svg" alt="TikTok">
+                        <span class="social-name">TikTok</span>
+                    </a>
+                </div>
+            </div>
+            
+            <footer class="main-footer">
+                <p>&copy; 2025 Jonatan Przewlocki. All rights reserved.</p>
+                <p>This website is open-source on <a href="https://github.com/FlexoRaid" target="_blank">GitHub</a>.</p>
+            </footer>
+        </div>
+    </main>
+
+    <button id="back-to-top" class="back-to-top">
+        <img src="icons/arrow.png" alt="Nach oben">
+    </button>
+
+    <script src="Home/home.js" defer></script>
+</body> 
 </html>
-
-
