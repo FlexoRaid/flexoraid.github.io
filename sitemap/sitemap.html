@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sitemap | FlexoRaid</title>
+    <link rel="icon" type="image/png" href="../icons/jp.png">
+    <link rel="shortcut icon" href="../icons/jp.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="sitemap.css">
+</head>
+<body>
+
+    <div class="floating-lights"></div>
+
+    <button id="menu-toggle" class="menu-button">
+        <img src="../icons/menu.png" alt="menu" id="toggle-icon" class="menu-icon">
+    </button>
+
+    <div id="nav-overlay" class="overlay">
+        <nav class="mobile-nav">
+            <a href="../index.html" style="--i:1">Home</a>
+            <a href="../projects/projects.html" style="--i:2">Projects</a> 
+            <a href="../about/about.html" style="--i:3">About Me</a>
+            <a href="../weather/weather.html" style="--i:4">Weather</a>
+            <a href="../index.html#socials" style="--i:5">Socials</a> 
+        </nav>
+    </div>
+
+    <main class="projects-container">
+        <header class="projects-header">
+            <h1>Sitemap</h1>
+        </header>
+
+        <div class="table-scroll-container">
+            <div class="table-wrapper">
+                <table class="projects-table">
+                    <thead>
+                        <tr>
+                            <th>Page</th>
+                            <th class="hide-mobile">Description</th>
+                            <th>Link</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="project-info">
+                                    <img src="../icons/" alt="Icon" class="project-img">
+                                    <strong>--</strong>
+                                </div>
+                            </td>
+                            <td class="hide-mobile">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam nam quaerat blanditiis quasi quae praesentium molestiae esse amet qui eveniet, eligendi in vero officiis iure alias ratione, nostrum voluptates laudantium!</td>
+                            <td><a href="#" class="github-link"><span>Open</span> <i class="arrow">→</i></a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <footer class="main-footer">
+            <p>&copy; 2026 Jonatan Przewlocki. All rights reserved.</p>
+            <p>This website is open source on <a href="https://github.com/FlexoRaid" target="_blank">GitHub</a>.</p>
+        </footer>
+    </main>
+
+    <script src="sitemap.js" defer></script>
+</body>
+</html>

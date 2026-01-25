@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | FlexoRaid</title>
+    <link rel="icon" type="image/png" href="../icons/jp.png">
+    <link rel="shortcut icon" href="../icons/jp.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="projects.css">
+</head>
+<body>
+
+    <div class="floating-lights"></div>
+
+    <button id="menu-toggle" class="menu-button">
+        <img src="../icons/menu.png" alt="menu" id="toggle-icon" class="menu-icon">
+    </button>
+
+    <div id="nav-overlay" class="overlay">
+        <nav class="mobile-nav">
+            <a href="../index.html" style="--i:1">Home</a>
+            <a href="../about/about.html" style="--i:2">About Me</a>
+            <a href="../weather/weather.html" style="--i:3">Weather</a>
+            <a href="../index.html#socials" style="--i:4">Socials</a> 
+            <a href="../sitemap/sitemap.html" style="--i:5">Sitemap</a>
+        </nav>
+    </div>
+
+    <main class="projects-container">
+        <header class="projects-header">
+
+            <h1>My Projects</h1>
+        </header>
+
+        <div class="table-scroll-container">
+            <div class="table-wrapper">
+                <table class="projects-table">
+                    <thead>
+                        <tr>
+                            <th>Project</th>
+                            <th class="hide-mobile">Description</th>
+                            <th>Link</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="project-info">
+                                    <img src="../icons/js.png" alt="Preview" class="project-img">
+                                    <strong>Weather App</strong>
+                                </div>
+                            </td>
+                            <td class="hide-mobile">Real-time weather data with dynamic glassmorphism effects.</td>
+                            <td><a href="https://github.com/FlexoRaid/flexoraid.github.io/tree/main/weather" class="github-link" target="_blank"><span>Repo</span> <i class="arrow">→</i></a></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="project-info">
+                                    <img src="../icons/js.png" alt="Preview" class="project-img">
+                                    <strong>Scroll-Trigger-GSAP</strong>
+                                </div>
+                            </td>
+                            <td class="hide-mobile">Interactive scroll-triggered animations using GSAP & JS.</td>
+                            <td><a href="https://github.com/FlexoRaid/Scroll-Trigger-GSAP/tree/main" class="github-link" target="_blank"><span>Repo</span> <i class="arrow">→</i></a></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="project-info">
+                                    <img src="../icons/python.png" alt="Preview" class="project-img">
+                                    <strong>Calculator</strong>
+                                </div>
+                            </td>
+                            <td class="hide-mobile">A fully functional calculator in python.</td>
+                            <td><a href="https://github.com/FlexoRaid/Calculator" class="github-link"><span>Repo</span> <i class="arrow">→</i></a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+            <footer class="main-footer">
+                <p>&copy; 2026 Jonatan Przewlocki. All rights reserved.</p>
+                <p>This website is open source on <a href="https://github.com/FlexoRaid" target="_blank">GitHub</a>.</p>
+            </footer>
+    </main>
+
+    <script src="projects.js" defer></script>
+</body>
+</html>

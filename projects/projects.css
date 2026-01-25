@@ -1,0 +1,164 @@
+:root { 
+    --color-main: #fff; 
+    --color-accent: #48cae4;
+    --bg-overlay: rgba(0, 0, 0, 0.9);
+    --border-ui: rgba(255, 255, 255, 0.1); 
+    --bg-card: rgba(255, 255, 255, 0.03);
+    --radius-ui: 40px;
+    --blur-ui: 10px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body { 
+    min-height: 100vh; 
+    font-family: "Poppins", sans-serif; 
+    color: var(--color-main); 
+    font-weight: 600;
+    background-color: #010214;
+    background-image: radial-gradient(circle at 50% 50%, #023e8a 0%, #010214 80%);
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    overflow-x: hidden;
+}
+
+/* Floating Lights */
+.floating-lights { 
+    position: fixed; 
+    inset: 0; 
+    pointer-events: none; 
+    z-index: 1; 
+} 
+
+.floating-lights span { 
+    position: absolute; 
+    background: rgba(255, 255, 255, 0.6); 
+    border-radius: 50%; 
+    will-change: transform; 
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.4), 0 0 20px var(--color-accent);
+}
+
+/* Menu Button */
+.menu-button { position: fixed; top: 25px; left: 25px; background: none; border: none; cursor: pointer; z-index: 10001; }
+.menu-icon { width: 45px; filter: invert(1); transition: 0.3s; }
+
+/* Overlay & Nav Animation */
+.overlay { 
+    position: fixed; 
+    inset: 0; 
+    background: var(--bg-overlay); 
+    backdrop-filter: blur(20px); 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    opacity: 0; 
+    visibility: hidden; 
+    transition: 0.5s; 
+    z-index: 10000; 
+} 
+
+.overlay.active { opacity: 1; visibility: visible; } 
+
+.mobile-nav { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 40px; 
+    text-align: center; 
+    align-items: center;
+    justify-content: center;
+} 
+
+.mobile-nav a { 
+    font-size: clamp(32px, 8vw, 48px); 
+    text-decoration: none; 
+    color: #fff; 
+    opacity: 0.7; 
+    transition: 0.3s; 
+    position: relative; 
+    font-weight: 400; 
+} 
+
+.mobile-nav a:hover { opacity: 1; letter-spacing: 2px; }
+.mobile-nav a::after { content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 50%; background: var(--color-accent); transition: 0.3s; transform: translateX(-50%); }
+.mobile-nav a:hover::after { width: 100%; }
+
+/* Projects Container */
+.projects-container {
+    width: 100%;
+    max-width: 1000px;
+    padding: 120px 20px 60px;
+    display: flex;
+    flex-direction: column;
+    z-index: 5;
+}
+
+.projects-header { text-align: center; margin-bottom: 50px; }
+.eyebrow { text-transform: uppercase; letter-spacing: 5px; color: var(--color-accent); font-weight: 600; font-size: 0.8rem; }
+h1 { font-family: "Crimson Text", serif; font-size: clamp(2.5rem, 7vw, 4.5rem); line-height: 1.1; }
+
+/* Tabelle mit fester Höhe */
+.table-scroll-container {
+    width: 100%;
+    height: 425px; 
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-radius: var(--radius-ui);
+    border: 1px solid var(--border-ui);
+    background: var(--bg-card);
+    backdrop-filter: blur(var(--blur-ui));
+}
+
+.table-wrapper { 
+    width: 100%; 
+    min-height: 100%; 
+}
+
+.projects-table { 
+    width: 100%; 
+    border-collapse: collapse; 
+}
+
+.projects-table th { 
+    position: sticky; top: 0; background: #080c24; z-index: 5;
+    padding: 20px; text-align: left; font-size: 0.75rem; text-transform: uppercase; 
+    letter-spacing: 2px; color: var(--color-accent); border-bottom: 1px solid var(--border-ui);
+}
+
+.projects-table td { 
+    padding: 20px; 
+    border-bottom: 1px solid var(--border-ui); /* Trennlinie immer anzeigen */
+    vertical-align: middle; 
+}
+
+.project-info { display: flex; align-items: center; gap: 15px; }
+.project-img { width: 45px; height: 45px; border-radius: 10px; }
+
+.github-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 22px;
+    background: transparent;
+    color: var(--color-accent);
+    text-decoration: none;
+    font-weight: 600;
+    border: 1px solid var(--color-accent);
+    border-radius: 50px;
+    transition: 0.3s;
+    font-size: 0.9rem;
+}
+
+.github-link:hover {
+    background: var(--color-accent);
+    color: #000;
+    box-shadow: 0 0 20px rgba(72, 202, 228, 0.4);
+}
+
+.main-footer { margin-top: auto; padding-top: 50px; text-align: center; opacity: 0.4; font-size: 0.8rem; }
+.main-footer a { color: var(--color-accent); text-decoration: none; }
+
+@media (max-width: 768px) {
+    .hide-mobile { display: none; }
+    .table-scroll-container { height: 400px; }
+}
