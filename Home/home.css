@@ -27,7 +27,6 @@ body {
     background-attachment: fixed;
     overflow-x: hidden; 
     min-height: 100vh;
-    max-height: 421.5vh;
 } 
 
 /* Floating Lights */
@@ -207,13 +206,9 @@ h2 { font-size: clamp(1.8rem, 6vw, 4rem); text-align: center; margin-bottom: 30p
     cursor: pointer; 
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.8); 
 }
-
 .back-to-top.visible { opacity: 1; visibility: visible; }
 .back-to-top img { width: 24px; filter: invert(1); }
 .back-to-top:hover { transform: translateY(-5px); }
-
-.main-footer { text-align: center; padding: 40px 0; opacity: 0.5; font-size: 0.8rem; }
-.main-footer a { color: var(--color-accent); text-decoration: none; }
 
 /* RESPONSIVE BREAKPOINTS */
 @media (max-width: 900px) {
@@ -247,8 +242,8 @@ h2 { font-size: clamp(1.8rem, 6vw, 4rem); text-align: center; margin-bottom: 30p
     .menu-icon { width: 38px; }
     
     .back-to-top { 
-        bottom: 10px; 
-        right: 10px; 
+        bottom: 20px !important; 
+        right: 20px !important; 
         width: 50px; 
         height: 50px; 
     }
@@ -256,8 +251,8 @@ h2 { font-size: clamp(1.8rem, 6vw, 4rem); text-align: center; margin-bottom: 30p
 
 @media (max-width: 400px) {
     .socials-grid { grid-template-columns: 1fr 1fr; }
-    .back-to-top { right: 15%; bottom: 15%;}
-    body {
-        max-height: none;
+    .back-to-top { 
+        right: 20px !important; 
+        bottom: 20px !important;
     }
 }
