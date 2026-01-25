@@ -198,6 +198,7 @@ h1 {
     opacity: 0.03;
     z-index: 0;
     pointer-events: none;
+    transition: all 0.3s ease;
 }
 
 .content-box {
@@ -332,9 +333,9 @@ h1 {
     .back-to-top { bottom: 20px; right: 20px; width: 45px; height: 45px; }
 
     .year-bg {
-        opacity: 0.08;
-        font-size: 35vw;
-        top: 15%;
+        opacity: 0.1;
+        font-size: 25vw;
+        top: 20%;
         width: 100%;
         text-align: center;
     }
@@ -351,11 +352,7 @@ h1 {
 
 @media (max-width: 480px) {
     .year-bg {
-        opacity: 0.1;
-        font-size: 45vw;
-    }
-    
-    h1 {
-        margin-bottom: 20px;
+        opacity: 0.12;
+        font-size: 30vw;
     }
 }
