@@ -333,16 +333,29 @@ h1 {
     .back-to-top { bottom: 20px; right: 20px; width: 45px; height: 45px; }
 
     .year-bg {
-        opacity: 0.1;
-        font-size: 25vw;
-        top: 20%;
+        opacity: 0.08;
+        font-size: 20vw;
+        top: 15%; /* Jahreszahl weiter nach oben */
         width: 100%;
         text-align: center;
     }
 
+    .year-slide {
+        /* Flex-Richtung ändern, damit wir Platz gewinnen */
+        align-items: flex-end; 
+        padding-bottom: 10vh;
+    }
+
+    .content-box {
+        justify-content: flex-end;
+        height: 100%;
+    }
+
     .glass-card {
-        max-width: 85%;
+        max-width: 90%;
         padding: 20px;
+        /* Schatten hinzufügen für bessere Lesbarkeit über der Jahreszahl */
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     }
 
     .node-marker {
@@ -352,7 +365,12 @@ h1 {
 
 @media (max-width: 480px) {
     .year-bg {
-        opacity: 0.12;
-        font-size: 30vw;
+        opacity: 0.1;
+        font-size: 25vw;
+        top: 10%;
+    }
+    
+    .year-slide {
+        padding-bottom: 5vh;
     }
 }
