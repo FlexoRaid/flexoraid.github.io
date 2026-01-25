@@ -27,6 +27,7 @@ body {
     background-attachment: fixed;
     overflow-x: hidden; 
     min-height: 100vh;
+    max-height: 416.5vh;
 } 
 
 /* Floating Lights */
@@ -210,6 +211,11 @@ h2 { font-size: clamp(1.8rem, 6vw, 4rem); text-align: center; margin-bottom: 30p
 .back-to-top img { width: 24px; filter: invert(1); }
 .back-to-top:hover { transform: translateY(-5px); }
 
+/* Footer */
+.main-footer { margin-top: 30px; text-align: center; opacity: 0.5; font-size: 0.8rem; }
+.main-footer a { color: var(--color-accent); text-decoration: none; }
+
+
 /* RESPONSIVE BREAKPOINTS */
 @media (max-width: 900px) {
     .info-container { 
@@ -246,6 +252,10 @@ h2 { font-size: clamp(1.8rem, 6vw, 4rem); text-align: center; margin-bottom: 30p
         right: 20px !important; 
         width: 50px; 
         height: 50px; 
+    }
+
+    body {
+        max-height: none;
     }
 }
 
