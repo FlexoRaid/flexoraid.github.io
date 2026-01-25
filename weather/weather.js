@@ -77,20 +77,20 @@ document.addEventListener("DOMContentLoaded", function() {
             const data = await res.json();
             if (data.cod !== 200) return;
 
-            // Zeit-Check: Ist es am Zielort gerade Nacht?
+
             const currentTime = data.dt;
             const sunrise = data.sys.sunrise;
             const sunset = data.sys.sunset;
             const isNight = currentTime >= sunset || currentTime <= sunrise;
 
-            // Haupt-Wetter Daten setzen
+
             document.querySelector(".country-txt").textContent = data.name;
             document.getElementById("Temperature").textContent = `${Math.round(data.main.temp)} °C`;
             document.getElementById("weather-type").textContent = data.weather[0].main;
             document.getElementById("Humidity-proc").textContent = `${data.main.humidity}%`;
             document.getElementById("Wind-speed").textContent = `${data.wind.speed} M/s`;
 
-            // Haupt-Icon Logik
+            //Icon 
             const mainIconType = data.weather[0].main.toLowerCase();
             let iconFile = ICONS[mainIconType] || ICONS["clear"];
             
@@ -98,10 +98,16 @@ document.addEventListener("DOMContentLoaded", function() {
                 iconFile = "Night_" + iconFile;
             }
 
-            // KORREKTUR: Hier war ".weather-img", aber im HTML nutzt du ".weather-icon-main"
+
             const mainWeatherImg = document.querySelector(".weather-icon-main");
             if (mainWeatherImg) {
                 mainWeatherImg.src = `../icons/${iconFile}`;
+                
+                // Fallback: Falls das Night-Icon fehlt, lade das normale
+                mainWeatherImg.onerror = function() {
+                    mainWeatherImg.src = `../icons/${ICONS[mainIconType] || "Clear.svg"}`;
+                    mainWeatherImg.onerror = null; 
+                };
             }
 
             // Forecast Logic
