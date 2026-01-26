@@ -83,11 +83,11 @@ body {
 .mobile-nav a::after { content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 50%; background: var(--color-accent); transition: 0.3s; transform: translateX(-50%); }
 .mobile-nav a:hover::after { width: 100%; }
 
-/* Casino UI - Padding oben reduziert */
+/* Casino UI */
 .casino-container {
     width: 100%;
     max-width: 800px;
-    padding: 80px 20px 20px; /* Von 120px auf 80px reduziert */
+    padding: 80px 20px 20px;
     z-index: 5;
     text-align: center;
     display: flex;
@@ -98,13 +98,13 @@ body {
 .casino-header h1 {
     font-family: "Crimson Text", serif;
     font-size: clamp(2.2rem, 7vw, 4rem);
-    margin-bottom: 5px; /* Von 10px auf 5px reduziert */
+    margin-bottom: 5px;
 }
 
 .balance-display {
-    font-size: 1.3rem; /* Etwas kleiner für Mobile */
+    font-size: 1.3rem;
     background: var(--bg-card);
-    padding: 8px 25px; /* Von 10/30 auf 8/25 reduziert */
+    padding: 8px 25px;
     border-radius: 50px;
     border: 1px solid var(--color-accent);
     display: inline-block;
@@ -114,11 +114,11 @@ body {
 }
 
 .roulette-wheel-area {
-    margin-bottom: 25px; /* Von 40px auf 25px reduziert */
-    padding: 20px; /* Von 40px auf 20px reduziert */
+    margin-bottom: 25px;
+    padding: 20px;
     background: var(--bg-card);
     border-radius: 50%;
-    width: 240px; /* Von 280px auf 240px reduziert für besseren Mobile-Fit */
+    width: 240px;
     height: 240px;
     display: flex;
     flex-direction: column;
