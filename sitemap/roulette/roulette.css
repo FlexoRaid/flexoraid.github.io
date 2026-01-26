@@ -1,0 +1,232 @@
+:root { 
+    --color-main: #fff; 
+    --color-accent: #48cae4;
+    --bg-overlay: rgba(0, 0, 0, 0.9);
+    --border-ui: rgba(255, 255, 255, 0.1); 
+    --bg-card: rgba(255, 255, 255, 0.05);
+    --radius-ui: 40px;
+    --blur-ui: 15px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body { 
+    min-height: 100vh; 
+    font-family: "Poppins", sans-serif; 
+    color: var(--color-main); 
+    font-weight: 600;
+    background-color: #010214;
+    background-image: radial-gradient(circle at 50% 50%, #023e8a 0%, #010214 90%);
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    overflow-x: hidden;
+}
+
+/* Floating Lights */
+.floating-lights { 
+    position: fixed; 
+    inset: 0; 
+    pointer-events: none; 
+    z-index: 1; 
+} 
+
+.floating-lights span { 
+    position: absolute; 
+    background: rgba(255, 255, 255, 0.6); 
+    border-radius: 50%; 
+    will-change: transform; 
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.4), 0 0 20px var(--color-accent);
+}
+
+/* Menu Button */
+.menu-button { position: fixed; top: 25px; left: 25px; background: none; border: none; cursor: pointer; z-index: 10001; }
+.menu-icon { width: 45px; filter: invert(1); transition: 0.3s; }
+
+/* Overlay & Nav Animation */
+.overlay { 
+    position: fixed; 
+    inset: 0; 
+    background: var(--bg-overlay); 
+    backdrop-filter: blur(20px); 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    opacity: 0; 
+    visibility: hidden; 
+    transition: 0.5s; 
+    z-index: 10000; 
+} 
+
+.overlay.active { opacity: 1; visibility: visible; } 
+
+.mobile-nav { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 40px; 
+    text-align: center; 
+    align-items: center;
+    justify-content: center;
+} 
+
+.mobile-nav a { 
+    font-size: clamp(32px, 8vw, 48px); 
+    text-decoration: none; 
+    color: #fff; 
+    opacity: 0.7; 
+    transition: 0.3s; 
+    position: relative; 
+    font-weight: 400; 
+} 
+
+.mobile-nav a:hover { opacity: 1; letter-spacing: 2px; }
+.mobile-nav a::after { content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 50%; background: var(--color-accent); transition: 0.3s; transform: translateX(-50%); }
+.mobile-nav a:hover::after { width: 100%; }
+
+/* Casino UI - Padding oben reduziert */
+.casino-container {
+    width: 100%;
+    max-width: 800px;
+    padding: 80px 20px 20px; /* Von 120px auf 80px reduziert */
+    z-index: 5;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.casino-header h1 {
+    font-family: "Crimson Text", serif;
+    font-size: clamp(2.2rem, 7vw, 4rem);
+    margin-bottom: 5px; /* Von 10px auf 5px reduziert */
+}
+
+.balance-display {
+    font-size: 1.3rem; /* Etwas kleiner für Mobile */
+    background: var(--bg-card);
+    padding: 8px 25px; /* Von 10/30 auf 8/25 reduziert */
+    border-radius: 50px;
+    border: 1px solid var(--color-accent);
+    display: inline-block;
+    margin-bottom: 20px; /* Von 30px auf 20px reduziert */
+    color: var(--color-accent);
+    backdrop-filter: blur(var(--blur-ui));
+}
+
+.roulette-wheel-area {
+    margin-bottom: 25px; /* Von 40px auf 25px reduziert */
+    padding: 20px; /* Von 40px auf 20px reduziert */
+    background: var(--bg-card);
+    border-radius: 50%;
+    width: 240px; /* Von 280px auf 240px reduziert für besseren Mobile-Fit */
+    height: 240px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--border-ui);
+    backdrop-filter: blur(var(--blur-ui));
+}
+
+#wheel-result {
+    font-size: 4rem; /* Von 5rem auf 4rem reduziert */
+    font-weight: 700;
+    font-family: "Crimson Text", serif;
+    line-height: 1;
+}
+
+#status-text {
+    margin-top: 5px;
+    font-size: 0.85rem;
+    opacity: 0.8;
+    color: var(--color-accent);
+}
+
+.betting-table {
+    width: 100%;
+    max-width: 500px;
+    background: var(--bg-card);
+    padding: 20px; /* Von 30px auf 20px reduziert */
+    border-radius: var(--radius-ui);
+    border: 1px solid var(--border-ui);
+    backdrop-filter: blur(var(--blur-ui));
+}
+
+.bet-options {
+    display: flex;
+    gap: 10px; /* Von 15px auf 10px reduziert */
+    justify-content: center;
+    margin-bottom: 20px; /* Von 25px auf 20px reduziert */
+}
+
+.bet-btn {
+    padding: 10px 15px; /* Von 12/20 auf 10/15 reduziert */
+    border: 2px solid transparent;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 700;
+    font-family: inherit;
+    color: white;
+    transition: 0.3s;
+    font-size: 0.85rem;
+}
+
+.bet-btn.red { background: #e63946; }
+.bet-btn.black { background: #1a1a1a; border: 1px solid var(--border-ui); }
+.bet-btn.green { background: #2b9348; }
+
+.bet-btn.selected {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px var(--color-accent);
+    border-color: #fff;
+}
+
+.bet-amount-selector { 
+    margin-bottom: 15px; /* Von 25px auf 15px reduziert */
+    display: flex; 
+    flex-direction: column; 
+    gap: 5px;
+    align-items: center;
+}
+
+#bet-amount {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border-ui);
+    color: white;
+    padding: 8px;
+    border-radius: 10px;
+    width: 100px;
+    text-align: center;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.main-spin-btn {
+    padding: 12px 40px;
+    font-size: 1.1rem;
+    background: var(--color-accent);
+    border: none;
+    border-radius: 50px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+    color: #000;
+}
+
+.main-spin-btn:hover:not(:disabled) { 
+    transform: translateY(-3px); 
+    box-shadow: 0 10px 20px rgba(72, 202, 228, 0.4); 
+}
+
+.main-spin-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.main-footer { 
+    margin-top: 20px; /* Reduziert von auto/50px auf fest 20px */
+    padding-top: 10px; 
+    text-align: center; 
+    opacity: 0.4; 
+    font-size: 0.75rem; 
+}

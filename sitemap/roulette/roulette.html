@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Casino Roulette | FlexoRaid</title>
+    <link rel="icon" type="image/png" href="../../icons/jp.png">
+    <link rel="shortcut icon" href="../../icons/jp.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="roulette.css">
+</head>
+<body>
+
+    <div class="floating-lights"></div>
+
+    <button id="menu-toggle" class="menu-button">
+        <img src="../../icons/menu.png" alt="menu" id="toggle-icon" class="menu-icon">
+    </button>
+
+    <div id="nav-overlay" class="overlay">
+        <nav class="mobile-nav">
+            <a href="../../index.html" style="--i:1">Home</a>
+            <a href="../../about/about.html" style="--i:2">About Me</a>
+            <a href="../../projects/projects.html" style="--i:3">Projects</a>
+            <a href="../../weather/weather.html" style="--i:4">Weather</a>
+            <a href="../sitemap.html" style="--i:5">Sitemap</a>
+        </nav>
+    </div>
+
+    <main class="casino-container">
+        <header class="casino-header">
+            <h1>Flexo Casino</h1>
+            <div class="balance-display">Balance: <span id="balance">1000</span>$</div>
+        </header>
+
+        <div class="roulette-wheel-area">
+            <div id="wheel-result">?</div>
+            <p id="status-text">Place your bets!</p>
+        </div>
+
+        <div class="betting-table">
+            <div class="bet-options">
+                <button class="bet-btn red" data-bet="red">Red</button>
+                <button class="bet-btn green" data-bet="0">Green</button>
+                <button class="bet-btn black" data-bet="black">Black</button>
+            </div>
+            
+            <div class="bet-amount-selector">
+                <label>Bet Amount:</label>
+                <input type="number" id="bet-amount" value="10" min="1">
+            </div>
+
+            <button id="spin-btn" class="main-spin-btn">SPIN</button>
+        </div>
+
+        <footer class="main-footer">
+            <p>&copy; 2026 Jonatan Przewlocki. All rights reserved.</p>
+            <p>Gambling simulation for fun only.</p>
+        </footer>
+    </main>
+
+    <script src="roulette.js" defer></script>
+</body>
+</html>
