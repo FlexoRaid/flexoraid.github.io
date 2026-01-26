@@ -5,14 +5,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function closeMenu() {
         navOverlay.classList.remove('active');
-        // Pfad korrigiert
         toggleIcon.src = "../../icons/menu.png";
     }
 
     menuToggle.addEventListener('click', (e) => {
         e.stopPropagation();
         const active = navOverlay.classList.toggle('active');
-        // Pfade korrigiert
         toggleIcon.src = active ? "../../icons/exit.png" : "../../icons/menu.png";
     });
 
