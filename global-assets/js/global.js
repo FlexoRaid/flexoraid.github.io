@@ -24,9 +24,9 @@ document.addEventListener("DOMContentLoaded", function() {
         return isActive ? imgPath + "exit.png" : imgPath + iconName;
     }
 
-    // ===== FARBEN & THEMES =====
+    // ===== COLORS & THEMES =====
     const defaultThemes = {
-        'aqua-laguna': { // ✨ neu – ersetzt dark-blood
+        'aqua-laguna': {
             accent: '#00FFEF',
             bg1: '#006D66',
             bg2: '#001F1D'
@@ -40,10 +40,19 @@ document.addEventListener("DOMContentLoaded", function() {
             accent: '#ffff00',
             bg1: '#318145',
             bg2: '#01282b'
+        },
+        'bloodbath': {
+            accent: '#FF4040',
+            bg1: '#800000',
+            bg2: '#100000'
+        },
+        'nebula': {
+            accent: '#bd00ff',
+            bg1: '#140a1f',
+            bg2: '#000'
         }
     };
 
-    // Custom Colors – initial auf Deep Sea (weil das jetzt das Standard-Theme ist)
     let customColors = {
         accent: localStorage.getItem('customAccent') || '#48cae4',
         bg1: localStorage.getItem('customBg1') || '#023e8a',
@@ -56,7 +65,6 @@ document.addEventListener("DOMContentLoaded", function() {
         root.style.setProperty('--bg-color1', bg1);
         root.style.setProperty('--bg-color2', bg2);
         
-        // RGB-Wert für X‑Ray‑Karten
         const r = parseInt(accent.slice(1,3), 16);
         const g = parseInt(accent.slice(3,5), 16);
         const b = parseInt(accent.slice(5,7), 16);
@@ -110,7 +118,6 @@ document.addEventListener("DOMContentLoaded", function() {
     if (usingCustomTheme) {
         applyColors(customColors.accent, customColors.bg1, customColors.bg2);
     } else {
-        // 🎯 Standard-Theme ist jetzt Deep Sea (nicht mehr Dark Blood)
         const savedTheme = localStorage.getItem('selectedTheme') || 'deep-sea';
         applyTheme(savedTheme);
     }
@@ -396,8 +403,37 @@ document.addEventListener("DOMContentLoaded", function() {
         backToTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
     }
 
-    // ===== FLOATING LIGHT PARTICLES =====
+    // ===== FLOATING LIGHTS TOGGLE =====
+    const floatingToggle = document.getElementById('floating-lights-toggle');
     const lightCont = document.querySelector(".floating-lights");
+
+    let lightsEnabled = localStorage.getItem('floatingLights') !== 'false';
+
+    if (floatingToggle) {
+        floatingToggle.checked = lightsEnabled;
+        floatingToggle.addEventListener('change', function() {
+            lightsEnabled = this.checked;
+            localStorage.setItem('floatingLights', lightsEnabled);
+            if (lightCont) {
+                if (lightsEnabled) {
+                    lightCont.classList.remove('lights-hidden');
+                } else {
+                    lightCont.classList.add('lights-hidden');
+                }
+            }
+        });
+    }
+
+
+    if (lightCont) {
+        if (lightsEnabled) {
+            lightCont.classList.remove('lights-hidden');
+        } else {
+            lightCont.classList.add('lights-hidden');
+        }
+    }
+
+    // ===== FLOATING LIGHT PARTICLES =====
     if (lightCont) {
         const particles = [];
         const particleCount = 40;
