@@ -352,11 +352,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
     window.toggleXRay = function(active) {
         window.isXRayActive = active;
-        // Blackjack-Funktionen (falls vorhanden)
         if (typeof refreshDealerDisplay === 'function') refreshDealerDisplay();
         if (typeof updateFutureCard === 'function') updateFutureCard();
         if (typeof updateBars === 'function') updateBars();
-        // Poker-Funktion (falls vorhanden)
         if (typeof window.updateBotCardsVisibility === 'function') {
             window.updateBotCardsVisibility();
         }
