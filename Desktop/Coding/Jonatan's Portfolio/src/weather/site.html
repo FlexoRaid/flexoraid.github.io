@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Jonatan's Portfolio - About</title>
+    <link rel="shortcut icon" href="../../img/jp.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../global-assets/css/global.css">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <div class="floating-lights"></div> 
+
+    <button class="menu-toggle menu-button"> 
+        <img src="../../img/menu.png" alt="menu" class="toggle-icon menu-icon"> 
+    </button> 
+
+    <div class="overlay nav-overlay"> 
+        <nav class="mobile-nav"> 
+            <a href="../../index.html">Home</a> 
+            <a href="../about/site.html">About me</a> 
+            <a href="../projects/site.html">Projects</a> 
+            <a href="../../index.html#socials">Socials</a> 
+            <a href="../sitemap/site.html">Sitemap</a> 
+        </nav> 
+    </div>
+
+    <button class="settings-button"> 
+        <img src="../../img/settings.png" alt="settings" class="settings-icon toggle-icon"> 
+    </button> 
+
+    <div class="overlay settings-overlay"> 
+        <nav class="mobile-nav"> 
+            <h2>Settings</h2>
+            
+            <!-- Preset Themes -->
+            <div class="theme-section">
+                <h3>Preset Themes</h3>
+                <div class="theme-container">
+                    <label class="theme-option">
+                        <input type="radio" name="theme" id="dark-blood">
+                        <span>Dark Blood</span>
+                        <div class="color-dots">
+                            <span style="background: #b40000;"></span>
+                            <span style="background: #1a1a1b;"></span>
+                            <span style="background: #000000;"></span>
+                        </div>
+                    </label>
+
+                    <label class="theme-option">
+                        <input type="radio" name="theme" id="deep-sea">
+                        <span>Deep Sea</span>
+                        <div class="color-dots">
+                            <span style="background: #48cae4;"></span>
+                            <span style="background: #023e8a;"></span>
+                            <span style="background: #010214;"></span>
+                        </div>
+                    </label>
+
+                    <label class="theme-option">
+                        <input type="radio" name="theme" id="jungle">
+                        <span>Jungle</span>
+                        <div class="color-dots">
+                            <span style="background: yellow;"></span>
+                            <span style="background: #318145;"></span>
+                            <span style="background: #01282b;"></span>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Custom Colors -->
+            <div class="theme-section">
+                <h3>Custom Colors</h3>
+                <div class="custom-color-container">
+                    
+                    <div class="color-picker-row">
+                        <label for="custom-accent">Accent Color:</label>
+                        <div class="color-input-group">
+                            <input type="color" id="custom-accent" value="#b40000">
+                            <input type="text" id="custom-accent-hex" placeholder="#b40000" maxlength="7">
+
+                        </div>
+                    </div>
+
+                    <div class="color-picker-row">
+                        <label for="custom-bg1">Background 1:</label>
+                        <div class="color-input-group">
+                            <input type="color" id="custom-bg1" value="#1a1a1b">
+                            <input type="text" id="custom-bg1-hex" placeholder="#1a1a1b" maxlength="7">
+                        </div>
+                    </div>
+
+                    <div class="color-picker-row">
+                        <label for="custom-bg2">Background 2:</label>
+                        <div class="color-input-group">
+                            <input type="color" id="custom-bg2" value="#000000">
+                            <input type="text" id="custom-bg2-hex" placeholder="#000000" maxlength="7">
+                        </div>
+                    </div>
+
+                    <button id="apply-custom" class="apply-btn">Apply Custom Colors</button>
+                </div>
+            </div>
+        </nav> 
+    </div>
+
+
+    <main class="content-wrapper">
+        <div class="card weather-card">
+            
+            <header class="input-container">
+                <input class="city-input" type="text" placeholder="Search City..." autocomplete="off">
+                <button class="search-btn">
+                    <img class="icon search-icon-white" src="../../img/search.svg" alt="search">
+                </button>
+                <div id="search-suggestions" class="suggestions-box"></div>
+            </header>
+
+            <section class="current-weather">
+                <div class="location-info">
+                    <div class="loc-row">
+                        <h2 class="country-txt">--</h2>
+                    </div>
+                    <p class="sub-text" id="date">--</p>
+                </div>
+
+                <div class="main-display">
+                    <img src="../../img/Rain.svg" alt="weather" class="weather-icon-main">
+                    <div class="temp-wrap">
+                        <h1 id="Temperature">-- °C</h1>
+                        <p class="weather-desc" id="weather-type">--</p>
+                    </div>
+                </div>
+
+                <div class="stats-container">
+                    <div class="mini-stat">
+                        <img src="../../img/Humidity_Icon.svg" alt="Hum">
+                        <div class="stat-text">
+                            <span class="label">Humidity</span>
+                            <span id="Humidity-proc">--%</span>
+                        </div>
+                    </div>
+                    <div class="mini-stat">
+                        <img src="../../img/Air-Icon.svg" alt="Wind">
+                        <div class="stat-text">
+                            <span class="label">Wind Speed</span>
+                            <span id="Wind-speed">-- M/s</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="forecast-section">
+                <div class="forecast-grid" id="forecast-wrapper">
+                    </div>
+            </section>
+
+        </div>
+    </main>
+    
+    <footer>
+        <p>&copy; 2026 Jonatan Przewlocki. All rights reserved.</p>
+        <p>This website is open source on <a href="https://github.com/FlexoRaid" target="_blank">GitHub</a>.</p>
+    </footer>
+
+    <script src="../../global-assets/js/global.js"></script>
+    <script src="script.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html> 
+<html lang="de"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+    <title>Jonatan's Portfolio</title> 
+    <link rel="shortcut icon" href="../img/jp.png"> 
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet"> 
+    
+    <link rel="stylesheet" href="../../global-assets/css/global.css">
+    <link rel="stylesheet" href="style.css">
+
+</head> 
+<body>
+
+    <div class="floating-lights"></div> 
+
+    <button class="menu-toggle menu-button"> 
+        <img src="../../img/menu.png" alt="menu" class="toggle-icon menu-icon"> 
+    </button> 
+
+    <div class="overlay nav-overlay"> 
+        <nav class="mobile-nav"> 
+            <a href="../../index.html">Home</a> 
+            <a href="../about/site.html">About me</a> 
+            <a href="../weather/site.html">Weather</a> 
+            <a href="../../index.html#socials">Socials</a> 
+            <a href="../sitemap/site.html">Sitemap</a> 
+        </nav> 
+    </div>
+
+
+    <button class="settings-button"> 
+        <img src="../../img/settings.png" alt="settings" class="settings-icon toggle-icon"> 
+    </button> 
+
+    <div class="overlay settings-overlay"> 
+        <nav class="mobile-nav"> 
+            <h2>Settings</h2>
+            
+            <!-- Preset Themes -->
+            <div class="theme-section">
+                <h3>Preset Themes</h3>
+                <div class="theme-container">
+                    <label class="theme-option">
+                        <input type="radio" name="theme" id="dark-blood">
+                        <span>Dark Blood</span>
+                        <div class="color-dots">
+                            <span style="background: #b40000;"></span>
+                            <span style="background: #1a1a1b;"></span>
+                            <span style="background: #000000;"></span>
+                        </div>
+                    </label>
+
+                    <label class="theme-option">
+                        <input type="radio" name="theme" id="deep-sea">
+                        <span>Deep Sea</span>
+                        <div class="color-dots">
+                            <span style="background: #48cae4;"></span>
+                            <span style="background: #023e8a;"></span>
+                            <span style="background: #010214;"></span>
+                        </div>
+                    </label>
+
+                    <label class="theme-option">
+                        <input type="radio" name="theme" id="jungle">
+                        <span>Jungle</span>
+                        <div class="color-dots">
+                            <span style="background: yellow;"></span>
+                            <span style="background: #318145;"></span>
+                            <span style="background: #01282b;"></span>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Custom Colors -->
+            <div class="theme-section">
+                <h3>Custom Colors</h3>
+                <div class="custom-color-container">
+                    
+                    <div class="color-picker-row">
+                        <label for="custom-accent">Accent Color:</label>
+                        <div class="color-input-group">
+                            <input type="color" id="custom-accent" value="#b40000">
+                            <input type="text" id="custom-accent-hex" placeholder="#b40000" maxlength="7">
+
+                        </div>
+                    </div>
+
+                    <div class="color-picker-row">
+                        <label for="custom-bg1">Background 1:</label>
+                        <div class="color-input-group">
+                            <input type="color" id="custom-bg1" value="#1a1a1b">
+                            <input type="text" id="custom-bg1-hex" placeholder="#1a1a1b" maxlength="7">
+                        </div>
+                    </div>
+
+                    <div class="color-picker-row">
+                        <label for="custom-bg2">Background 2:</label>
+                        <div class="color-input-group">
+                            <input type="color" id="custom-bg2" value="#000000">
+                            <input type="text" id="custom-bg2-hex" placeholder="#000000" maxlength="7">
+                        </div>
+                    </div>
+
+                    <button id="apply-custom" class="apply-btn">Apply Custom Colors</button>
+                </div>
+            </div>
+        </nav> 
+    </div>
+
+    <header class="projects-header">
+        <h1>My Projects</h1>
+    </header>
+
+    <main class="projects-container">
+        <div class="table-scroll-container">
+            <div class="table-wrapper">
+                <table class="projects-table">
+                    <thead>
+                        <tr>
+                            <th>Project</th>
+                            <th class="hide-mobile">Description</th>
+                            <th>Link</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="project-info">
+                                    <img src="../../img/js.png" alt="Preview" class="project-img">
+                                    Weather App
+                                </div>
+                            </td>
+                            <td class="hide-mobile">Real-time weather data with dynamic glassmorphism effects.</td>
+                            <td><a href="https://github.com/FlexoRaid/flexoraid.github.io/tree/main/weather" class="github-link" target="_blank"><span>Repo</span> <i class="arrow">→</i></a></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="project-info">
+                                    <img src="../../img/js.png" alt="Preview" class="project-img">
+                                    Scroll-Trigger-GSAP
+                                </div>
+                            </td>
+                            <td class="hide-mobile">Interactive scroll-triggered animations using GSAP & JS.</td>
+                            <td><a href="https://github.com/FlexoRaid/Scroll-Trigger-GSAP/tree/main" class="github-link" target="_blank"><span>Repo</span> <i class="arrow">→</i></a></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="project-info">
+                                    <img src="../../img/python.png" alt="Preview" class="project-img">
+                                    Calculator
+                                </div>
+                            </td>
+                            <td class="hide-mobile">A fully functional calculator in python.</td>
+                            <td><a href="https://github.com/FlexoRaid/Calculator" class="github-link" target="_blank"><span>Repo</span> <i class="arrow">→</i></a></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="project-info">
+                                    <img src="../../img/js.png" alt="Preview" class="project-img">
+                                    Roulette
+                                </div>
+                            </td>
+                            <td class="hide-mobile">Fun Roulette game to play when you're bored</td>
+                            <td><a href="https://github.com/FlexoRaid/flexoraid.github.io/tree/main/sitemap/roulette" class="github-link" target="_blank"><span>Repo</span> <i class="arrow">→</i></a></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="project-info">
+                                    <img src="../../img/js.png" alt="Preview" class="project-img">
+                                    Blackjack
+                                </div>
+                            </td>
+                            <td class="hide-mobile">A card game with good Card design.</td>
+                            <td><a href="https://github.com/FlexoRaid/flexoraid.github.io/tree/main/sitemap/black-jack" class="github-link" target="_blank"><span>Repo</span> <i class="arrow">→</i></a></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="project-info">
+                                    <img src="../../img/js.png" alt="Preview" class="project-img">
+                                    Slots
+                                </div>
+                            </td>
+                            <td class="hide-mobile">Simple JS game.</td>
+                            <td><a href="https://github.com/FlexoRaid/flexoraid.github.io/tree/main/sitemap/slots" class="github-link" target="_blank"><span>Repo</span> <i class="arrow">→</i></a></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="project-info">
+                                    <img src="../../img/js.png" alt="Preview" class="project-img">
+                                    Poker
+                                </div>
+                            </td>
+                            <td class="hide-mobile">Bots programmed with KI</td>
+                            <td><a href="https://github.com/FlexoRaid/flexoraid.github.io/tree/main/sitemap/poker" class="github-link" target="_blank"><span>Repo</span> <i class="arrow">→</i></a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Jonatan Przewlocki. All rights reserved.</p>
+        <p>This website is open source on <a href="https://github.com/FlexoRaid" target="_blank">GitHub</a>.</p>
+    </footer>
+
+    <script src="../../global-assets/js/global.js"></script>
+    <script src="script.js" defer></script>
+</body>
+</html>

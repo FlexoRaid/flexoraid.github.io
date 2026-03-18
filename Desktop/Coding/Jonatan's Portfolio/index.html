@@ -1,0 +1,294 @@
+<!DOCTYPE html> 
+<html lang="de"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+    <title>Jonatan's Portfolio</title> 
+    <link rel="shortcut icon" href="../img/jp.png"> 
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet"> 
+    
+    <link rel="stylesheet" href="global-assets/css/global.css">
+    <link rel="stylesheet" href="src/home/style.css">
+
+</head> 
+<body>
+
+    <div class="floating-lights"></div> 
+
+    <button class="menu-toggle menu-button"> 
+        <img src="../img/menu.png" alt="menu" class="toggle-icon menu-icon"> 
+    </button> 
+
+    <div class="overlay nav-overlay"> 
+        <nav class="mobile-nav"> 
+            <a href="src/about/site.html">About me</a> 
+            <a href="src/projects/site.html">Projects</a> 
+            <a href="src/weather/site.html">Weather</a> 
+            <a href="#socials">Socials</a> 
+            <a href="src/sitemap/site.html">Sitemap</a> 
+        </nav> 
+    </div>
+    
+
+    <button class="settings-button"> 
+        <img src="img/settings.png" alt="settings" class="settings-icon toggle-icon"> 
+    </button> 
+
+    <div class="overlay settings-overlay"> 
+        <nav class="mobile-nav"> 
+            <h2>Settings</h2>
+            
+            <!-- Preset Themes -->
+            <div class="theme-section">
+                <h3>Preset Themes</h3>
+                <div class="theme-container">
+                    <label class="theme-option">
+                        <input type="radio" name="theme" id="dark-blood">
+                        <span>Dark Blood</span>
+                        <div class="color-dots">
+                            <span style="background: #b40000;"></span>
+                            <span style="background: #1a1a1b;"></span>
+                            <span style="background: #000000;"></span>
+                        </div>
+                    </label>
+
+                    <label class="theme-option">
+                        <input type="radio" name="theme" id="deep-sea">
+                        <span>Deep Sea</span>
+                        <div class="color-dots">
+                            <span style="background: #48cae4;"></span>
+                            <span style="background: #023e8a;"></span>
+                            <span style="background: #010214;"></span>
+                        </div>
+                    </label>
+
+                    <label class="theme-option">
+                        <input type="radio" name="theme" id="jungle">
+                        <span>Jungle</span>
+                        <div class="color-dots">
+                            <span style="background: yellow;"></span>
+                            <span style="background: #318145;"></span>
+                            <span style="background: #01282b;"></span>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Custom Colors -->
+            <div class="theme-section">
+                <h3>Custom Colors</h3>
+                <div class="custom-color-container">
+                    
+                    <div class="color-picker-row">
+                        <label for="custom-accent">Accent Color:</label>
+                        <div class="color-input-group">
+                            <input type="color" id="custom-accent" value="#b40000">
+                            <input type="text" id="custom-accent-hex" placeholder="#b40000" maxlength="7">
+
+                        </div>
+                    </div>
+
+                    <div class="color-picker-row">
+                        <label for="custom-bg1">Background 1:</label>
+                        <div class="color-input-group">
+                            <input type="color" id="custom-bg1" value="#1a1a1b">
+                            <input type="text" id="custom-bg1-hex" placeholder="#1a1a1b" maxlength="7">
+                        </div>
+                    </div>
+
+                    <div class="color-picker-row">
+                        <label for="custom-bg2">Background 2:</label>
+                        <div class="color-input-group">
+                            <input type="color" id="custom-bg2" value="#000000">
+                            <input type="text" id="custom-bg2-hex" placeholder="#000000" maxlength="7">
+                        </div>
+                    </div>
+
+                    <button id="apply-custom" class="apply-btn">Apply Custom Colors</button>
+                </div>
+            </div>
+        </nav> 
+    </div>
+
+    <header id="main-header"> 
+        <div class="Profile"> 
+            <div class="pic-container"> 
+                <img src="../img/profile.jpg" alt="Jonatan"> 
+                <div class="info-container"> 
+                    <p class="sub-text">Developer</p> 
+                    <h1>Hello, I am <br>Jonatan</h1>
+                    <p>Tending to be the best.</p>
+                </div>
+            </div>
+        </div> 
+    </header>
+
+    <main class="content-section">
+
+        <div class="section-center" id="about">
+            <h2>About Me</h2> 
+            <div class="card"> 
+                <p class="main-text">
+                    Hello! My name is Jonatan, I am <span id="age">16</span> years old and I come from Germany. 
+                    I have a strong passion for programming and technology, which has driven me to learn various programming languages such as HTML, CSS, JavaScript, Python, and C++. 
+                    In addition to coding, I enjoy playing video games and exploring new technologies. 
+                    My goal is to continuously improve his skills and contribute to exciting projects in the tech world. <a href="about/site.html">More...</a>
+                </p>
+            </div>
+        </div>
+        
+        <div class="section-center" id="section-1">
+            <h2>Programming Languages</h2> 
+            <div class="card"> 
+                <div class="data-row" data-tooltip="Not really a programming language, but I include it here anyway"> 
+                    <div class="data-info"> 
+                        <img class="data-icon animation" src="../img/html.png" alt="HTML"> 
+                        <span class="data-name">HTML</span>
+                    </div> 
+                    <div class="bar-container"> 
+                        <div class="bar-fill" style="--progress: 100%;"></div> 
+                    </div> 
+                    <div class="data-label">100%</div> 
+                </div> 
+
+                <div class="data-row" data-tooltip="Many people arguing that CSS isn't a programming language"> 
+                    <div class="data-info"> 
+                        <img class="data-icon animation" src="../img/css.png" alt="CSS"> 
+                        <span class="data-name">CSS</span>
+                    </div> 
+                    <div class="bar-container"> 
+                        <div class="bar-fill" style="--progress: 100%;"></div> 
+                    </div> 
+                    <div class="data-label">100%</div> 
+                </div> 
+
+                <div class="data-row"  data-tooltip="Currently Learning"> 
+                    <div class="data-info"> 
+                        <img class="data-icon animation" src="../img/js.png" alt="JavaScript"> 
+                        <span class="data-name">JavaScript</span>
+                    </div> 
+                    <div class="bar-container"> 
+                        <div class="bar-fill" style="--progress: 50%;"></div> 
+                    </div> 
+                    <div class="data-label">50%</div> 
+                </div>
+
+                <div class="data-row" data-tooltip="One of the most popular programming languages"> 
+                    <div class="data-info"> 
+                        <img class="data-icon animation" src="../img/python.png" alt="Python"> 
+                        <span class="data-name">Python</span>
+                    </div> 
+                    <div class="bar-container"> 
+                        <div class="bar-fill" style="--progress: 15%;"></div> 
+                    </div> 
+                    <div class="data-label">15%</div> 
+                </div>
+
+                <div class="data-row" data-tooltip="Currently Learning"> 
+                    <div class="data-info"> 
+                        <img class="data-icon animation" src="../img/c-.png" alt="C++"> 
+                        <span class="data-name">C++</span>
+                    </div> 
+                    <div class="bar-container"> 
+                        <div class="bar-fill" style="--progress: 10%;"></div> 
+                    </div> 
+                    <div class="data-label">10%</div> 
+                </div>
+            </div> 
+        </div>
+
+        <div class="section-center" id="section-2">
+            <h2>Languages</h2> 
+            <div class="card"> 
+                <div class="data-row" data-tooltip="C2"> 
+                    <div class="data-info"> 
+                        <img class="data-icon" src="../img/germany.png" alt="Deutsch"> 
+                        <span class="data-name">Deutsch</span>
+                    </div> 
+                    <div class="bar-container"> 
+                        <div class="bar-fill" style="--progress: 100%;"></div> 
+                    </div> 
+                    <div class="data-label">100%</div> 
+                </div> 
+
+                <div class="data-row" data-tooltip="C2"> 
+                    <div class="data-info"> 
+                        <img class="data-icon" src="../img/poland.png" alt="Polnisch"> 
+                        <span class="data-name">Polnisch</span>
+                    </div> 
+                    <div class="bar-container"> 
+                        <div class="bar-fill" style="--progress: 100%;"></div> 
+                    </div> 
+                    <div class="data-label">100%</div> 
+                </div> 
+
+                <div class="data-row" data-tooltip="B2"> 
+                    <div class="data-info"> 
+                        <img class="data-icon" src="../img/uk.png" alt="Englisch"> 
+                        <span class="data-name">Englisch</span>
+                    </div> 
+                    <div class="bar-container"> 
+                        <div class="bar-fill" style="--progress: 80%;"></div> 
+                    </div> 
+                    <div class="data-label">80%</div> 
+                </div>
+            </div> 
+        </div>
+
+        <div class="section-center" id="socials">
+            <h2>Contact | Socials</h2>
+            <div class="card">
+                <div class="socials-grid">
+                    <a class="social-box email" href="mailto:jonatanprzewlocki@gmail.com">
+                        <img class="data-icon" src="../img/mail.png" alt="Email">
+                        <span class="social-name">E-Mail</span>
+                    </a>
+
+                    <a class="social-box github" href="https://github.com/FlexoRaid" target="_blank">
+                        <img class="data-icon" src="../img/github.png" alt="GitHub">
+                        <span class="social-name">GitHub</span>
+                    </a>
+
+                    <a class="social-box instagram" href="https://www.instagram.com/jonatanp_0" target="_blank">
+                        <img class="data-icon instagram-icon" src="../img/instagram.png" alt="Instagram">
+                        <span class="social-name">Instagram</span>
+                    </a>
+
+                    <a class="social-box telegram" href="https://t.me/jonatanp_0" target="_blank">
+                        <img class="data-icon" src="../img/telegram.png" alt="Telegram">
+                        <span class="social-name">Telegram</span>
+                    </a>
+
+                    <a class="social-box tiktok" href="https://www.tiktok.com/@jonatanp_0" target="_blank">
+                        <img class="data-icon" src="../img/tiktok.png" alt="TikTok">
+                        <span class="social-name">TikTok</span>
+                    </a>
+
+                    <a class="social-box tiktok" href="https://x.com/jonatanp_0" target="_blank">
+                        <img class="data-icon" src="../img/x.png" alt="X">
+                        <span class="social-name">X</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Jonatan Przewlocki. All rights reserved.</p>
+        <p>This website is open source on <a href="https://github.com/FlexoRaid" target="_blank">GitHub</a>.</p>
+    </footer>
+
+    <button id="back-to-top" class="back-to-top">
+        <img src="img/arrow.png" alt="Nach oben">
+    </button>
+
+    <script src="global-assets/js/global.js"></script>
+    <script src="src/home/script.js" defer></script>
+    <script data-goatcounter="https://flexoraid.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body> 
+</html>

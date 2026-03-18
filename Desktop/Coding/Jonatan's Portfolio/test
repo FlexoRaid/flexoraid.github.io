@@ -1,0 +1,34 @@
+JONATANS PORTFOLIO
+├── global-assets/
+│   ├── css/
+│   │   └── global.css
+│   └── js/
+│       └── global.js
+├── img/
+└── src/
+    ├── about/
+    │   ├── script.js
+    │   ├── site.html
+    │   └── style.css
+    ├── home/
+    │   ├── script.js
+    │   └── style.css
+    ├── projects/
+    │   ├── script.js
+    │   ├── site.html
+    │   └── style.css
+    ├── sitemap/
+    │   ├── blackjack/
+    │   ├── donate/
+    │   ├── movie/
+    │   ├── poker/
+    │   ├── roulette/
+    │   ├── slots/
+    │   ├── script.js
+    │   ├── site.html
+    │   └── style.css
+    ├── weather/
+    │   ├── script.js
+    │   ├── site.html
+    │   └── style.css
+    └── index.html
