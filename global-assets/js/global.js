@@ -55,7 +55,6 @@ document.addEventListener("DOMContentLoaded", function() {
         root.style.setProperty('--bg-color1', bg1);
         root.style.setProperty('--bg-color2', bg2);
         
-        // RGB-Wert für die Akzentfarbe berechnen (für X-Ray-Karten)
         const r = parseInt(accent.slice(1,3), 16);
         const g = parseInt(accent.slice(3,5), 16);
         const b = parseInt(accent.slice(5,7), 16);
@@ -358,17 +357,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
     window.toggleXRay = function(active) {
         window.isXRayActive = active;
-        // Blackjack-Funktionen
         if (typeof refreshDealerDisplay === 'function') refreshDealerDisplay();
         if (typeof updateFutureCard === 'function') updateFutureCard();
         if (typeof updateBars === 'function') updateBars();
-        // Poker-Funktion
         if (typeof window.updateBotCardsVisibility === 'function') {
             window.updateBotCardsVisibility();
         }
     };
 
-    // Fallback addMoney – wird von spielspezifischen Skripten überschrieben
     window.addMoney = function() {
         console.warn("addMoney() wurde aufgerufen, aber kein Spiel hat eine eigene Funktion bereitgestellt.");
         alert("Geld hinzufügen ist auf dieser Seite nicht verfügbar.");
