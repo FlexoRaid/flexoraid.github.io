@@ -1,0 +1,183 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+h1 {
+    margin-top: 50px;
+}
+
+.donate-wrapper {
+    flex: 1 0 auto;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+    width: 92%;
+    max-width: 700px;
+    text-align: center;
+}
+
+.profile-mini h1 {
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    font-family: "Crimson Text", serif;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.card {
+    padding: clamp(15px, 3vw, 40px);
+    border: 1px solid var(--border-ui);
+    border-radius: var(--radius-ui);
+    background: var(--bg-card);
+    backdrop-filter: blur(var(--blur-ui));
+}
+
+.main-text {
+    font-size: clamp(0.9rem, 2vw, 1.3rem);
+    font-family: "Crimson Text", serif;
+    line-height: 1.5;
+    opacity: 0.9;
+}
+
+.text-btn {
+    background: none;
+    border: none;
+    color: var(--color-accent);
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: 0.3s;
+    padding: 5px 0;
+}
+
+.text-btn:hover {
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px var(--color-accent);
+}
+
+.popover-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(15px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20000;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.4s;
+}
+
+.popover-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popover-content {
+    background: var(--bg-color2);
+    border: 1px solid var(--border-ui);
+    border-radius: 30px;
+    padding: 35px;
+    width: 95%;
+    max-width: 650px;
+    position: relative;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+    transform: scale(0.9);
+    transition: 0.4s;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.popover-overlay.active .popover-content {
+    transform: scale(1);
+}
+
+.close-popover {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2.2rem;
+    cursor: pointer;
+    z-index: 20001;
+}
+
+.popover-img {
+    width: 100%;
+    height: auto;
+    max-height: 450px;
+    object-fit: contain;
+    border-radius: 20px;
+    margin: 15px 0;
+    border: 1px solid var(--border-ui);
+    background: rgba(0,0,0,0.2);
+}
+
+.specs-list {
+    list-style: none;
+    text-align: left;
+    font-size: clamp(0.85rem, 1.5vw, 1rem);
+    line-height: 1.8;
+    margin-top: 15px;
+}
+
+.info-txt {
+    font-size: 0.85rem;
+    opacity: 0.7;
+    margin-top: 5px;
+    color: var(--color-accent);
+}
+
+.info-a {
+    color: var(--color-accent);
+}
+
+.specs-list li {
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    padding: 8px 0;
+}
+
+.paypal-container {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.paypal-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--color-accent);
+    padding: 12px 50px;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.paypal-box:hover {
+    transform: translateY(-5px);
+}
+
+.paypal-box img {
+    width: 45px;
+}
+
+footer {
+    flex-shrink: 0;
+}
+
+@media (max-width: 600px) {
+    .popover-content { padding: 20px; }
+    .popover-img { max-height: 300px; }
+}
+
+@media (max-height: 750px) {
+    html, body { overflow-y: auto; }
+    .donate-wrapper { padding: 60px 0; }
+}

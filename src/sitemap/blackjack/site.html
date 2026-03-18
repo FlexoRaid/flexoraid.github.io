@@ -1,0 +1,217 @@
+<!DOCTYPE html> 
+<html lang="de"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+    <title>Jonatan's Portfolio</title> 
+    <link rel="shortcut icon" href="../img/jp.png"> 
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet"> 
+    
+    <link rel="stylesheet" href="../../../global-assets/css/global.css">
+    <link rel="stylesheet" href="style.css">
+
+</head> 
+<body>
+
+    <div class="floating-lights"></div> 
+
+    <button class="menu-toggle menu-button"> 
+        <img src="../../../img/menu.png" alt="menu" class="toggle-icon menu-icon"> 
+    </button> 
+
+    <div class="overlay nav-overlay"> 
+        <nav class="mobile-nav"> 
+            <a href="../../../index.html">Home</a> 
+            <a href="../../about/site.html">About me</a> 
+            <a href="../../weather/site.html">Weather</a> 
+            <a href="../../index.html#socials">Socials</a> 
+            <a href="../site.html">Sitemap</a> 
+        </nav> 
+    </div>
+
+
+    <button class="settings-button"> 
+        <img src="../../../img/settings.png" alt="settings" class="settings-icon toggle-icon"> 
+    </button> 
+
+    <div class="overlay settings-overlay"> 
+        <nav class="mobile-nav"> 
+            <h2>Settings</h2>
+            
+            <!-- Preset Themes -->
+            <div class="theme-section">
+                <h3>Preset Themes</h3>
+                <div class="theme-container">
+                    <label class="theme-option">
+                        <input type="radio" name="theme" id="dark-blood">
+                        <span>Dark Blood</span>
+                        <div class="color-dots">
+                            <span style="background: #b40000;"></span>
+                            <span style="background: #1a1a1b;"></span>
+                            <span style="background: #000000;"></span>
+                        </div>
+                    </label>
+
+                    <label class="theme-option">
+                        <input type="radio" name="theme" id="deep-sea">
+                        <span>Deep Sea</span>
+                        <div class="color-dots">
+                            <span style="background: #48cae4;"></span>
+                            <span style="background: #023e8a;"></span>
+                            <span style="background: #010214;"></span>
+                        </div>
+                    </label>
+
+                    <label class="theme-option">
+                        <input type="radio" name="theme" id="jungle">
+                        <span>Jungle</span>
+                        <div class="color-dots">
+                            <span style="background: yellow;"></span>
+                            <span style="background: #318145;"></span>
+                            <span style="background: #01282b;"></span>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Custom Colors -->
+            <div class="theme-section">
+                <h3>Custom Colors</h3>
+                <div class="custom-color-container">
+                    
+                    <div class="color-picker-row">
+                        <label for="custom-accent">Accent Color:</label>
+                        <div class="color-input-group">
+                            <input type="color" id="custom-accent" value="#b40000">
+                            <input type="text" id="custom-accent-hex" placeholder="#b40000" maxlength="7">
+
+                        </div>
+                    </div>
+
+                    <div class="color-picker-row">
+                        <label for="custom-bg1">Background 1:</label>
+                        <div class="color-input-group">
+                            <input type="color" id="custom-bg1" value="#1a1a1b">
+                            <input type="text" id="custom-bg1-hex" placeholder="#1a1a1b" maxlength="7">
+                        </div>
+                    </div>
+
+                    <div class="color-picker-row">
+                        <label for="custom-bg2">Background 2:</label>
+                        <div class="color-input-group">
+                            <input type="color" id="custom-bg2" value="#000000">
+                            <input type="text" id="custom-bg2-hex" placeholder="#000000" maxlength="7">
+                        </div>
+                    </div>
+
+                    <button id="apply-custom" class="apply-btn">Apply Custom Colors</button>
+                </div>
+            </div>
+        </nav> 
+    </div>
+    
+    <aside class="value-table section-center visible">
+        <div class="table-header">
+            <span>Card</span>
+            <span>Value</span>
+        </div>
+        <div class="value-grid">
+            <span>2-10</span> <span class="stat-value">Face</span>
+            <span>J, Q, K</span> <span class="stat-value">10</span>
+            <span>A</span> <span class="stat-value">11</span>
+        </div>
+    </aside>
+
+
+    <main class="casino-container">
+        <header class="casino-header">
+            <h1>Flexo Blackjack</h1>
+            <div class="balance-display" id="balance-trigger">
+                Balance: <span id="balance">1000</span>$
+            </div>
+        </header>
+
+        <div class="game-area section-center visible">
+            <div class="dealer-section">
+                <div class="data-row">
+                    <span class="stat-label">Dealer</span>
+                    <div class="bar-container"><div class="bar-fill" id="dealer-bar" style="--progress: 0%"></div></div>
+                    <span id="dealer-score" class="data-label">0</span>
+                </div>
+                <div id="dealer-cards" class="card-container"></div>
+            </div>
+
+            <p id="status-text" class="status-msg">Place your bet and Deal!</p>
+
+            <div class="player-section">
+                <div style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%;">
+                    <div id="player-cards" class="card-container" style="width: auto; margin: 0;"></div>
+                    <div id="future-card-display" style="display: none;">
+                        <div id="next-card-preview" class="card-container" style="min-height: auto; margin: 0;"></div>
+                    </div>
+                </div>
+                <div class="data-row">
+                    <span class="stat-label">You</span>
+                    <div class="bar-container"><div class="bar-fill" id="player-bar" style="--progress: 0%"></div></div>
+                    <span id="player-score" class="data-label">0</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="betting-table-card section-center visible">
+            <div id="game-actions" class="bet-options" style="display: none;">
+                <button id="hit-btn" class="bet-btn black">Hit</button>
+                <button id="stand-btn" class="bet-btn red">Stand</button>
+            </div>
+
+            <div id="bet-controls">
+                <input type="number" id="bet-amount" value="100" min="0" step="100">
+                <button id="deal-btn" class="main-spin-btn">
+                    <span id="btn-text">DEAL</span>
+                </button>
+            </div>
+        </div>
+    </main>
+
+
+    <footer>
+        <p>&copy; 2026 Jonatan Przewlocki. All rights reserved.</p>
+        <p>This website is open source on <a href="https://github.com/FlexoRaid" target="_blank">GitHub</a>.</p>
+    </footer>
+
+    <button id="admin-trigger" class="admin-btn">
+        <img src="../../../img/cash.png" alt="admin" class="admin-icon">
+    </button>
+
+    <div id="admin-overlay" class="overlay">
+        <div class="admin-panel">
+            <h2 id="admin-title">Security Check</h2>
+            <div id="step-password">
+                <input type="password" id="admin-pw" maxlength="6" placeholder="******">
+                <button onclick="checkAdminPw()" class="main-spin-btn" style="padding: 10px 30px; margin-top: 15px; width: auto; display: inline-block;">Verify</button>
+            </div>
+            <div id="step-money" style="display: none;">
+                <p>Enter Amount:</p>
+                <input type="number" id="money-amount" placeholder="99999" min="0" step="1000">
+                <button onclick="addMoney()" class="main-spin-btn" style="padding: 10px 30px; margin-top: 15px; width: auto; display: inline-block;">Add Money</button>
+                <div class="admin-feature-row" style="margin-top: 25px; border-top: 1px solid var(--border-ui); padding-top: 15px;">
+                    <p style="font-size: 0.9rem; color: #888; margin-bottom: 10px;">X-Ray Mode</p>
+                    <label class="switch">
+                        <input type="checkbox" id="xray-toggle" onchange="toggleXRay(this.checked)">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+            <button class="close-admin" onclick="closeAdmin()">Close</button>
+        </div>
+    </div>
+
+    <script src="../../../global-assets/js/global.js"></script>
+    <script src="script.js" defer></script>
+</body>
+</html>
