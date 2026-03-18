@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function() {
         return isActive ? imgPath + "exit.png" : imgPath + iconName;
     }
 
-    // ===== COlOR & THEMES =====
+    // ===== FARBEN & THEMES =====
     const defaultThemes = {
         'dark-blood': {
             accent: '#b40000',
@@ -55,6 +55,12 @@ document.addEventListener("DOMContentLoaded", function() {
         root.style.setProperty('--bg-color1', bg1);
         root.style.setProperty('--bg-color2', bg2);
         
+        // RGB-Wert für die Akzentfarbe berechnen (für X-Ray-Karten)
+        const r = parseInt(accent.slice(1,3), 16);
+        const g = parseInt(accent.slice(3,5), 16);
+        const b = parseInt(accent.slice(5,7), 16);
+        root.style.setProperty('--color-accent-rgb', `${r}, ${g}, ${b}`);
+
         document.querySelectorAll('.floating-lights span').forEach(span => {
             span.style.boxShadow = `0 0 10px rgba(255, 255, 255, 0.4), 0 0 20px ${accent}`;
         });
@@ -352,26 +358,20 @@ document.addEventListener("DOMContentLoaded", function() {
 
     window.toggleXRay = function(active) {
         window.isXRayActive = active;
+        // Blackjack-Funktionen
         if (typeof refreshDealerDisplay === 'function') refreshDealerDisplay();
         if (typeof updateFutureCard === 'function') updateFutureCard();
         if (typeof updateBars === 'function') updateBars();
+        // Poker-Funktion
         if (typeof window.updateBotCardsVisibility === 'function') {
             window.updateBotCardsVisibility();
         }
     };
 
+    // Fallback addMoney – wird von spielspezifischen Skripten überschrieben
     window.addMoney = function() {
-        if (moneyAmountInput) {
-            const val = parseInt(moneyAmountInput.value);
-            if (!isNaN(val) && typeof balance !== 'undefined') {
-                balance += val;
-                if (typeof elements !== 'undefined' && elements.balance) {
-                    elements.balance.innerText = balance;
-                }
-                alert(`${val}$ added!`);
-                window.closeAdmin();
-            }
-        }
+        console.warn("addMoney() wurde aufgerufen, aber kein Spiel hat eine eigene Funktion bereitgestellt.");
+        alert("Geld hinzufügen ist auf dieser Seite nicht verfügbar.");
     };
 
     if (adminPwInput) {
