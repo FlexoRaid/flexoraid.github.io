@@ -26,10 +26,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // ===== FARBEN & THEMES =====
     const defaultThemes = {
-        'dark-blood': {
-            accent: '#b40000',
-            bg1: '#1a1a1b',
-            bg2: '#000000'
+        'aqua-laguna': { // ✨ neu – ersetzt dark-blood
+            accent: '#00FFEF',
+            bg1: '#006D66',
+            bg2: '#001F1D'
         },
         'deep-sea': {
             accent: '#48cae4',
@@ -43,10 +43,11 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     };
 
+    // Custom Colors – initial auf Deep Sea (weil das jetzt das Standard-Theme ist)
     let customColors = {
-        accent: localStorage.getItem('customAccent') || '#b40000',
-        bg1: localStorage.getItem('customBg1') || '#1a1a1b',
-        bg2: localStorage.getItem('customBg2') || '#000000'
+        accent: localStorage.getItem('customAccent') || '#48cae4',
+        bg1: localStorage.getItem('customBg1') || '#023e8a',
+        bg2: localStorage.getItem('customBg2') || '#010214'
     };
 
     function applyColors(accent, bg1, bg2) {
@@ -55,6 +56,7 @@ document.addEventListener("DOMContentLoaded", function() {
         root.style.setProperty('--bg-color1', bg1);
         root.style.setProperty('--bg-color2', bg2);
         
+        // RGB-Wert für X‑Ray‑Karten
         const r = parseInt(accent.slice(1,3), 16);
         const g = parseInt(accent.slice(3,5), 16);
         const b = parseInt(accent.slice(5,7), 16);
@@ -108,7 +110,8 @@ document.addEventListener("DOMContentLoaded", function() {
     if (usingCustomTheme) {
         applyColors(customColors.accent, customColors.bg1, customColors.bg2);
     } else {
-        const savedTheme = localStorage.getItem('selectedTheme') || 'dark-blood';
+        // 🎯 Standard-Theme ist jetzt Deep Sea (nicht mehr Dark Blood)
+        const savedTheme = localStorage.getItem('selectedTheme') || 'deep-sea';
         applyTheme(savedTheme);
     }
 
