@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function() {
         return isActive ? imgPath + "exit.png" : imgPath + iconName;
     }
 
-    // ===== FARBEN & THEMES =====
+    // ===== COlOR & THEMES =====
     const defaultThemes = {
         'dark-blood': {
             accent: '#b40000',
@@ -350,7 +350,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     };
 
-    // Verbesserte toggleXRay – aktualisiert auch Poker-Karten
     window.toggleXRay = function(active) {
         window.isXRayActive = active;
         // Blackjack-Funktionen (falls vorhanden)
