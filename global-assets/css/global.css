@@ -47,6 +47,132 @@ h2 {
     margin-bottom: 30px;
 }
 
+/* NEBULA */
+.nebula-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.nebula-layer {
+  position: absolute;
+  inset: -10%;
+  opacity: 0.12;
+  filter: blur(70px);
+  animation: nebula-drift 80s infinite alternate ease-in-out;
+  will-change: transform;
+}
+
+.layer-1 {
+  background: 
+    radial-gradient(circle at 20% 30%, var(--color-accent) 0%, transparent 25%),
+    radial-gradient(circle at 80% 70%, var(--bg-color1) 0%, transparent 30%),
+    radial-gradient(circle at 40% 80%, var(--bg-color2) 0%, transparent 20%);
+}
+
+.layer-2 {
+  background: 
+    radial-gradient(circle at 70% 20%, var(--bg-color1) 0%, transparent 25%),
+    radial-gradient(circle at 30% 60%, var(--color-accent) 0%, transparent 30%),
+    radial-gradient(circle at 90% 40%, var(--bg-color2) 0%, transparent 20%);
+  opacity: 0.1;
+  filter: blur(80px);
+  animation-duration: 95s;
+  animation-delay: -5s;
+}
+
+.layer-3 {
+  background: 
+    radial-gradient(circle at 10% 80%, var(--bg-color2) 0%, transparent 25%),
+    radial-gradient(circle at 60% 30%, var(--color-accent) 0%, transparent 30%),
+    radial-gradient(circle at 85% 85%, var(--bg-color1) 0%, transparent 20%);
+  opacity: 0.09;
+  filter: blur(65px);
+  animation-duration: 70s;
+  animation-delay: -15s;
+}
+
+.layer-4 {
+  background: 
+    radial-gradient(circle at 45% 50%, var(--color-accent) 0%, transparent 20%),
+    radial-gradient(circle at 75% 15%, var(--bg-color1) 0%, transparent 25%),
+    radial-gradient(circle at 25% 70%, var(--bg-color2) 0%, transparent 30%);
+  opacity: 0.11;
+  filter: blur(75px);
+  animation-duration: 110s;
+  animation-delay: -25s;
+}
+
+.layer-5 {
+  background: 
+    radial-gradient(circle at 55% 35%, var(--bg-color2) 0%, transparent 25%),
+    radial-gradient(circle at 15% 90%, var(--color-accent) 0%, transparent 20%),
+    radial-gradient(circle at 95% 55%, var(--bg-color1) 0%, transparent 30%);
+  opacity: 0.08;
+  filter: blur(90px);
+  animation-duration: 85s;
+  animation-delay: -35s;
+}
+
+.layer-6 {
+  background: 
+    radial-gradient(circle at 65% 75%, var(--bg-color1) 0%, transparent 25%),
+    radial-gradient(circle at 35% 25%, var(--bg-color2) 0%, transparent 30%),
+    radial-gradient(circle at 5% 45%, var(--color-accent) 0%, transparent 20%);
+  opacity: 0.1;
+  filter: blur(70px);
+  animation-duration: 120s;
+  animation-delay: -45s;
+}
+
+@keyframes nebula-drift {
+  0% { transform: scale(1) translate(0%, 0%) rotate(0deg); }
+  100% { transform: scale(1.15) translate(2%, 3%) rotate(2deg); }
+}
+
+/* === SPACE PNG OBJECTS === */
+.space-objects {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.comet-container {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 100;
+}
+
+.space-objects img,
+.comet-container img {
+    position: absolute;
+    width: 60px;
+    height: auto;
+    opacity: 0.5;
+    transform: translate(-50%, -50%);
+    will-change: transform;
+}
+
+.comet-container img {
+    width: 40px;
+    opacity: 0.6;
+}
+
+.space-objects img, .comet-container img {
+    filter: invert(1);
+}
+
+.space-objects.hidden,
+.comet-container.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
 /* floating lights */
 
 .floating-lights { 
@@ -757,6 +883,7 @@ input:checked + .slider:before {
     justify-content: space-between;
     gap: 20px;
     padding: 18px 25px;
+    margin: 0 0 15px 0;
     background: rgba(255, 255, 255, 0.05);
     border-radius: 25px;
     cursor: pointer;

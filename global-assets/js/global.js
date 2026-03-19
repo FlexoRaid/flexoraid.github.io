@@ -408,35 +408,14 @@ document.addEventListener("DOMContentLoaded", function() {
     const lightCont = document.querySelector(".floating-lights");
 
     let lightsEnabled = localStorage.getItem('floatingLights') !== 'false';
+    let lightsAnimationFrame = null;
 
-    if (floatingToggle) {
-        floatingToggle.checked = lightsEnabled;
-        floatingToggle.addEventListener('change', function() {
-            lightsEnabled = this.checked;
-            localStorage.setItem('floatingLights', lightsEnabled);
-            if (lightCont) {
-                if (lightsEnabled) {
-                    lightCont.classList.remove('lights-hidden');
-                } else {
-                    lightCont.classList.add('lights-hidden');
-                }
-            }
-        });
-    }
-
-
-    if (lightCont) {
-        if (lightsEnabled) {
-            lightCont.classList.remove('lights-hidden');
-        } else {
-            lightCont.classList.add('lights-hidden');
-        }
-    }
-
-    // ===== FLOATING LIGHT PARTICLES =====
-    if (lightCont) {
+    function startLightsAnimation() {
+        if (!lightCont) return;
+        if (!lightsEnabled) return; 
+        
         const particles = [];
-        const particleCount = 40;
+        const particleCount = 20;
 
         function createParticles() {
             lightCont.innerHTML = "";
@@ -450,7 +429,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 Object.assign(s.style, { 
                     width: size + "px", 
                     height: size + "px",
-                    opacity: Math.random() * 0.5 + 0.3
+                    opacity: Math.random() * 0.5 + 0.2
                 });
                 
                 s.style.boxShadow = `0 0 10px rgba(255, 255, 255, 0.4), 0 0 20px ${accentColor}`;
@@ -458,7 +437,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 let x = Math.random() * window.innerWidth;
                 let y = Math.random() * window.innerHeight;
                 const ang = Math.random() * 2 * Math.PI;
-                const spd = 0.3 + Math.random() * 0.5;
+                const spd = 0.2 + Math.random() * 0.3;
 
                 lightCont.appendChild(s);
                 particles.push({ el: s, x, y, sx: Math.cos(ang) * spd, sy: Math.sin(ang) * spd });
@@ -466,10 +445,9 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         createParticles();
-        window.addEventListener('resize', createParticles);
 
         function animate() {
-            particles.forEach(p => {
+            for (let p of particles) {
                 p.x += p.sx; 
                 p.y += p.sy;
                 
@@ -479,9 +457,258 @@ document.addEventListener("DOMContentLoaded", function() {
                 if (p.y > window.innerHeight) p.y = 0;
 
                 p.el.style.transform = `translate3d(${p.x}px, ${p.y}px, 0)`;
-            });
-            requestAnimationFrame(animate);
+            }
+            lightsAnimationFrame = requestAnimationFrame(animate);
         }
         animate();
+
+        function onResize() {
+            if (lightsEnabled) {
+                createParticles();
+            }
+        }
+        window.addEventListener('resize', onResize);
+    }
+
+    function stopLightsAnimation() {
+        if (lightsAnimationFrame) {
+            cancelAnimationFrame(lightsAnimationFrame);
+            lightsAnimationFrame = null;
+        }
+        if (lightCont) {
+            lightCont.innerHTML = "";
+        }
+    }
+
+    function updateFloatingLightsVisibility() {
+        if (lightsEnabled) {
+            startLightsAnimation();
+        } else {
+            stopLightsAnimation();
+        }
+        if (floatingToggle) floatingToggle.checked = lightsEnabled;
+        localStorage.setItem('floatingLights', lightsEnabled);
+    }
+
+    updateFloatingLightsVisibility();
+
+    if (floatingToggle) {
+        floatingToggle.addEventListener('change', function(e) {
+            lightsEnabled = e.target.checked;
+            updateFloatingLightsVisibility();
+            updateAllToggle();
+        });
+    }
+
+    // ===== PARTICLE TOGGLES (All, Comets, Planets) =====
+    const allToggle = document.getElementById('particles-all-toggle');
+    const cometsToggle = document.getElementById('comets-toggle');
+    const planetsToggle = document.getElementById('planets-toggle');
+    const planetContainer = document.querySelector('.space-objects');
+    const cometContainer = document.querySelector('.comet-container');
+
+    let cometsEnabled = localStorage.getItem('particlesComets') !== 'false';
+    let planetsEnabled = localStorage.getItem('particlesPlanets') !== 'false';
+
+    let planetsAnimationFrame = null;
+    let planets = [];
+
+    function startPlanetsAnimation() {
+        if (!planetsEnabled) return;
+        function animate() {
+            if (!planetsEnabled) return;
+            for (let p of planets) {
+                p.angle += p.speed;
+                const x = p.centerX + Math.cos(p.angle) * p.radiusX;
+                const y = p.centerY + Math.sin(p.angle) * p.radiusY;
+                p.img.style.left = x + 'px';
+                p.img.style.top = y + 'px';
+            }
+            planetsAnimationFrame = requestAnimationFrame(animate);
+        }
+        animate();
+    }
+
+    function stopPlanetsAnimation() {
+        if (planetsAnimationFrame) {
+            cancelAnimationFrame(planetsAnimationFrame);
+            planetsAnimationFrame = null;
+        }
+    }
+
+    function updatePlanetsVisibility() {
+        if (planetContainer) {
+            if (planetsEnabled) {
+                planetContainer.classList.remove('hidden');
+                startPlanetsAnimation();
+            } else {
+                planetContainer.classList.add('hidden');
+                stopPlanetsAnimation();
+            }
+        }
+        if (planetsToggle) planetsToggle.checked = planetsEnabled;
+        localStorage.setItem('particlesPlanets', planetsEnabled);
+    }
+
+    // Kometen
+    let activeComets = 0;
+    const MAX_COMETS = 2;
+    let cometScheduleTimeout = null;
+
+    function createComet() {
+        if (!cometsEnabled || activeComets >= MAX_COMETS) return;
+        activeComets++;
+
+        const img = document.createElement('img');
+        img.src = imgPath + 'comet.png';
+        img.alt = 'Comet';
+
+        const fromTop = Math.random() < 0.5;
+        let startX, startY;
+
+        if (fromTop) {
+            startX = Math.random() * window.innerWidth;
+            startY = -60;
+        } else {
+            startX = -60;
+            startY = Math.random() * window.innerHeight;
+        }
+
+        img.style.left = startX + 'px';
+        img.style.top = startY + 'px';
+
+        const baseSpeed = 1.5 + Math.random() * 2;
+        let speedX = baseSpeed * (0.7 + Math.random() * 0.6);
+        let speedY = baseSpeed * (0.7 + Math.random() * 0.6);
+
+        let rotation = Math.random() * 360;
+        const rotSpeed = (Math.random() - 0.5) * 4;
+
+        cometContainer.appendChild(img);
+
+        function animateComet() {
+            if (!cometsEnabled) {
+                img.remove();
+                activeComets--;
+                return;
+            }
+            const currentLeft = parseFloat(img.style.left);
+            const currentTop = parseFloat(img.style.top);
+            const newLeft = currentLeft + speedX;
+            const newTop = currentTop + speedY;
+            img.style.left = newLeft + 'px';
+            img.style.top = newTop + 'px';
+
+            rotation += rotSpeed;
+            img.style.transform = `translate(-50%, -50%) rotate(${rotation}deg)`;
+
+            if (newLeft < window.innerWidth + 200 && newTop < window.innerHeight + 200) {
+                requestAnimationFrame(animateComet);
+            } else {
+                img.remove();
+                activeComets--;
+            }
+        }
+        requestAnimationFrame(animateComet);
+    }
+
+    function scheduleComet() {
+        if (!cometsEnabled) return;
+        const delay = 5000 + Math.random() * 7000;
+        cometScheduleTimeout = setTimeout(() => {
+            createComet();
+            scheduleComet();
+        }, delay);
+    }
+
+    function stopComets() {
+        if (cometScheduleTimeout) {
+            clearTimeout(cometScheduleTimeout);
+            cometScheduleTimeout = null;
+        }
+        if (cometContainer) {
+            cometContainer.innerHTML = '';
+        }
+        activeComets = 0;
+    }
+
+    function updateCometsVisibility() {
+        if (cometsEnabled) {
+            cometContainer.classList.remove('hidden');
+            scheduleComet();
+        } else {
+            cometContainer.classList.add('hidden');
+            stopComets();
+        }
+        if (cometsToggle) cometsToggle.checked = cometsEnabled;
+        localStorage.setItem('particlesComets', cometsEnabled);
+    }
+
+    function updateAllToggle() {
+        if (allToggle) {
+            allToggle.checked = cometsEnabled && planetsEnabled && lightsEnabled;
+        }
+    }
+
+    if (planetContainer) {
+        const planetFiles = ['planet1.png', 'planet2.png', 'planet3.png'];
+
+        planetFiles.forEach((file, index) => {
+            const img = document.createElement('img');
+            img.src = imgPath + file;
+            img.alt = 'Planet';
+            planetContainer.appendChild(img);
+
+            const centerX = window.innerWidth / 2;
+            const centerY = window.innerHeight / 2;
+            const radiusX = 350 + index * 100;
+            const radiusY = 220 + index * 80;
+            const speed = 0.001 + index * 0.0002;
+            let angle = index * (Math.PI / 1.5);
+
+            planets.push({ img, centerX, centerY, radiusX, radiusY, speed, angle });
+        });
+
+        window.addEventListener('resize', () => {
+            planets.forEach(p => {
+                p.centerX = window.innerWidth / 2;
+                p.centerY = window.innerHeight / 2;
+            });
+        });
+    }
+
+    updatePlanetsVisibility();
+    updateCometsVisibility();
+    updateAllToggle();
+
+    if (planetsToggle) {
+        planetsToggle.addEventListener('change', function(e) {
+            planetsEnabled = e.target.checked;
+            updatePlanetsVisibility();
+            updateAllToggle();
+        });
+    }
+
+    if (cometsToggle) {
+        cometsToggle.addEventListener('change', function(e) {
+            cometsEnabled = e.target.checked;
+            updateCometsVisibility();
+            updateAllToggle();
+        });
+    }
+
+    if (allToggle) {
+        allToggle.addEventListener('change', function(e) {
+            const newState = e.target.checked;
+            // Floating Lights
+            lightsEnabled = newState;
+            updateFloatingLightsVisibility();
+            // Comets
+            cometsEnabled = newState;
+            updateCometsVisibility();
+            // Planets
+            planetsEnabled = newState;
+            updatePlanetsVisibility();
+        });
     }
 });
