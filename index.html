@@ -32,6 +32,21 @@
 
     <div class="floating-lights"></div> 
 
+    <!-- Last.fm Widget -->
+    <div class="lastfm-handle" id="lastfm-handle"></div>
+    <div class="lastfm-widget" id="lastfm-widget">
+        <div class="lastfm-content">
+            <img id="track-image" src="" alt="Album cover">
+            <div class="track-info">
+                <div class="track-details">
+                    <a id="track-link" href="#" target="_blank"><span id="track-name">Lade…</span></a>
+                    <span id="track-artist">-</span>
+                </div>
+                <div id="status-label" class="status">-</div>
+            </div>
+        </div>
+    </div>
+
     <button class="menu-toggle menu-button"> 
         <img src="../img/menu.png" alt="menu" class="toggle-icon menu-icon"> 
     </button> 
@@ -157,7 +172,7 @@
                             </div>
                         </label>
                         <label class="toggle-option">
-                            <span>Floating Lights</span>
+                            <span>Lights</span>
                             <div class="toggle-switch">
                                 <input type="checkbox" id="floating-lights-toggle" checked>
                                 <span class="toggle-slider"></span>

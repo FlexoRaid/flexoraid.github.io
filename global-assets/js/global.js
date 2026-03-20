@@ -711,4 +711,121 @@ document.addEventListener("DOMContentLoaded", function() {
             updatePlanetsVisibility();
         });
     }
+
+
+    // ===== LAST.FM WIDGET =====
+    const LASTFM_API_KEY = '65ae5ae340310fcf69c1cf58e7d13262';
+    const LASTFM_USER = 'Jonatanp_0';
+
+    const widget = document.getElementById('lastfm-widget');
+    const handle = document.getElementById('lastfm-handle');
+    let isWidgetVisible = false;
+    let closeTimeout = null;
+
+    function showWidget() {
+        if (closeTimeout) clearTimeout(closeTimeout);
+        if (!isWidgetVisible) {
+            widget.classList.add('visible');
+            isWidgetVisible = true;
+        }
+    }
+
+    function hideWidget() {
+        if (closeTimeout) clearTimeout(closeTimeout);
+        closeTimeout = setTimeout(() => {
+            widget.classList.remove('visible');
+            isWidgetVisible = false;
+        }, 300);
+    }
+
+    function cancelHide() {
+        if (closeTimeout) {
+            clearTimeout(closeTimeout);
+            closeTimeout = null;
+        }
+    }
+
+    function updateMusic() {
+        const url = `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${LASTFM_USER}&api_key=${LASTFM_API_KEY}&format=json&limit=1`;
+
+        fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                const track = data.recenttracks.track[0];
+                if (!track) throw new Error('Keine Tracks gefunden');
+
+                document.getElementById('track-name').innerText = track.name;
+                document.getElementById('track-artist').innerText = track.artist['#text'];
+                document.getElementById('track-link').href = track.url;
+
+                const imgUrl = track.image.find(img => img.size === 'large')['#text'];
+                const imgElement = document.getElementById('track-image');
+                if (imgUrl) {
+                    imgElement.src = imgUrl;
+                    imgElement.style.display = 'block';
+                } else {
+                    imgElement.style.display = 'none';
+                }
+
+                const isPlaying = track['@attr'] && track['@attr'].nowplaying === 'true';
+                const statusLabel = document.getElementById('status-label');
+                statusLabel.innerText = isPlaying ? '🎵 currently listening' : '⏮ recently played';
+                statusLabel.style.borderColor = isPlaying ? 'var(--color-accent)' : 'rgba(255,255,255,0.3)';
+            })
+            .catch(err => {
+                console.warn('Last.fm Fehler:', err);
+                document.getElementById('track-name').innerText = 'Error';
+                document.getElementById('track-artist').innerText = '';
+                document.getElementById('track-image').style.display = 'none';
+                document.getElementById('status-label').innerText = '⛔ no connection';
+            });
+    }
+
+    if (widget && handle) {
+        handle.addEventListener('mouseenter', () => {
+            if (window.innerWidth > 768) {
+                cancelHide();
+                showWidget();
+            }
+        });
+        handle.addEventListener('mouseleave', () => {
+            if (window.innerWidth > 768) {
+                hideWidget();
+            }
+        });
+        widget.addEventListener('mouseenter', () => {
+            if (window.innerWidth > 768) {
+                cancelHide();
+            }
+        });
+        widget.addEventListener('mouseleave', () => {
+            if (window.innerWidth > 768) {
+                hideWidget();
+            }
+        });
+
+        // Mobile: Click toggel
+        handle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (window.innerWidth <= 768) {
+                if (isWidgetVisible) {
+                    widget.classList.remove('visible');
+                    isWidgetVisible = false;
+                } else {
+                    widget.classList.add('visible');
+                    isWidgetVisible = true;
+                }
+            }
+        });
+        widget.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768) {
+                e.stopPropagation();
+                widget.classList.remove('visible');
+                isWidgetVisible = false;
+            }
+        });
+    }
+
+    updateMusic();
+    setInterval(updateMusic, 10000);
 });
