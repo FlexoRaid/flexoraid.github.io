@@ -349,6 +349,18 @@ document.addEventListener("DOMContentLoaded", function() {
         image: "../../../img/married-couple.avif", 
         category: "other",
         genre: "Romance"
+    },
+    { 
+        title: "My Hero Academia", 
+        author: "Kohei Horikoshi", 
+        release: "2016", 
+        episodes: "170", 
+        link: "https://www.crunchyroll.com/my-hero-academia", 
+        description: "My Hero Academia is absolute PEAK and a truly heartwarming journey that stands as one of my favorite experiences. I give it a 9.1/10 because the story is incredibly compelling and the power system is both interesting and immersive. It is a deeply moving series that keeps you emotionally invested, combining great character growth with a world that draws you in from the very first moment.", 
+        rating: 9.1, 
+        image: "../../../img/my-hero-academia.png", 
+        category: "top",
+        genre: "Action, Supernatural"
     }
 ];
 
