@@ -315,16 +315,19 @@ document.addEventListener("DOMContentLoaded", function() {
         observer.observe(overlay, { attributes: true });
     });
 
-    // ===== SECTION ANIMATIONS =====
+    // ===== SECTION ANIMATIONS (FIXED) =====
     const sections = document.querySelectorAll('.section-center');
     const backToTopBtn = document.getElementById('back-to-top');
 
     if (sections.length > 0) {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                entry.target.classList.toggle('visible', entry.isIntersecting);
+                // Nur hinzufügen, nie entfernen → Sektion bleibt sichtbar
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
             });
-        }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+        }, { threshold: 0 }); // sofort bei minimaler Sichtbarkeit
         sections.forEach(sec => observer.observe(sec));
     }
 
