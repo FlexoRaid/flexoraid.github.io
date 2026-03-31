@@ -322,12 +322,14 @@ document.addEventListener("DOMContentLoaded", function() {
     if (sections.length > 0) {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                // Nur hinzufügen, nie entfernen → Sektion bleibt sichtbar
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
                 }
+                else {                    
+                    entry.target.classList.remove('visible');
+                }
             });
-        }, { threshold: 0 }); // sofort bei minimaler Sichtbarkeit
+        }, { threshold: 0 });
         sections.forEach(sec => observer.observe(sec));
     }
 
@@ -807,7 +809,6 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
 
-        // Mobile: Click toggel
         handle.addEventListener('click', (e) => {
             e.stopPropagation();
             if (window.innerWidth <= 768) {
