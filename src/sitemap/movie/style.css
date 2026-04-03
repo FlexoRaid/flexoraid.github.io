@@ -365,9 +365,9 @@ main {
 .movie-card {
     background: var(--bg-card);
     border: 1px solid var(--border-ui);
+    backdrop-filter: blur(var(--blur-ui));
     border-radius: var(--radius-ui);
     overflow: visible;
-    backdrop-filter: blur(var(--blur-ui));
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     display: flex;
     flex-direction: column;
@@ -377,6 +377,7 @@ main {
     user-select: none;
     cursor: pointer;
     width: 100%;
+    opacity: 1;
 }
 
 .movie-card:hover {
@@ -457,6 +458,7 @@ main {
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s ease;
+    opacity: 1;
 }
 
 .movie-card:hover .movie-poster img {
@@ -488,7 +490,7 @@ main {
 .episode {
     white-space: nowrap;
     font-size: 0.85rem;
-    opacity: 0.8;
+    opacity: 1;
 }
 
 .movie-title {
@@ -500,6 +502,7 @@ main {
     display: block;
     text-align: left;
     margin-bottom: 2px;
+    opacity: 1;
     transition: color 0.3s ease, filter 0.3s ease;
 }
 
@@ -522,7 +525,7 @@ main {
 
 .movie-card:hover .movie-date {
     color: var(--color-accent);
-    opacity: 0.9;
+    opacity: 1;
 }
 
 .stars {
@@ -558,7 +561,7 @@ main {
 }
 
 .star-base {
-    color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 1);
     white-space: nowrap;
 }
 
@@ -566,7 +569,7 @@ main {
     font-family: "Crimson Text", serif;
     font-size: 1.05rem;
     line-height: 1.5;
-    opacity: 0.8;
+    opacity: 1;
     font-weight: 400;
 }
 
@@ -620,7 +623,7 @@ main {
     line-height: 1;
     margin: 40px 0;
     opacity: 0.8;
-    text-shadow: 0 0 30px rgba(72, 202, 228, 0.3);
+    text-shadow: 0 0 30px rgba(72, 202, 228, 1);
     user-select: none;
 }
 
@@ -628,7 +631,7 @@ main {
     font-weight: 400;
     margin-top: 10px;
     font-size: 0.9rem;
-    opacity: 0.6;
+    opacity: 1;
 }
 
 .data-row {
@@ -663,13 +666,13 @@ main {
 
 .data-label {
     font-size: 0.85rem;
-    opacity: 0.8;
+    opacity: 1;
     text-align: right;
 }
 
 .data-name {
     font-size: 0.9rem;
-    opacity: 0.9;
+    opacity: 1;
 }
 
 @keyframes highlight-glow {

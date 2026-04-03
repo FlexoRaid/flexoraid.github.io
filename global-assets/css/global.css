@@ -137,14 +137,14 @@ h2 {
     position: fixed;
     inset: 0;
     pointer-events: none;
-    z-index: 2;
+    z-index: -100;
 }
 
 .comet-container {
     position: fixed;
     inset: 0;
     pointer-events: none;
-    z-index: 100;
+    z-index: -100;
 }
 
 .space-objects img,
@@ -152,14 +152,14 @@ h2 {
     position: absolute;
     width: 60px;
     height: auto;
-    opacity: 0.5;
+    opacity: 1;
     transform: translate(-50%, -50%);
     will-change: transform;
 }
 
 .comet-container img {
     width: 40px;
-    opacity: 0.6;
+    opacity: 1;
 }
 
 .space-objects img, .comet-container img {
