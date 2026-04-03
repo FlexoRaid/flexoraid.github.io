@@ -330,8 +330,9 @@ main {
 
 .movie-carousel {
     display: flex;
-    gap: 30px;
+    gap: 20px;
     width: max-content;
+    margin: 0 20px;
 }
 
 .movie-carousel .movie-card {
@@ -683,6 +684,11 @@ main {
 }
 
 @media (max-width: 768px) {
+
+    .movie-carousel {
+        gap: 10px;
+        margin: 0 10px;
+    }
 
     .hero-overlay {
         padding: 20px;
