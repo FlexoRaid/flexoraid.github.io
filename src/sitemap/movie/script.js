@@ -689,6 +689,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // ===== RENDER MOVIES (endlich!) =====
+    // ===== RENDER MOVIES =====
     renderMovies();
 });
