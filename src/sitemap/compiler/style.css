@@ -148,12 +148,6 @@ html, body {
     font-weight: bold;
 }
 
-@media (max-width: 900px) {
-    .file-tab {
-        translate: -15px 1px;
-    }
-}
-
 .output-console {
     flex: 1;
     position: relative;
@@ -210,4 +204,14 @@ html, body {
 
 @media (max-width: 900px) and (orientation: portrait) {
     #orientation-overlay { display: flex; }
+}
+
+@media (max-width: 900px) {
+    .file-tab {
+        translate: -15px 1px;
+    }
+
+    .compiler-main-container {
+        height: 90vh;
+    }
 }
