@@ -361,7 +361,19 @@ document.addEventListener("DOMContentLoaded", function() {
         image: "../../../img/my-hero-academia.png", 
         category: "top",
         genre: "Action, Supernatural"
-    }
+    },
+    {
+        title: "Gachiakuta",
+        author: "Kei Urana",
+        release: "2025",
+        episodes: "24",
+        link: "https://www.crunchyroll.com/gachiakuta",
+        description: "Gachiakuta is a fantastic series that mirrors the absurd divide between the rich and the poor, forcing us to face how much waste humanity produces and carelessly throws away. It is a deeply moving story with genuine emotional moments that keep you invested in the struggle between good and evil. I give it a 7.9/10 for now, but I am incredibly hyped for Season 2. I’m certain my rating for the second season will be much higher, as the world and the stakes continue to evolve in such a compelling way.",
+        rating: 7.9,
+        image: "../../../img/gachiakuta.jpeg",
+        category: "other",
+        genre: "Action, Shounen"
+    },
 ];
 
     function updateStars(card, rating) {

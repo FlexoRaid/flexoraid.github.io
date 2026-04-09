@@ -55,7 +55,7 @@ html, body {
 }
 
 .lang-icon.active {
-    transform: scale(1.15);
+    transform: scale(1.4);
 }
 
 .compiler-content {

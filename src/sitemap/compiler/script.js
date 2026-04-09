@@ -7,13 +7,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const langIcons = document.querySelectorAll('.lang-icon');
 
     let projectData = {
-        js: { 'main.js': 'console.log("Hello World!");' },
+        js: { 'main.js': 'console.log("Hello World!");' 
+        },
         html: { 
             'index.html': '<h1>Hello World</h1>', 
             'style.css': 'h1 { color: blue; }', 
             'script.js': 'console.log("Hello World!");' 
         },
-        py: { 'main.py': 'in progress...' }
+        py: { 'main.py': '#unfortunately only the print function works\nprint("Hello, World!")' }
     };
 
     let currentLang = 'js';
@@ -28,7 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
             tab.onclick = () => {
                 projectData[currentLang][currentFile] = codeInput.value;
                 currentFile = file;
-                codeInput.value = projectData[currentLang][file];
                 updateEditor();
             };
             fileTabsContainer.appendChild(tab);
@@ -40,11 +40,9 @@ document.addEventListener("DOMContentLoaded", () => {
         icon.onclick = () => {
             langIcons.forEach(i => i.classList.remove('active'));
             icon.classList.add('active');
-            
             projectData[currentLang][currentFile] = codeInput.value;
             currentLang = icon.dataset.lang;
             currentFile = Object.keys(projectData[currentLang])[0];
-            
             updateEditor();
             consoleText.innerHTML = '';
             htmlPreview.style.display = 'none';
@@ -76,6 +74,51 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error = originalError;
     }
 
+    function executePython(code) {
+        try {
+            const oldTag = document.getElementById('pyscript-runner');
+            if (oldTag) oldTag.remove();
+
+            const pyScriptTag = document.createElement('script');
+            pyScriptTag.type = 'py';
+            pyScriptTag.id = 'pyscript-runner';
+            
+            const wrappedCode = `
+    import sys
+    from js import document, window
+
+    class BrowserOutput:
+        def write(self, text):
+            if text.strip():
+                node = document.createElement('div')
+                node.className = 'log-normal'
+                node.textContent = text
+                document.getElementById('consoleText').appendChild(node)
+        def flush(self):
+            pass
+
+    def browser_input(prompt_text=""):
+        return window.prompt(prompt_text)
+
+    sys.stdout = BrowserOutput()
+    sys.stderr = BrowserOutput()
+    input = browser_input
+
+    ${code}
+            `;
+
+            consoleText.innerHTML = '<div class="log-normal">Python is running...</div>';
+            pyScriptTag.textContent = wrappedCode;
+            document.body.appendChild(pyScriptTag);
+
+            setTimeout(() => {
+            }, 1000);
+
+        } catch (err) {
+            consoleText.innerHTML = `<div class="log-error">Python Error: ${err.message}</div>`;
+        }
+    }
+
     runBtn.onclick = () => {
         projectData[currentLang][currentFile] = codeInput.value;
         
@@ -84,6 +127,11 @@ document.addEventListener("DOMContentLoaded", () => {
             consoleText.style.display = 'block';
             executeJS(codeInput.value);
         }
+        else if (currentLang === 'py') {
+            htmlPreview.style.display = 'none';
+            consoleText.style.display = 'block';
+            executePython(codeInput.value);
+        }
         else if (currentLang === 'html') {
             consoleText.style.display = 'none';
             htmlPreview.style.display = 'block';
@@ -91,8 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <html>
                     <head><style>${projectData.html['style.css']}</style></head>
                     <body>
-                        ${projectData.html['index.html']}
-                        <script>${projectData.html['script.js']}<\/script>
+                        ${projectData.html['index.html']}\n                        <script>${projectData.html['script.js']}<\/script>
                     </body>
                 </html>`;
             htmlPreview.srcdoc = content;
