@@ -212,6 +212,7 @@ html, body {
     }
 
     .compiler-main-container {
-        height: 90vh;
+        height: 80vh;
+        grid-template-columns: 40px 1fr 1fr 40px;
     }
 }
