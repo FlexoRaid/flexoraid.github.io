@@ -7,7 +7,8 @@ document.addEventListener("DOMContentLoaded", function() {
     let imgPath = "img/";
 
     if (path.includes('/blackjack/') || path.includes('/donate/') || path.includes('/movie/') ||
-        path.includes('/poker/') || path.includes('/roulette/') || path.includes('/slots/')) {
+        path.includes('/poker/') || path.includes('/roulette/') || path.includes('/slots/') || 
+        path.includes('/keycode/') || path.includes('/compiler/')) {
         imgPath = "../../../img/";
     }
     else if (path.includes('/about/') || path.includes('/projects/') || path.includes('/weather/') || path.includes('/sitemap/')) {

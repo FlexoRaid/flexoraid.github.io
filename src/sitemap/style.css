@@ -77,7 +77,6 @@ h1 {
 .project-img { 
     width: 45px; 
     height: 45px; 
-    border-radius: 10px; 
     object-fit: cover; 
 }
 
