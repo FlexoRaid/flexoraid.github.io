@@ -210,8 +210,4 @@ html, body {
     .file-tab {
         translate: -15px 1px;
     }
-
-    .compiler-main-container {
-        height: 85vh;
-    }
 }
