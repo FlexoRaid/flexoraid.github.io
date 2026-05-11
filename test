@@ -33,3 +33,8 @@ JONATANS PORTFOLIO
 │       ├── site.html
 │       └── style.css
 └── index.html
+
+
+git add .
+git commit -m "Update"
+git push origin main

@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
         description: "One Piece is the greatest fiction in the world due to its intricate world-building, diverse characters, and profound themes. It explores complex topics like freedom, justice, and the pursuit of dreams, resonating with readers worldwide. However, it's only a 9.9 due to the poor pacing in anime.", 
         rating: 9.9, 
         image: "../../../img/one-piece.webp", 
-        category: "top",
+        category: "watched",
         genre: "Action, Adventure"
     },
     { 
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
         description: "Naruto Shippuden is an incredible journey that stands out for its deep emotional storytelling and some of the best-written villains in anime history. The way it explores themes like pain, loneliness, and war makes it a true masterpiece. I give it a 9.5/10—it would be a perfect 10 if it weren't for the high amount of filler episodes that sometimes slow down the main plot.", 
         rating: 9.5, 
         image: "../../../img/naruto-shippuden.jpg", 
-        category: "top",
+        category: "watched",
         genre: "Action, Fantasy"
     },
     {
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function() {
         description: "The original Naruto series is a classic for a reason, capturing the heart of a young boy's struggle for recognition with incredible fight scenes and emotional depth. However, I give it an 8.3/10 because the series loses significant momentum at the end, where nearly 100 episodes are just filler that don't contribute to the main story.", 
         rating: 8.3, 
         image: "../../../img/naruto.jpg", 
-        category: "top",
+        category: "watched",
         genre: "Action, Adventure"
     },
     { 
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function() {
         description: "Hunter x Hunter is a masterpiece of the shonen genre, featuring an incredible power system and complex storytelling that constantly subverts expectations. I give it a 9.8/10 because it is nearly perfect in its execution and character development. It is just heartbreaking to know that we will likely never see any more episodes produced, leaving this amazing journey unfinished.", 
         rating: 9.8, 
         image: "../../../img/hunter.png", 
-        category: "top",
+        category: "watched",
         genre: "Adventure, Fantasy"
     },
     {
@@ -59,8 +59,8 @@ document.addEventListener("DOMContentLoaded", function() {
         description: "Cyberpunk Edgerunners is a visual masterpiece with an incredibly intense and gripping story. I give it a 9.1/10 because it is a deeply emotional journey that hit me so hard I actually cried. The ending is absolutely heartbreaking and stays with you long after the credits roll.", 
         rating: 9.1, 
         image: "../../../img/cyberpunk.jpg", 
-        category: "top",
-        genre: "Sci-Fi, Action"
+        category: "watched",
+        genre: "Action, Sci-Fi"
     },
     { 
         title: "Attack on Titan", 
@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function() {
         description: "Attack on Titan is a phenomenal series that features some of the biggest and most mind-blowing plot twists in all of fiction. The way the story evolves from a simple survival horror into a complex political drama is masterful. I give it a 9.2/10 because the storytelling is incredibly gripping and keeps you questioning everything until the very end.", 
         rating: 9.2, 
         image: "../../../img/attck-on-titan.jpg", 
-        category: "top",
+        category: "watched",
         genre: "Action, Drama"
     },
     { 
@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function() {
         description: "JoJo’s Bizarre Adventure is a legendary series that delivers absolute peak entertainment with its unique style and creative battles. Most of the seasons are incredible and easily reach the highest levels of fiction. I give it an 9.0/10 it would be rated even higher, but the last season somehow killed the vibe for me and didn't quite live up to the greatness of the previous parts.", 
         rating: 9.0, 
         image: "../../../img/jojos.jpg", 
-        category: "top",
+        category: "watched",
         genre: "Action, Supernatural"
     },
     { 
@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function() {
         description: "Solo Leveling is an absolute thrill ride with some of the most peak action sequences and visual hype in modern anime. I give it an 7.0/10 while it is undeniably exciting and well-produced, it feels slightly overrated because there are many other series with much deeper storytelling and character development. It’s a great watch, but not quite at the level of the all-time masterpieces.", 
         rating: 7.0, 
         image: "../../../img/solo-leveling.png", 
-        category: "top",
+        category: "watched",
         genre: "Action, Fantasy"
     },
     { 
@@ -103,11 +103,11 @@ document.addEventListener("DOMContentLoaded", function() {
         author: "Koyoharu Gotouge", 
         release: "2019", 
         episodes: "63", 
-        link: "https://www.crunchyroll.com/demon-slayer",
+        link: "https://www.netflix.com/title/81091393",
         description: "Demon Slayer is absolute peak fiction that sets a new standard for the entire medium. I give it a 8.7/10 because it features some of the best animation ever seen in anime history, making every battle a breathtaking visual experience. The combination of its beautiful art style and high-stakes storytelling makes it a must-watch for any fan.", 
         rating: 8.7, 
         image: "../../../img/demon-slayer.jpeg", 
-        category: "top",
+        category: "watched",
         genre: "Action, Fantasy"
     },
     { 
@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function() {
         description: "Jujutsu Kaisen is undeniably peak when it comes to action and high-quality production, but I personally give it a 7.7/10. While it is an exciting watch, I feel it is heavily overhyped considering there are many other series with much stronger storytelling and character depth. It’s a solid show, but compared to the true masterpieces, it just doesn't rank as high for me.", 
         rating: 7.7, 
         image: "../../../img/jjk.avif", 
-        category: "top",
+        category: "watched",
         genre: "Action, Supernatural"
     },
     { 
@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", function() {
         description: "Chainsaw Man is a beautifully crafted series with incredible production value and a very unique style. However, I give it a 7.2/10 because I just didn't feel the vibe as much as my friends did. While I can appreciate how well-made it is, it didn't resonate with me personally in the same way it did for others.", 
         rating: 7.2, 
         image: "../../../img/chainsaw-man.avif", 
-        category: "other",
+        category: "watched",
         genre: "Action, Horror"
     },
     { 
@@ -143,7 +143,7 @@ document.addEventListener("DOMContentLoaded", function() {
         description: "Death Note is an incredibly gripping and intense series, making it the perfect choice for anyone's very first anime. The psychological battle between the main characters keeps you on the edge of your seat from start to finish. I give it an 8.1/10 because it is a masterclass in suspense and a fantastic introduction to the medium.", 
         rating: 8.1, 
         image: "../../../img/death-note.jpg", 
-        category: "other",
+        category: "watched",
         genre: "Psychological, Thriller"
     },
     { 
@@ -155,7 +155,7 @@ document.addEventListener("DOMContentLoaded", function() {
         description: "Boruto is actually not as bad as many people say, and I feel it is a bit overhated by the community. It’s an enjoyable watch, but I give it a 7.6/10 because it doesn't top the original Naruto. It fails to capture that same iconic feeling and emotional depth that made the previous series so legendary.", 
         rating: 7.6, 
         image: "../../../img/boruto.jpg", 
-        category: "other",
+        category: "watched",
         genre: "Action, Adventure"
     },
     { 
@@ -167,7 +167,7 @@ document.addEventListener("DOMContentLoaded", function() {
         description: "Our Dating Story is a truly beautiful and heartwarming series with a wonderful narrative. I give it a 7.1/10 because I really enjoyed the story and the connection between the characters. It’s a great watch, but it’s a bit sad knowing that we will most likely never get a second season to continue the journey.", 
         rating: 7.1, 
         image: "../../../img/our-dating-story.avif", 
-        category: "other",
+        category: "watched",
         genre: "Romance, Slice of Life"
     },
     { 
@@ -179,7 +179,7 @@ document.addEventListener("DOMContentLoaded", function() {
         description: "Alya Sometimes Hides Her Feelings in Russian is a wonderful and charming series that balances its beautiful romance with some lighthearted comedy. I really enjoyed the unique dynamic between the characters and the funny moments throughout the show. I give it an 6.9/10 because it is a lovely watch that is both heartwarming and genuinely entertaining.", 
         rating: 6.9, 
         image: "../../../img/alya-sometimes-hides-her-feelings-in-russian.avif", 
-        category: "other",
+        category: "watched",
         genre: "Romance, Comedy"
     },
     { 
@@ -191,7 +191,7 @@ document.addEventListener("DOMContentLoaded", function() {
         description: "My Dress-Up Darling is absolute PEAK fiction that perfectly captures the passion for cosplay and the beautiful bond between its main characters. I loved it so much that I even read the manga to see more of the story. I give it an 7.3/10 because it’s a high-quality production with great character growth and a truly heartwarming vibe.", 
         rating: 7.3, 
         image: "../../../img/my-dressed-up-darling.avif", 
-        category: "other",
+        category: "watched",
         genre: "Romance, Slice of Life"
     },
     { 
@@ -203,7 +203,7 @@ document.addEventListener("DOMContentLoaded", function() {
         description: "Hell’s Paradise is a thrilling and dark journey that stands out with its unique world-building and intense atmosphere. The mix of brutal action and mysterious elements makes it a very compelling watch. I give it an 7.6/10 because it’s a strong, high-quality series that delivers a great experience from start to finish.", 
         rating: 7.6, 
         image: "../../../img/hp.avif", 
-        category: "other",
+        category: "watched",
         genre: "Action, Supernatural"
     },
     { 
@@ -215,7 +215,7 @@ document.addEventListener("DOMContentLoaded", function() {
         description: "The Rising of the Shield Hero is, in my opinion, the worst anime I have ever watched. I give it a 3.3/10 because I found the execution and the way the story handled its themes to be incredibly frustrating. It was a struggle to get through, and it simply didn't resonate with me at all, making it my least favorite experience in the medium so far.", 
         rating: 3.3, 
         image: "../../../img/the-rising-of-the-shield-hero.jpg", 
-        category: "other",
+        category: "watched",
         genre: "Fantasy, Isekai"
     },
     { 
@@ -227,7 +227,7 @@ document.addEventListener("DOMContentLoaded", function() {
         description: "Horimiya is a sweet and refreshing take on the high school romance genre, focusing on the hidden sides of its main characters. While the animation and the chemistry between Hori and Miyamura are great, I give it a 6.8/10. It’s a pleasant and enjoyable watch, but for me, it didn't quite reach the same emotional heights or impact as some of my favorite series.", 
         rating: 6.8, 
         image: "../../../img/horimiya.webp", 
-        category: "other",
+        category: "watched",
         genre: "Romance, Slice of Life"
     },
     { 
@@ -239,7 +239,7 @@ document.addEventListener("DOMContentLoaded", function() {
         description: "Assassination Classroom is a very unique and creative series that blends comedy with some surprisingly heartfelt moments. I give it a 6.5/10 because, while it’s an enjoyable and fun journey, it didn't fully blow me away compared to other top-tier shows. However, it is a fantastic choice for anime beginners as it's easy to follow and very entertaining.", 
         rating: 6.5, 
         image: "../../../img/assassination-classroom.webp", 
-        category: "other",
+        category: "watched",
         genre: "Comedy, Sci-Fi"
     },
     { 
@@ -251,7 +251,7 @@ document.addEventListener("DOMContentLoaded", function() {
         description: "Dr. Stone is a uniquely entertaining series that takes a very fun and creative premise and turns it into something incredibly gripping. I give it a 7.2/10 because the blend of scientific discovery and high-stakes strategy makes for a very exciting experience. While the concept is lighthearted and funny at times, the underlying tension and the race to rebuild civilization keep it consistently suspenseful.", 
         rating: 7.2, 
         image: "../../../img/DrStone.jpg", 
-        category: "other",
+        category: "watched",
         genre: "Sci-Fi, Adventure"
     },
     { 
@@ -263,7 +263,7 @@ document.addEventListener("DOMContentLoaded", function() {
         description: "The Eminence in Shadow is absolute peak when it comes to its unique blend of dark fantasy and hilarious misunderstandings. I give it a 7.2/10 because the main character’s obsession with being a 'mastermind' is incredibly entertaining and well-executed. While the action and the irony are top-tier, it loses a few points for me due to the amount of fan service, but it remains a very strong and highly creative series.", 
         rating: 7.2, 
         image: "../../../img/eminence-in-the-shadow.jpg", 
-        category: "other",
+        category: "watched",
         genre: "Action, Fantasy"
     },
     { 
@@ -271,11 +271,11 @@ document.addEventListener("DOMContentLoaded", function() {
         author: "Hajime Kamoshida", 
         release: "2018", 
         episodes: "13", 
-        link: "https://www.crunchyroll.com/bunny-girl-senpai", 
+        link: "https://www.netflix.com/title/81228009", 
         description: "Bunny Girl Senpai is a beautifully written series that stands out because of the incredible and funny harmony between the two main characters. Their witty banter and deep emotional connection make every interaction a joy to watch. I give it a 7.5/10 because it’s a wonderful blend of supernatural mystery and heartfelt romance that feels very grounded despite its unusual premise.", 
         rating: 7.5, 
         image: "../../../img/bunny-girl-senpai.jpg", 
-        category: "other",
+        category: "watched",
         genre: "Romance, Supernatural"
     },
     { 
@@ -283,11 +283,11 @@ document.addEventListener("DOMContentLoaded", function() {
         author: "Kouji Miura", 
         release: "2024", 
         episodes: "25", 
-        link: "https://www.netflix.com/title/81642096", 
+        link: "https://www.netflix.com/title/81663323", 
         description: "Blue Box is a visually pleasing series that offers some truly beautiful and touching moments throughout its story. I give it a 6.3/10 because, while I appreciated the heartfelt scenes and the grounded romance, I found that it started to feel a bit boring at a certain point. It’s a solid watch for fans of the genre, but it didn't quite maintain its momentum for me personally.", 
         rating: 6.3, 
         image: "../../../img/bluebox.jpg", 
-        category: "other",
+        category: "watched",
         genre: "Romance, Sports"
     },
     { 
@@ -299,7 +299,7 @@ document.addEventListener("DOMContentLoaded", function() {
         description: "Dandadan is a wildly creative series with a very beautiful and unique story. I give it a 7.6/10 because the battle sequences are exceptionally well-executed and visually stunning. What really stands out, though, is the shy and awkward developing relationship between the main characters, which adds a lot of heart to the chaotic action. It’s a great mix of supernatural thrills and genuine emotion.", 
         rating: 7.6, 
         image: "../../../img/dandadan.jpg", 
-        category: "other",
+        category: "watched",
         genre: "Action, Supernatural"
     },
     { 
@@ -311,7 +311,7 @@ document.addEventListener("DOMContentLoaded", function() {
         description: "Charlotte is a very special series to me because it was actually my very first anime. I give it a 6.5/10 because I think it is a perfect choice for beginners who are just starting to explore the medium. It has an engaging premise and emotional moments that are easy to follow. However, now that I have seen many more series, I feel it simply can't keep up with the top-tier masterpieces out there.", 
         rating: 6.5, 
         image: "../../../img/charlotte.jpg", 
-        category: "other",
+        category: "watched",
         genre: "Drama, Supernatural"
     },
     { 
@@ -323,7 +323,7 @@ document.addEventListener("DOMContentLoaded", function() {
         description: "A Couple of Cuckoos starts off with a fairly engaging first season that keeps you interested in the unique premise. However, I give it a 5.4/10 because one specific character, completely killed the vibe for me. while the beginning had some potential, the second season was a major disappointment and honestly felt like a total mess. It's a series that unfortunately lost its way and failed to deliver on its early momentum.",
         rating: 5.4, 
         image: "../../../img/cuckoos.avif", 
-        category: "other",
+        category: "watched",
         genre: "Romance"
     },
     { 
@@ -335,7 +335,7 @@ document.addEventListener("DOMContentLoaded", function() {
         description: "More than a Married Couple, but Not Lovers is a decent watch that follows an interesting and colorful premise. I give it a 6.0/10 because, while it is okay overall, there were several things I didn't like about how the story and certain scenes were written. It has its moments, but the execution of the plot and some character decisions felt a bit off to me, preventing it from being a truly great series.",
         rating: 6.0, 
         image: "../../../img/married-couple.avif", 
-        category: "other",
+        category: "watched",
         genre: "Romance"
     },
     { 
@@ -347,7 +347,7 @@ document.addEventListener("DOMContentLoaded", function() {
         description: "My Hero Academia is absolute PEAK and a truly heartwarming journey that stands as one of my favorite experiences. I give it a 9.1/10 because the story is incredibly compelling and the power system is both interesting and immersive. It is a deeply moving series that keeps you emotionally invested, combining great character growth with a world that draws you in from the very first moment.", 
         rating: 9.1, 
         image: "../../../img/my-hero-academia.png", 
-        category: "top",
+        category: "watched",
         genre: "Action, Supernatural"
     },
     {
@@ -359,7 +359,7 @@ document.addEventListener("DOMContentLoaded", function() {
         description: "Gachiakuta is a fantastic series that mirrors the absurd divide between the rich and the poor, forcing us to face how much waste humanity produces and carelessly throws away. It is a deeply moving story with genuine emotional moments that keep you invested in the struggle between good and evil. I give it a 7.9/10 for now, but I am incredibly hyped for Season 2. I’m certain my rating for the second season will be much higher, as the world and the stakes continue to evolve in such a compelling way.",
         rating: 7.9,
         image: "../../../img/gachiakuta.jpeg",
-        category: "other",
+        category: "watched",
         genre: "Action, Shounen"
     },
     {
@@ -368,12 +368,64 @@ document.addEventListener("DOMContentLoaded", function() {
         release: "1986",
         episodes: "153",
         link: "https://www.crunchyroll.com/dragon-ball",
-        description: "Dragon Ball is a legendary series that perfectly captures the relentless pursuit of strength and the boundless spirit of adventure. It is a gripping story defined by its intense, high-octane battles, but it also surprises you with deeply moving, emotional moments that add a level of depth you wouldn’t necessarily expect from the genre. The way the world expands and the characters evolve keeps you completely invested in their journey. I give it a 9/10—it is a compelling masterpiece that I highly recommend to anyone looking for a story with both heart and action.",
-        rating: 9,
+        description: "Dragon Ball is a legendary series that perfectly captures the relentless pursuit of strength and the boundless spirit of adventure. It is a gripping story defined by its intense, high-octane battles, but it also surprises you with deeply moving, emotional moments that add a level of depth you wouldn’t necessarily expect from the genre. The way the world expands and the characters evolve keeps you completely invested in their journey. I give it a 8.5/10—it is a compelling masterpiece that I highly recommend to anyone looking for a story with both heart and action.",
+        rating: 8.5,
         image: "../../../img/dragon_ball.avif",
-        category: "other",
+        category: "watched",
         genre: "Action, Supernatural"
     },
+    {
+        title: "Dragon Ball Z",
+        author: "Akira Toriyama",
+        release: "1989",
+        episodes: "291",
+        currentEpisode: "20",
+        link: "https://www.crunchyroll.com/dragon-ball-z",
+        description: "Goku—the strongest fighter on the planet—is all that stands between humanity and villains from the darkest corners of space. Joined in battle by the Z-Fighters, Goku travels to distant realms in search of the magical powers of the seven Dragon Balls!",
+        rating: 0,
+        image: "../../../img/dragon_ball_z.avif",
+        category: "watching",
+        genre: "Action, Supernatural"
+    },
+    {
+        title: "Dragon Ball Super",
+        author: "Akira Toriyama",
+        release: "2015",
+        episodes: "131",
+        currentEpisode: "0",
+        link: "https://www.crunchyroll.com/dragon-ball-super",
+        description: "With Majin Buu defeated, Goku has taken a completely new role as...a radish farmer?! With Earth at peace, our heroes have settled into normal lives. But they can’t get too comfortable. Far away, the powerful God of Destruction, Beerus, awakens to a prophecy revealing his demise at the hands of an even more formidable being. When his search for the Saiyan God brings him to Earth, can Goku and his friends take on their strongest foe yet?",
+        rating: 0,
+        image: "../../../img/dragon_ball_super.jpeg",
+        category: "watching",
+        genre: "Action, Supernatural"
+    },
+    {
+        title: "Fairy Tail",
+        author: "Hiro Mashima",
+        release: "2009",
+        episodes: "328",
+        currentEpisode: "34",
+        link: "https://www.crunchyroll.com/fairy-tail",
+        description: "In the Kingdom of Fiore, magic is omnipresent. Those who earn their daily bread through this art typically join a guild—a place where, alongside taking on jobs, they find friendship and camaraderie. Among these guilds, one is particularly renowned for its powerful members: Fairy Tail! The spirited Celestial Mage, Lucy, leaves her home with the specific goal of being accepted into this very guild. Along her journey, she encounters the hot-headed mage Natsu, and shortly thereafter, she forms a team with him and his cat, Happy. And before she knows it, she finds herself right in the middle of a fantastic adventure!",
+        rating: 0,
+        image: "../../../img/fairy-tail.jpg",
+        category: "watching",
+        genre: "Action, Adventure"
+    },
+    {
+        title: "Vinland Saga",
+        author: "Makoto Yukimura",
+        release: "2019",
+        episodes: "48",
+        currentEpisode: "3",
+        link: "https://www.crunchyroll.com/vinland-saga",
+        description: "Anno 1002, Iceland: Six-year-old Thorfinn lives with his family in a peaceful seaside village—until one day, Jomsvikings arrive to summon Thorfinn’s father back to the battlefield. Now Thors—also known as Troll Joms — must confront his past and assemble a ship’s crew full of enthusiastic young men. Thorfinn, too, manages to stow away on the ship without permission…",
+        rating: 0,
+        image: "../../../img/vinland.jpg",
+        category: "watching",
+        genre: "Action, Drama"
+    }
 ];
 
     function updateStars(card, rating) {
@@ -415,25 +467,38 @@ document.addEventListener("DOMContentLoaded", function() {
         let rankBadge = '';
         if (rank) {
             let badgeClass = 'rank-badge';
-            if (rank === 1) badgeClass += ' one-piece-badge';
-            if (rank === 2) badgeClass += ' naruto-badge';
-            if (rank === 3) badgeClass += ' HxH-badge';
+            if (rank === 1) badgeClass += ' top1-badge';
+            if (rank === 2) badgeClass += ' top2-badge';
+            if (rank === 3) badgeClass += ' top3-badge';
             rankBadge = `<div class="${badgeClass}">#${rank}</div>`;
         }
 
-
-        card.innerHTML = `
-            ${rankBadge}
-            <div class="movie-poster"><img src="${movie.image}" alt="${movie.title}"></div>
-            <div class="movie-info">
-                <h3 class="movie-title">${movie.title}</h3>
-                <p class="movie-date">${movie.rating}/10</p>
-                <div class="stars"></div>
-            </div>
-        `;
-
-
-        updateStars(card, movie.rating);
+        if (movie.category === 'watching') {
+            const progress = (parseInt(movie.currentEpisode) / parseInt(movie.episodes)) * 100;
+            card.innerHTML = `
+                <div class="movie-poster"><img src="${movie.image}" alt="${movie.title}"></div>
+                <div class="movie-info movie-info-episode">
+                    <h3 class="movie-title">${movie.title}</h3>
+                    <p class="episode">Ep: ${movie.currentEpisode}/${movie.episodes}</p>
+                </div>
+                <div class="data-row">
+                    <div class="bar-container">
+                        <div class="bar-fill" style="--progress: ${progress}%;"></div>
+                    </div>
+                </div>
+            `;
+        } else {
+            card.innerHTML = `
+                ${rankBadge}
+                <div class="movie-poster"><img src="${movie.image}" alt="${movie.title}"></div>
+                <div class="movie-info">
+                    <h3 class="movie-title">${movie.title}</h3>
+                    <p class="movie-date">${movie.rating}/10</p>
+                    <div class="stars"></div>
+                </div>
+            `;
+            updateStars(card, movie.rating);
+        }
 
 
         card.addEventListener('click', () => openPopup(movie));
@@ -485,9 +550,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
     function renderMovies() {
-        const sortedMovies = [...movieDatabase].sort((a, b) => b.rating - a.rating);
-        const top10Movies = sortedMovies.slice(0, 10);
-        const otherMovies = sortedMovies.slice(10).sort((a, b) => a.title.localeCompare(b.title));
+        const watchedMovies = movieDatabase
+            .filter(m => m.category === 'watched')
+            .sort((a, b) => b.rating - a.rating);
+
+        const top10Movies = watchedMovies.slice(0, 10);
+        const historyMovies = watchedMovies.slice(10);
+        const watchingMovies = movieDatabase.filter(m => m.category === 'watching');
 
         const top10Container = document.querySelector('#top-10 .movie-carousel');
         if (top10Container) {
@@ -498,10 +567,19 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         }
 
+        const watchingContainer = document.querySelector('#currently-watching .movie-carousel');
+        if (watchingContainer) {
+            watchingContainer.innerHTML = '';
+            watchingMovies.forEach((movie, index) => {
+                const card = createMovieCard(movie, index, false);
+                watchingContainer.appendChild(card);
+            });
+        }
+
         const allMoviesGrid = document.querySelector('#all-movies .movie-grid');
         if (allMoviesGrid) {
             allMoviesGrid.innerHTML = '';
-            otherMovies.forEach((movie, index) => {
+            historyMovies.forEach((movie, index) => {
                 const card = createMovieCard(movie, index, false);
                 allMoviesGrid.appendChild(card);
             });

@@ -556,7 +556,7 @@ document.addEventListener("DOMContentLoaded", function() {
         localStorage.setItem('particlesPlanets', planetsEnabled);
     }
 
-    // Kometen
+    // comets
     let activeComets = 0;
     const MAX_COMETS = 2;
     let cometScheduleTimeout = null;
