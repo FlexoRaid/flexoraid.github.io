@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
         title: "One Piece", 
         author: "Eiichiro Oda", 
         release: "1999", 
-        episodes: "1155", 
+        episodes: "1161", 
         link: "https://www.crunchyroll.com/one-piece", 
         description: "One Piece is the greatest fiction in the world due to its intricate world-building, diverse characters, and profound themes. It explores complex topics like freedom, justice, and the pursuit of dreams, resonating with readers worldwide. However, it's only a 9.9 due to the poor pacing in anime.", 
         rating: 9.9, 
@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function() {
         author: "Yoshihiro Togashi",
         release: "2011",
         episodes: "148", 
-        link: "https://www.netflix.com/title/70300472", 
+        link: "https://www.crunchyroll.com/hunter-x-hunter", 
         description: "Hunter x Hunter is a masterpiece of the shonen genre, featuring an incredible power system and complex storytelling that constantly subverts expectations. I give it a 9.8/10 because it is nearly perfect in its execution and character development. It is just heartbreaking to know that we will likely never see any more episodes produced, leaving this amazing journey unfinished.", 
         rating: 9.8, 
         image: "../../../img/hunter.png", 
@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function() {
         author: "Koyoharu Gotouge", 
         release: "2019", 
         episodes: "63", 
-        link: "https://www.crunchyroll.com/demon-slayer", // Korrigiert!
+        link: "https://www.crunchyroll.com/demon-slayer",
         description: "Demon Slayer is absolute peak fiction that sets a new standard for the entire medium. I give it a 8.7/10 because it features some of the best animation ever seen in anime history, making every battle a breathtaking visual experience. The combination of its beautiful art style and high-stakes storytelling makes it a must-watch for any fan.", 
         rating: 8.7, 
         image: "../../../img/demon-slayer.jpeg", 
@@ -315,18 +315,6 @@ document.addEventListener("DOMContentLoaded", function() {
         genre: "Drama, Supernatural"
     },
     { 
-        title: "The Last: Naruto the Movie", 
-        author: "Masashi Kishimoto", 
-        release: "2014", 
-        episodes: "1", 
-        link: "https://www.netflix.com/title/80037677", 
-        description: "The Last: Naruto the Movie is an absolutely beautiful film that finally gives the fans the romance they’ve been waiting for. I give it an 7.5/10 because of how wonderfully it portrays the journey of Naruto and Hinata falling in love. Seeing them truly care for one another and watching their relationship deepen throughout the movie is incredibly heartwarming and a perfect conclusion to their long story.", 
-        rating: 7.5, 
-        image: "../../../img/Naruto-movie.avif", 
-        category: "other",
-        genre: "Romance, Action"
-    },
-    { 
         title: "A Couple of Cuckoos", 
         author: "Miki Yoshikawa", 
         release: "2020", 
@@ -373,6 +361,18 @@ document.addEventListener("DOMContentLoaded", function() {
         image: "../../../img/gachiakuta.jpeg",
         category: "other",
         genre: "Action, Shounen"
+    },
+    {
+        title: "Dragon Ball",
+        author: "Akira Toriyama",
+        release: "1986",
+        episodes: "153",
+        link: "https://www.crunchyroll.com/dragon-ball",
+        description: "Dragon Ball is a legendary series that perfectly captures the relentless pursuit of strength and the boundless spirit of adventure. It is a gripping story defined by its intense, high-octane battles, but it also surprises you with deeply moving, emotional moments that add a level of depth you wouldn’t necessarily expect from the genre. The way the world expands and the characters evolve keeps you completely invested in their journey. I give it a 9/10—it is a compelling masterpiece that I highly recommend to anyone looking for a story with both heart and action.",
+        rating: 9,
+        image: "../../../img/dragon_ball.avif",
+        category: "other",
+        genre: "Action, Supernatural"
     },
 ];
 

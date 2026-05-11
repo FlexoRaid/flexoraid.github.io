@@ -15,14 +15,34 @@
     <link rel="stylesheet" href="../../../global-assets/css/global.css">
     <link rel="stylesheet" href="style.css">
 
-    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
-    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
 </head> 
 <body>
+    <div class="comet-container"></div>
 
-    <button class="menu-toggle menu-button"> 
-        <img src="../img/menu.png" alt="menu" class="toggle-icon menu-icon"> 
-    </button> 
+    <!-- Last.fm Widget -->
+    <div class="lastfm-handle" id="lastfm-handle"></div>
+    <div class="lastfm-widget" id="lastfm-widget">
+        <div class="lastfm-content">
+            <img id="track-image" src="" alt="Album cover">
+            <div class="track-info">
+                <div class="track-details">
+                    <a id="track-link" href="#" target="_blank"><span id="track-name">Lade…</span></a>
+                    <span id="track-artist">-</span>
+                </div>
+                <div id="status-label" class="status">-</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="menu-settings-container">
+        <button class="menu-toggle menu-button"> 
+            <img src="../img/menu.png" alt="menu" class="toggle-icon menu-icon"> 
+        </button> 
+
+        <button class="settings-button"> 
+            <img src="img/settings.png" alt="settings" class="settings-icon toggle-icon"> 
+        </button> 
+    </div>
 
     <div class="overlay nav-overlay"> 
         <nav class="mobile-nav"> 
@@ -33,10 +53,8 @@
             <a href="../../sitemap/site.html">Sitemap</a> 
         </nav> 
     </div>
+    
 
-    <button class="settings-button"> 
-        <img src="img/settings.png" alt="settings" class="settings-icon toggle-icon"> 
-    </button> 
 
     <div class="overlay settings-overlay"> 
         <nav class="mobile-nav"> 
@@ -132,55 +150,101 @@
                 </div>
             </div>
 
+            <!-- Particles Toggle -->
+                <div class="theme-section">
+                    <h3>Particles</h3>
+                    <div class="toggle-container">
+                        <label class="toggle-option">
+                            <span>All</span>
+                            <div class="toggle-switch">
+                                <input type="checkbox" id="particles-all-toggle" checked>
+                                <span class="toggle-slider"></span>
+                            </div>
+                        </label>
+                        <label class="toggle-option">
+                            <span>Floating Lights</span>
+                            <div class="toggle-switch">
+                                <input type="checkbox" id="floating-lights-toggle" checked>
+                                <span class="toggle-slider"></span>
+                            </div>
+                        </label>
+                        <label class="toggle-option">
+                            <span>Comets</span>
+                            <div class="toggle-switch">
+                                <input type="checkbox" id="comets-toggle" checked>
+                                <span class="toggle-slider"></span>
+                            </div>
+                        </label>
+                        <label class="toggle-option">
+                            <span>Planets</span>
+                            <div class="toggle-switch">
+                                <input type="checkbox" id="planets-toggle" checked>
+                                <span class="toggle-slider"></span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
             </div>
         </nav> 
     </div>
 
 
-    <div class="compiler-main-container">
-        <button id="langMenuBtn" class="lang-menu-toggle">
-            <img src="../../../img/js.png" alt="Langs" id="currentLangImg">
-        </button>
-
+    <main class="compiler-main-container">
         <aside class="language-sidebar" id="languageSidebar">
             <div class="lang-icon active" data-lang="js">
                 <img src="../../../img/js.png" alt="JS">
             </div>
-            <div class="lang-icon" data-lang="py">
+            <div class="lang-icon active" data-lang="py">
                 <img src="../../../img/python.png" alt="Python">
             </div>
-            <div class="lang-icon" data-lang="html">
+            <div class="lang-icon active" data-lang="html">
                 <img src="../../../img/html.png" alt="HTML">
             </div>
         </aside>
 
-        <main class="compiler-content" id="compilerContent">
-            <section class="editor-section">
-                <div class="editor-header">
-                    <div class="file-tabs-wrapper">
-                        <div class="file-tabs" id="fileTabs"></div>
-                        <button id="toggleViewBtn" class="view-toggle-button">Show Output</button>
-                    </div>
-                    <button id="runBtn" class="run-button">Run</button>
-                </div>
-                <textarea id="codeInput" class="code-editor" spellcheck="false"></textarea>
-            </section>
-            
-            <section class="output-section">
-                <div class="output-header">
-                    <div class="output-header-left">
-                        <button id="backToCodeBtn" class="view-toggle-button">Back to Code</button>
-                        <h3>Output</h3>
-                    </div>
-                </div>
-                <div id="outputConsole" class="output-console">
-                    <iframe id="htmlPreview" class="html-preview" style="display:none;"></iframe>
-                    <div id="consoleText"></div>
-                </div>
-            </section>
-        </main>
-    </div>
+        <section class="code-display">
+            <div class="code-header">
+                <div class="left-header secondery-header">
+                    <button class="current-lang" id="menu-lang">
+                        <img src="" alt="">
+                    </button>
+                    <div class="file-tabs">
+                        <div class="file-tabs-container">
+                            <div id="fileTab" class="file-tab active">untitled.txt</div>
+                            <div id="fileTab" class="file-tab">untitled(1).txt</div>
+                        </div>
 
+                        <div id="show-output-btn" class="show-output-btn file-tab " id="showOutputBtn">
+                            Output
+                        </div>
+
+                        <button id="add-file" class="add-file">
+                            <img src="../../../img/plus.png" alt="">
+                        </button>
+                    </div>
+                    <button class="runBtn" id="runBtn">
+                        <img src="../../../img/runBtn.png" alt="Run">
+                    </button>
+                </div>
+
+
+                <div class="right-header secondery-header">
+                    <p>Output</p>
+                    <div id="show-code-btn" class="show-output-btn file-tab " id="showOutputBtn">
+                        Code
+                    </div>
+                </div>
+            </div>
+
+            <div class="code-body">
+                <textarea id="codeInput" class="code-editor" spellcheck="false"></textarea>
+                <div class="output-display" id="outputDisplay"></div>
+            </div>
+        </section>
+
+    </main>
+
+    
     <script src="../../../global-assets/js/global.js"></script>
     <script src="script.js" defer></script>
 </body>

@@ -54,6 +54,7 @@ h2 {
   z-index: 0;
   pointer-events: none;
   overflow: hidden;
+  pointer-events: none;
 }
 
 .nebula-layer {
@@ -63,6 +64,7 @@ h2 {
   filter: blur(70px);
   animation: nebula-drift 80s infinite alternate ease-in-out;
   will-change: transform;
+  pointer-events: none;
 }
 
 .layer-1 {
@@ -180,6 +182,7 @@ h2 {
     inset: 0; 
     pointer-events: none; 
     z-index: 1; 
+    pointer-events: none;
 } 
 
 .floating-lights span { 
@@ -194,8 +197,8 @@ h2 {
 
 .settings-button { 
     position: fixed;
-    top: 20px;
-    right: 20px;
+    top: 10px;
+    right: 10px;
     background: none;
     border: none;
     cursor: pointer;
@@ -203,7 +206,7 @@ h2 {
 } 
 
 .settings-icon { 
-    width: 40px; 
+    width: clamp(40px, 2vw, 50px); 
     filter: invert(1); 
     transition: 0.3s; 
 } 
@@ -212,8 +215,8 @@ h2 {
 
 .menu-button { 
     position: fixed;
-    top: 20px;
-    left: 20px;
+    top: 10px;
+    left: 10px;
     background: none;
     border: none;
     cursor: pointer;
@@ -221,7 +224,7 @@ h2 {
 } 
 
 .menu-icon { 
-    width: 40px; 
+    width: clamp(40px, 2vw, 50px); 
     filter: invert(1); 
     transition: 0.3s; 
 } 
@@ -970,6 +973,7 @@ input:checked + .toggle-slider:before {
     cursor: pointer;
     z-index: 10001;
     transition: height 0.2s;
+    pointer-events: auto;
 }
 .lastfm-handle:hover {
     height: 12px;
@@ -989,7 +993,7 @@ input:checked + .toggle-slider:before {
     border-top: none;
     padding: 16px 20px;
     transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-    z-index: 10000;
+    z-index: 10002;
     box-shadow: 0 8px 20px rgba(0,0,0,0.3);
     pointer-events: auto;
 }

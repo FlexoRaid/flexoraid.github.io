@@ -5,6 +5,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const htmlPreview = document.getElementById('htmlPreview');
     const fileTabsContainer = document.getElementById('fileTabs');
     const langIcons = document.querySelectorAll('.lang-icon');
+    
+    const langSidebar = document.getElementById('languageSidebar');
+    const langMenuBtn = document.getElementById('langMenuBtn');
+    const currentLangImg = document.getElementById('currentLangImg');
+    const compilerContent = document.getElementById('compilerContent');
+    const toggleViewBtn = document.getElementById('toggleViewBtn');
+    const backToCodeBtn = document.getElementById('backToCodeBtn');
 
     let projectData = {
         js: { 'main.js': 'console.log("Hello World!");' 
@@ -43,11 +50,36 @@ document.addEventListener("DOMContentLoaded", () => {
             projectData[currentLang][currentFile] = codeInput.value;
             currentLang = icon.dataset.lang;
             currentFile = Object.keys(projectData[currentLang])[0];
+            
+            currentLangImg.src = icon.querySelector('img').src;
+            if (window.innerWidth <= 900) {
+                langSidebar.classList.remove('open');
+            }
+
             updateEditor();
             consoleText.innerHTML = '';
             htmlPreview.style.display = 'none';
         };
     });
+
+    langMenuBtn.onclick = (e) => {
+        e.stopPropagation();
+        langSidebar.classList.toggle('open');
+    };
+
+    document.addEventListener('click', (e) => {
+        if (!langSidebar.contains(e.target) && e.target !== langMenuBtn) {
+            langSidebar.classList.remove('open');
+        }
+    });
+
+    toggleViewBtn.onclick = () => {
+        compilerContent.classList.add('show-output');
+    };
+
+    backToCodeBtn.onclick = () => {
+        compilerContent.classList.remove('show-output');
+    };
 
     function executeJS(code) {
         consoleText.innerHTML = '';
@@ -111,9 +143,6 @@ document.addEventListener("DOMContentLoaded", () => {
             pyScriptTag.textContent = wrappedCode;
             document.body.appendChild(pyScriptTag);
 
-            setTimeout(() => {
-            }, 1000);
-
         } catch (err) {
             consoleText.innerHTML = `<div class="log-error">Python Error: ${err.message}</div>`;
         }
@@ -122,6 +151,10 @@ document.addEventListener("DOMContentLoaded", () => {
     runBtn.onclick = () => {
         projectData[currentLang][currentFile] = codeInput.value;
         
+        if (window.innerWidth <= 900) {
+            compilerContent.classList.add('show-output');
+        }
+
         if (currentLang === 'js') {
             htmlPreview.style.display = 'none';
             consoleText.style.display = 'block';
@@ -145,8 +178,6 @@ document.addEventListener("DOMContentLoaded", () => {
             htmlPreview.srcdoc = content;
         }
     };
-
-    document.getElementById('clearBtn').onclick = () => consoleText.innerHTML = '';
 
     updateEditor();
 });
