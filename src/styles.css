@@ -1,5 +1,5 @@
 :root {
-  color-scheme: dark light;
+  color-scheme: light dark;
 }
 
 /* ---------- GRUNDLAGEN ---------- */
@@ -26,36 +26,11 @@ h2 {
 h2 i { color: #e67e22; margin-right: 10px; }
 .subtitle {
   font-size: 1.2rem;
-  color: #4a4a4a;
+  color: light-dark(#4a4a4a, #ccc);
   max-width: 700px;
   margin: 0 auto 2.5rem auto;
   text-align: center;
 }
-.btn {
-  display: inline-block;
-  background: #e67e22;
-  color: #fff;
-  padding: 14px 36px;
-  border-radius: 40px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(230,126,34,0.3);
-}
-.btn:hover {
-  background: #d35400;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(230,126,34,0.4);
-}
-.btn-outline {
-  background: transparent;
-  color: #1a1a1a;
-  border: 2px solid #1a1a1a;
-  box-shadow: none;
-}
-.btn-outline:hover { background: #1a1a1a; color: #fff; }
 
 /* ---------- HEADER ---------- */
 header {
